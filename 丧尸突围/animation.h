@@ -1,12 +1,11 @@
 #pragma once
 
-#include "util.h"
 #include "timer.h"
-#include "atlas.h"
 #include "vector2.h"
 
 #include<vector>
 #include<functional>
+#include<SDL_image.h>
 
 class Animation {
 public:
@@ -20,8 +19,8 @@ public:
 		timer.set_one_shot(false);
 		timer.set_on_timeout([&]() {
 			idx_frame++;
-			if (idx_frame >= frame_list.size()) {
-				idx_frame = is_loop ? 0 : frame_list.size() - 1;
+			if (idx_frame >= frame_count) {
+				idx_frame = is_loop ? 0 : frame_count - 1;
 				if (!is_loop && on_finished) {
 					on_finished();
 				}
@@ -31,48 +30,56 @@ public:
 
 	~Animation() = default;
 
-	void add_frame(IMAGE* image, int num_h) {
-		int width = image->getwidth();
-		int height = image->getheight();
-		int width_frame = width / num_h;				// 一帧的长度
-
-		for (int i = 0; i < num_h; i++) {
-			Rect rect_src;
-			rect_src.x = i * width_frame, rect_src.y = 0;
-			rect_src.w = width_frame, rect_src.h = height;
-
-			frame_list.emplace_back(image, rect_src);
-		}
+	void load(SDL_Texture* texture, int animation_frame) {
+		this->texture = texture;
+		this->frame_count = animation_frame;
+		int width, height;
+		SDL_QueryTexture(texture, nullptr, nullptr, &width, &height);
+		frame_size.x = width / animation_frame;
+		frame_size.y = height;
+		size = frame_size;
 	}
-
-	void add_frame(Atlas* atlas) {
-		for (int i = 0; i < atlas->get_size(); i++) {
-			IMAGE* image = atlas->get_image(i);
-			int width = image->getwidth();
-			int height = image->getheight();
-
-			Rect rect_src;
-			rect_src.x = 0, rect_src.y = 0;
-			rect_src.w = width, rect_src.h = height;
-
-			frame_list.emplace_back(image, rect_src);
-		}
+	void load(IMG_Animation* animation) {
+		this->animation = animation;
+		this->frame_count = animation->count;
+		frame_size.x = animation->w;
+		frame_size.y = animation->h;
+		size = frame_size;
 	}
 
 	void on_update(float delta) {
 		timer.on_update(delta);
 	}
 
-	void on_render() {
-		const Frame& frame = frame_list[idx_frame];
+	void on_render(SDL_Renderer* renderer) {
+		if (texture) {
+			SDL_Rect rect_src,rect_dst;
+			rect_src.x = idx_frame * frame_size.x;
+			rect_src.y = 0;
+			rect_src.w = frame_size.x;
+			rect_src.h = frame_size.y;
 
-		Rect rect_dst;
-		rect_dst.x = (int)pos.x - frame.rect_src.w / 2;
-		rect_dst.y = (anchor_mode == AnchorMode::Centered) ?
-			(int)pos.y - frame.rect_src.h / 2 : (int)pos.y - frame.rect_src.h;
-		rect_dst.w = frame.rect_src.w, rect_dst.h = frame.rect_src.h;
+			rect_dst.x = (int)pos.x - frame_size.x / 2;
+			rect_dst.y = (anchor_mode == AnchorMode::Centered) ? (int)pos.y - frame_size.y / 2 : (int)pos.y - frame_size.y;
+			rect_dst.w = size.x;
+			rect_dst.h = size.y;
 
-		putimage_ex(frame.image, &rect_dst, &frame.rect_src);
+			SDL_RenderCopy(renderer, texture, &rect_src, &rect_dst);
+			return;
+		}
+		if (animation) {
+			SDL_Texture* animation_texture = SDL_CreateTextureFromSurface(renderer, animation->frames[idx_frame]);
+
+			SDL_Rect rect_dst;
+			rect_dst.x = (int)pos.x - frame_size.x / 2;
+			rect_dst.y = (anchor_mode == AnchorMode::Centered) ? (int)pos.y - frame_size.y / 2 : (int)pos.y - frame_size.y;
+			rect_dst.w = frame_size.x;
+			rect_dst.h = frame_size.y;
+
+			SDL_RenderCopy(renderer, animation_texture, NULL, &rect_dst);
+
+			return;
+		}
 	}
 
 	void reset() {
@@ -89,6 +96,15 @@ public:
 		this->pos = pos;
 	}
 
+	void set_size(const Vector2& size) {
+		this->size = size;
+	}
+
+	// 等比例缩放
+	void set_size(const float scale) {
+		this->size = frame_size * scale;
+	}
+
 	// 是否循环播放
 	void set_loop(bool flag) {
 		is_loop = flag;
@@ -103,25 +119,15 @@ public:
 	}
 
 private:
-	struct Frame
-	{
-		Rect rect_src;
-		IMAGE* image = nullptr;
-
-		Frame() = default;
-		Frame(IMAGE* image, const Rect& rect_src)
-			:image(image), rect_src(rect_src) {
-		}
-
-		~Frame() = default;
-	};
-
-private:
 	Timer timer;
 	Vector2 pos;
+	Vector2 size;
+	Vector2 frame_size;
 	bool is_loop = true;
+	size_t frame_count = 0;
 	size_t idx_frame = 0;
-	std::vector<Frame> frame_list;
+	SDL_Texture* texture = nullptr;
+	IMG_Animation* animation = nullptr;
 	std::function<void()> on_finished;
 	AnchorMode anchor_mode = AnchorMode::Centered;
 
