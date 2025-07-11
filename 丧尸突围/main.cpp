@@ -1,7 +1,5 @@
 #define SDL_MAIN_HANDLED
 
-#include "res_mgr.h"
-
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <SDL_image.h>
@@ -10,18 +8,22 @@
 #include <chrono>
 #include <thread>
 
-
 #include "vector2.h"
+#include "camera.h"
+#include "res_mgr.h"
 #include "animation.h"
+#include "scene_mgr.h"
+#include "menu_scene.h"
+#include "game_scene.h"
+#include "game_over_scene.h"
 
 
+void scene_init() {
+    SceneMgr::instance()->add(SceneMgr::SceneType::Menu, new MenuScene());
+    //SceneMgr::instance()->add(SceneMgr::SceneType::Game, new GameScene());
+    //SceneMgr::instance()->add(SceneMgr::SceneType::GameOver, new GameOverScene());
 
-void on_update(float delta) {
-
-}
-
-void on_render(SDL_Renderer* renderer) {
-
+    SceneMgr::instance()->set_current_scene(SceneMgr::SceneType::Menu);
 }
 
 int main(int argc, char** argv)
@@ -47,21 +49,14 @@ int main(int argc, char** argv)
 
     // 加载数据
     ResMgr::instance()->load(renderer);
-
-
-
-    SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255);
-    Animation* animation = ResMgr::instance()->find_animation("Sprites_Idle");
-    animation->set_pos(Vector2(100,100));
-    animation->set_size(3);
-    animation->set_interval(0.1);
-
+    scene_init();
+    
+    Camera camera;
+    SDL_Event event;
+    bool is_quit = false;
 
     // 播放背景音乐
     Mix_PlayChannel(-1, ResMgr::instance()->find_audio("bgm"), -1);
-
-    SDL_Event event;
-    bool is_quit = false;
 
     const nanoseconds frame_duration(100000000 / 144);
     steady_clock::time_point last_tick = steady_clock::now();
@@ -77,19 +72,17 @@ int main(int argc, char** argv)
                 break;
             }
 
+            SceneMgr::instance()->on_input(event);
         }
         steady_clock::time_point frame_start = steady_clock::now();
         duration<float> delta = duration<float>(frame_start - last_tick);
 
         // 更新游戏数据
-        on_update(delta.count());
-
-        animation->on_update(delta.count());
+        SceneMgr::instance()->on_update(camera, delta.count());
 
         // 清除上一次数据并渲染
         SDL_RenderClear(renderer);
-        on_render(renderer);
-        animation->on_render(renderer);
+        SceneMgr::instance()->on_render(renderer, camera);
         SDL_RenderPresent(renderer);
 
         last_tick = frame_start;

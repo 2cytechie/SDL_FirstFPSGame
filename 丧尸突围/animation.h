@@ -33,6 +33,7 @@ public:
 	void load(SDL_Texture* texture, int animation_frame) {
 		this->texture = texture;
 		this->frame_count = animation_frame;
+		timer.set_wait_time(0.1f);
 		int width, height;
 		SDL_QueryTexture(texture, nullptr, nullptr, &width, &height);
 		frame_size.x = width / animation_frame;
@@ -42,6 +43,7 @@ public:
 	void load(IMG_Animation* animation) {
 		this->animation = animation;
 		this->frame_count = animation->count;
+		timer.set_wait_time((float)*animation->delays / 1000);
 		frame_size.x = animation->w;
 		frame_size.y = animation->h;
 		size = frame_size;
@@ -59,10 +61,14 @@ public:
 			rect_src.w = frame_size.x;
 			rect_src.h = frame_size.y;
 
-			rect_dst.x = (int)pos.x - frame_size.x / 2;
-			rect_dst.y = (anchor_mode == AnchorMode::Centered) ? (int)pos.y - frame_size.y / 2 : (int)pos.y - frame_size.y;
+			rect_dst.x = (int)pos.x - size.x / 2;
+			rect_dst.y = (anchor_mode == AnchorMode::Centered) ? (int)pos.y - size.y / 2 : (int)pos.y - size.y;
 			rect_dst.w = size.x;
 			rect_dst.h = size.y;
+
+			// DEBUG
+			SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+			SDL_RenderDrawRect(renderer, &rect_dst);
 
 			SDL_RenderCopy(renderer, texture, &rect_src, &rect_dst);
 			return;
@@ -73,8 +79,8 @@ public:
 			SDL_Rect rect_dst;
 			rect_dst.x = (int)pos.x - frame_size.x / 2;
 			rect_dst.y = (anchor_mode == AnchorMode::Centered) ? (int)pos.y - frame_size.y / 2 : (int)pos.y - frame_size.y;
-			rect_dst.w = frame_size.x;
-			rect_dst.h = frame_size.y;
+			rect_dst.w = size.x;
+			rect_dst.h = size.y;
 
 			SDL_RenderCopy(renderer, animation_texture, NULL, &rect_dst);
 
@@ -90,6 +96,11 @@ public:
 	// ÃªµãÄ£Ê½
 	void set_anchor_mode(AnchorMode mode) {
 		anchor_mode = mode;
+	}
+
+	void set_pos(int x,int y) {
+		pos.x = x;
+		pos.y = y;
 	}
 
 	void set_pos(const Vector2& pos) {
@@ -129,6 +140,6 @@ private:
 	SDL_Texture* texture = nullptr;
 	IMG_Animation* animation = nullptr;
 	std::function<void()> on_finished;
-	AnchorMode anchor_mode = AnchorMode::Centered;
+	AnchorMode anchor_mode = AnchorMode::BottomCentered;
 
 };

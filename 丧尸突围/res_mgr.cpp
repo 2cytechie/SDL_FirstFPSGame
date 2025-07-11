@@ -3,16 +3,6 @@
 #include <string>
 #include <filesystem>
 
-ResMgr* ResMgr::manager = nullptr;
-
-ResMgr* ResMgr::instance()
-{
-    if (!manager)
-        manager = new ResMgr();
-
-    return manager;
-}
-
 Mix_Chunk* ResMgr::find_audio(const std::string& name)
 {
     return audio_pool[name];
