@@ -2,13 +2,13 @@
 
 #include <vector>
 
-std::vector<std::string> PlayerName{
+inline std::vector<std::string> PlayerName{
 	"Knight",
 	"Soldier",
 	"Sprites"
 };
 
-std::vector<std::string> MonsterName{
+inline std::vector<std::string> MonsterName{
 	"FlyingEye",
 	"Goblin",
 	"Mushroom",

@@ -55,6 +55,10 @@ void ResMgr::load(SDL_Renderer* renderer)
                         Mix_Chunk* audio = Mix_LoadWAV(file_path.u8string().c_str());
                         audio_pool[file_path.stem().u8string()] = audio;
                     }
+                    else if (file_path.extension() == ".wav") {
+                        Mix_Chunk* audio = Mix_LoadWAV(file_path.u8string().c_str());
+                        audio_pool[file_path.stem().u8string()] = audio;
+                    }
 
                 }
             }

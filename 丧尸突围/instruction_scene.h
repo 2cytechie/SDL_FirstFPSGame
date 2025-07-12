@@ -1,12 +1,15 @@
 #pragma once
 
+#include <vector>
+
 #include "scene.h"
+#include "animation.h"
 #include "text.h"
 
-class GameOverScene : public Scene {
+class InstructionScene : public Scene {
 public:
-	GameOverScene();
-	~GameOverScene();
+	InstructionScene();
+	~InstructionScene();
 	void on_enter();
 	void on_update(float delta);
 	void on_render(SDL_Renderer* renderer);
@@ -16,10 +19,7 @@ public:
 private:
 	SDL_Point window_size = { 1280,720 };		// 窗口大小
 
-	int select_game = 0;
-	Text game_over;								// 游戏结束
-	Text restart;								// 重新开始
-	Text menu;									// 游戏菜单
-	Text exit_game;								// 退出游戏
-
+	int select_player = 0;
+	std::vector<Text> instructions;				// 说明
+	Animation* attack_animation = nullptr;		// 攻击动画
 };

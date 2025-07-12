@@ -131,18 +131,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="game_over_scene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu_scene.cpp" />
+    <ClCompile Include="instruction_scene.cpp" />
     <ClCompile Include="res_mgr.cpp" />
     <ClCompile Include="vector2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="animation.h" />
-    <ClInclude Include="camera.h" />
+    <ClInclude Include="exit_scene.h" />
     <ClInclude Include="game_over_scene.h" />
     <ClInclude Include="game_scene.h" />
     <ClInclude Include="menu_scene.h" />
     <ClInclude Include="name.h" />
+    <ClInclude Include="instruction_scene.h" />
     <ClInclude Include="res_mgr.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="scene_mgr.h" />

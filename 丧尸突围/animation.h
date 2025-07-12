@@ -33,7 +33,7 @@ public:
 	void load(SDL_Texture* texture, int animation_frame) {
 		this->texture = texture;
 		this->frame_count = animation_frame;
-		timer.set_wait_time(0.1f);
+		timer.set_wait_time(0.15f);
 		int width, height;
 		SDL_QueryTexture(texture, nullptr, nullptr, &width, &height);
 		frame_size.x = width / animation_frame;
@@ -67,7 +67,7 @@ public:
 			rect_dst.h = size.y;
 
 			// DEBUG
-			SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+			SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
 			SDL_RenderDrawRect(renderer, &rect_dst);
 
 			SDL_RenderCopy(renderer, texture, &rect_src, &rect_dst);

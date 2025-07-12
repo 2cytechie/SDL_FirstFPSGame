@@ -25,6 +25,9 @@
     <Filter Include="头文件\player">
       <UniqueIdentifier>{8d2033a1-461a-4f94-ad7e-c380fcae2312}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\scene">
+      <UniqueIdentifier>{7e1069e3-69f6-4575-9fc9-3b51c99f3b43}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -37,7 +40,13 @@
       <Filter>源文件\manager</Filter>
     </ClCompile>
     <ClCompile Include="menu_scene.cpp">
-      <Filter>源文件</Filter>
+      <Filter>源文件\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="game_over_scene.cpp">
+      <Filter>源文件\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="instruction_scene.cpp">
+      <Filter>源文件\scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -48,9 +57,6 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="animation.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="camera.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="res_mgr.h">
@@ -78,6 +84,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="text.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="exit_scene.h">
+      <Filter>头文件\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="instruction_scene.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
