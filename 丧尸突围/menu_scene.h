@@ -10,9 +10,10 @@ public:
 	~MenuScene();
 	void on_enter();
 	void on_update(float delta);
-	void on_render(SDL_Renderer* renderer);
+	void on_render(Camera& camera);
 	void on_input(const SDL_Event& msg);
 	void on_exit();
+	void update();
 
 private:
 	SDL_Point window_size = { 1280,720 };		// 窗口大小
@@ -25,5 +26,5 @@ private:
 	int select_player = 0;						// 选择角色(参见name.h)
 	Animation* animation_player = nullptr;		// 角色动画
 	Text player_name;							// 角色名字
-
+	TTF_Font* font = nullptr;					// 字体方便进行销毁
 };

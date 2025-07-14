@@ -22,11 +22,23 @@
     <Filter Include="头文件\scene">
       <UniqueIdentifier>{45c3cd3e-a0cb-4e2b-bf8f-b99a9b85eea7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件\player">
-      <UniqueIdentifier>{8d2033a1-461a-4f94-ad7e-c380fcae2312}</UniqueIdentifier>
-    </Filter>
     <Filter Include="源文件\scene">
       <UniqueIdentifier>{7e1069e3-69f6-4575-9fc9-3b51c99f3b43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\collision">
+      <UniqueIdentifier>{583e1528-e132-42e2-916e-e32c99193bc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\character">
+      <UniqueIdentifier>{8d2033a1-461a-4f94-ad7e-c380fcae2312}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\FSM">
+      <UniqueIdentifier>{0f3beea7-7d2d-4c60-9c5d-5a0b811cdb94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\FSM">
+      <UniqueIdentifier>{976a844a-6886-4388-a3b2-920c3af3a77f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\characer">
+      <UniqueIdentifier>{c2563314-56aa-4292-9d14-7c3d88545ef7}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -47,6 +59,18 @@
     </ClCompile>
     <ClCompile Include="instruction_scene.cpp">
       <Filter>源文件\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="collision_mgr.cpp">
+      <Filter>源文件\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="state_machine.cpp">
+      <Filter>源文件\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="character.cpp">
+      <Filter>源文件\characer</Filter>
+    </ClCompile>
+    <ClCompile Include="camera.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +114,33 @@
       <Filter>头文件\scene</Filter>
     </ClInclude>
     <ClInclude Include="instruction_scene.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="player_Knight.h">
+      <Filter>头文件\character</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>头文件\character</Filter>
+    </ClInclude>
+    <ClInclude Include="collision_layer.h">
+      <Filter>头文件\collision</Filter>
+    </ClInclude>
+    <ClInclude Include="collision_box.h">
+      <Filter>头文件\collision</Filter>
+    </ClInclude>
+    <ClInclude Include="collision_mgr.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="character.h">
+      <Filter>头文件\character</Filter>
+    </ClInclude>
+    <ClInclude Include="state_node.h">
+      <Filter>头文件\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="state_machine.h">
+      <Filter>头文件\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "timer.h"
+#include "camera.h"
 #include "vector2.h"
 
 #include<vector>
@@ -31,8 +32,12 @@ public:
 	~Animation() = default;
 
 	void load(SDL_Texture* texture, int animation_frame) {
+		if (this->texture) {
+			SDL_DestroyTexture(this->texture);
+		}
+
 		this->texture = texture;
-		this->frame_count = animation_frame;
+		frame_count = animation_frame;
 		timer.set_wait_time(0.15f);
 		int width, height;
 		SDL_QueryTexture(texture, nullptr, nullptr, &width, &height);
@@ -40,12 +45,15 @@ public:
 		frame_size.y = height;
 		size = frame_size;
 	}
-	void load(IMG_Animation* animation) {
-		this->animation = animation;
-		this->frame_count = animation->count;
-		timer.set_wait_time((float)*animation->delays / 1000);
-		frame_size.x = animation->w;
-		frame_size.y = animation->h;
+	void load(std::vector<SDL_Texture*> tex_list,float delta) {
+		animation_list.clear();
+		animation_list = tex_list;
+		frame_count = tex_list.size();
+		timer.set_wait_time(delta);
+		int width, height;
+		SDL_QueryTexture(tex_list[0], nullptr, nullptr, &width, &height);
+		frame_size.x = width;
+		frame_size.y = height;
 		size = frame_size;
 	}
 
@@ -53,9 +61,12 @@ public:
 		timer.on_update(delta);
 	}
 
-	void on_render(SDL_Renderer* renderer) {
+	void on_render(Camera& camera, bool facing_right = true) {
+		// 是否翻转图片
+		SDL_RendererFlip flip = facing_right ? SDL_FLIP_NONE : SDL_FLIP_HORIZONTAL;
+
 		if (texture) {
-			SDL_Rect rect_src,rect_dst;
+			SDL_Rect rect_src, rect_dst;
 			rect_src.x = idx_frame * frame_size.x;
 			rect_src.y = 0;
 			rect_src.w = frame_size.x;
@@ -66,24 +77,18 @@ public:
 			rect_dst.w = size.x;
 			rect_dst.h = size.y;
 
-			// DEBUG
-			SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-			SDL_RenderDrawRect(renderer, &rect_dst);
-
-			SDL_RenderCopy(renderer, texture, &rect_src, &rect_dst);
+			camera.render_texture(texture, &rect_src, &rect_dst, 0, nullptr, flip);
 			return;
 		}
-		if (animation) {
-			SDL_Texture* animation_texture = SDL_CreateTextureFromSurface(renderer, animation->frames[idx_frame]);
 
+		if (animation_list.size() > 0) {
 			SDL_Rect rect_dst;
 			rect_dst.x = (int)pos.x - frame_size.x / 2;
 			rect_dst.y = (anchor_mode == AnchorMode::Centered) ? (int)pos.y - frame_size.y / 2 : (int)pos.y - frame_size.y;
 			rect_dst.w = size.x;
 			rect_dst.h = size.y;
 
-			SDL_RenderCopy(renderer, animation_texture, NULL, &rect_dst);
-
+			camera.render_texture(animation_list[idx_frame], nullptr, &rect_dst, 0, nullptr, flip);
 			return;
 		}
 	}
@@ -138,7 +143,7 @@ private:
 	size_t frame_count = 0;
 	size_t idx_frame = 0;
 	SDL_Texture* texture = nullptr;
-	IMG_Animation* animation = nullptr;
+	std::vector<SDL_Texture*> animation_list;					// GIF格式
 	std::function<void()> on_finished;
 	AnchorMode anchor_mode = AnchorMode::BottomCentered;
 

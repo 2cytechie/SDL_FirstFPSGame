@@ -9,7 +9,7 @@ public:
 	~GameOverScene();
 	void on_enter();
 	void on_update(float delta);
-	void on_render(SDL_Renderer* renderer);
+	void on_render(Camera& camera);
 	void on_input(const SDL_Event& msg);
 	void on_exit();
 
@@ -21,5 +21,7 @@ private:
 	Text restart;								// 重新开始
 	Text menu;									// 游戏菜单
 	Text exit_game;								// 退出游戏
-
+	TTF_Font* font_max = nullptr;				// 字体方便退出时销毁
+	TTF_Font* font = nullptr;
+	
 };

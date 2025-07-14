@@ -10,6 +10,7 @@
 
 #include "vector2.h"
 #include "res_mgr.h"
+#include "camera.h"
 #include "animation.h"
 #include "scene_mgr.h"
 #include "menu_scene.h"
@@ -54,6 +55,7 @@ int main(int argc, char** argv)
     ResMgr::instance()->load(renderer);
     scene_init();
     
+    Camera camera = Camera(renderer);
     SDL_Event event;
     bool is_quit = false;
 
@@ -84,7 +86,7 @@ int main(int argc, char** argv)
 
         // 清除上一次数据并渲染
         SDL_RenderClear(renderer);
-        SceneMgr::instance()->on_render(renderer);
+        SceneMgr::instance()->on_render(camera);
         SDL_RenderPresent(renderer);
 
         last_tick = frame_start;

@@ -37,8 +37,8 @@ public:
 		current_scene->on_update(delta);
 	}
 
-	void on_render(SDL_Renderer* renderer) {
-		current_scene->on_render(renderer);
+	void on_render(Camera& camera) {
+		current_scene->on_render(camera);
 	}
 	void on_input(const SDL_Event& msg) {
 		current_scene->on_input(msg);

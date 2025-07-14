@@ -43,12 +43,28 @@ void ResMgr::load(SDL_Renderer* renderer)
                             animation->load(texture, animation_frame);
                             animation_pool[key] = animation;
                         }
+                        else {
+                            // Ã»ÕÒµ½ @ ·ûºÅ
+                            SDL_Texture* texture = IMG_LoadTexture(renderer, file_path.u8string().c_str());
+                            Animation* animation = new Animation();
+                            animation->load(texture, 1);
+                            animation_pool[file_name] = animation;
+                        }
                     }
                     else if (file_path.extension() == ".gif") {
                         IMG_Animation* animation_JPG = IMG_LoadAnimation(file_path.u8string().c_str());
                         Animation* animation = new Animation();
-                        animation->load(animation_JPG);
+                        std::vector<SDL_Texture*> textures;
+
+                        for (int i = 0; i < animation_JPG->count; i++) {
+                            SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, animation_JPG->frames[i]);
+                            textures.push_back(texture);
+                        }
+
+                        animation->load(textures, *animation_JPG->delays / 1000.0f);
                         animation_pool[file_path.stem().u8string()] = animation;
+
+                        IMG_FreeAnimation(animation_JPG);
                     }
                     else if (file_path.extension() == ".mp3")
                     {

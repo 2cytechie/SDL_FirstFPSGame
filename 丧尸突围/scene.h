@@ -1,6 +1,6 @@
 #pragma once
 
-#include <SDL.h>
+#include "camera.h"
 
 class Scene {
 public:
@@ -9,7 +9,7 @@ public:
 
 	virtual void on_enter() {}
 	virtual void on_update(float delta) {}
-	virtual void on_render(SDL_Renderer* renderer) {}
+	virtual void on_render(Camera& camera) {}
 	virtual void on_input(const SDL_Event& msg) {}
 	virtual void on_exit() {}
 

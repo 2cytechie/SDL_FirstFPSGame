@@ -14,28 +14,27 @@ void GameOverScene::on_enter() {
 	menu				= Text(u8"游戏菜单", font, { window_size.x / 2,window_size.y / 10 * 6 });		// 游戏菜单
 	exit_game			= Text(u8"退出游戏", font, { window_size.x / 2,window_size.y / 10 * 7 });		// 退出游戏
 	
-	TTF_CloseFont(font);
-	TTF_CloseFont(font_max);
 }
 void GameOverScene::on_update(float delta) {
 
 }
-void GameOverScene::on_render(SDL_Renderer* renderer) {
+void GameOverScene::on_render(Camera& camera) {
 	// 背景
-	SDL_SetRenderDrawColor(renderer, 135, 206, 235, 255);
+	camera.set_color(135, 206, 235, 255);
 	SDL_Rect rect{ 0,0,1280,720 };
-	SDL_RenderFillRect(renderer, &rect);
+	camera.fill_rect(&rect);
 
 	// 选择框
-	SDL_SetRenderDrawColor(renderer, 10, 10, 255, 255);
+	camera.set_color(10, 10, 255, 255);
 	Vector2 size{ 260,50 };
 	SDL_Rect dst{ window_size.x / 2 - size.x / 2, window_size.y / 10 * (5 + select_game) - size.y / 2,size.x,size.y };
-	SDL_RenderDrawRect(renderer, &dst);
+	camera.draw_rect(&dst);
 
-	game_over.on_render(renderer);
-	restart.on_render(renderer);
-	menu.on_render(renderer);
-	exit_game.on_render(renderer);
+	
+	camera.draw_text(&game_over);
+	camera.draw_text(&restart);
+	camera.draw_text(&menu);
+	camera.draw_text(&exit_game);
 
 }
 void GameOverScene::on_input(const SDL_Event& msg) {
@@ -71,5 +70,6 @@ void GameOverScene::on_input(const SDL_Event& msg) {
 	}
 }
 void GameOverScene::on_exit() {
-
+	TTF_CloseFont(font);
+	TTF_CloseFont(font_max);
 }
