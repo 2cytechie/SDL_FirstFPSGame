@@ -1,7 +1,7 @@
 #include "instruction_scene.h"
 #include "scene_mgr.h"
 #include "res_mgr.h"
-#include "name.h"
+#include "character_name.h"
 
 InstructionScene::InstructionScene() = default;
 
@@ -15,7 +15,7 @@ void InstructionScene::on_enter() {
 	instructions.push_back(Text(u8"  移动:    W  A  S  D  上下左右移动", font, { window_size.x / 16,window_size.y / 16 * 6 }, Text::TextType::Left));
 	instructions.push_back(Text(u8"  攻击:    鼠标左键", font, { window_size.x / 16,window_size.y / 16 * 7 }, Text::TextType::Left));
 
-	instructions.push_back(Text(u8"Enter  返回菜单界面", font, { window_size.x / 2,window_size.y / 16 * 11 }, Text::TextType::Right));
+	instructions.push_back(Text(u8"Enter  返回菜单界面", font, { window_size.x / 2,window_size.y / 16 * 12 }, Text::TextType::Right, { 200,20,20,255 }));
 
 	instructions.push_back(Text(u8"制作人名单:", font, { window_size.x / 16,window_size.y / 16 * 13 }, Text::TextType::Left));
 	instructions.push_back(Text(u8"2cytechie", font_min, { window_size.x / 16,window_size.y / 16 * 14 }, Text::TextType::Left));
@@ -28,9 +28,9 @@ void InstructionScene::on_update(float delta) {
 }
 void InstructionScene::on_render(Camera& camera) {
 	// 背景
-	camera.set_color(135, 206, 235, 255);
+	SDL_Color bg_color{ 135, 206, 235, 255 };
 	SDL_Rect rect{ 0,0,1280,720 };
-	camera.fill_rect(&rect);
+	camera.fill_rect(&rect, bg_color);
 
 	for (auto& ins : instructions) {
 		camera.draw_text(&ins);
@@ -70,5 +70,5 @@ void InstructionScene::update() {
 	attack_animation = ResMgr::instance()->find_animation(attack_player_name + "_Attack");
 	attack_animation->set_pos(window_size.x / 4 * 3, window_size.y / 10 * 7);
 	attack_animation->set_size(5);
-	player_name = Text(attack_player_name, font, { window_size.x / 4 * 3 ,window_size.y / 10 * 7 + 20 }, Text::TextType::Left);
+	player_name.set(attack_player_name, font, { window_size.x / 4 * 3 ,window_size.y / 10 * 7 + 20 });
 }

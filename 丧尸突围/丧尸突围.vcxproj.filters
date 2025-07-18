@@ -40,6 +40,24 @@
     <Filter Include="源文件\characer">
       <UniqueIdentifier>{c2563314-56aa-4292-9d14-7c3d88545ef7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\characer\plaeyr">
+      <UniqueIdentifier>{1f2c236d-f484-46c7-9827-af30122e727d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\characer\enemy">
+      <UniqueIdentifier>{b8f7ccef-54e9-4da9-bca7-504471fe941d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\character\plaeyr">
+      <UniqueIdentifier>{875b8078-a62a-4cf8-9797-d538b143fccf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\character\enemy">
+      <UniqueIdentifier>{6014ed84-7f17-4cea-8f76-1bf40132e8b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\level">
+      <UniqueIdentifier>{7aa8ea56-78ea-4889-a88b-ae377d81292b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\character\item">
+      <UniqueIdentifier>{260b2619-718c-47fc-89f2-3f90cfc8f89c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -63,14 +81,23 @@
     <ClCompile Include="collision_mgr.cpp">
       <Filter>源文件\manager</Filter>
     </ClCompile>
-    <ClCompile Include="state_machine.cpp">
-      <Filter>源文件\FSM</Filter>
-    </ClCompile>
     <ClCompile Include="character.cpp">
       <Filter>源文件\characer</Filter>
     </ClCompile>
     <ClCompile Include="camera.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>源文件\characer\plaeyr</Filter>
+    </ClCompile>
+    <ClCompile Include="level_mgr.cpp">
+      <Filter>源文件\manager</Filter>
+    </ClCompile>
+    <ClCompile Include="player_state_node.cpp">
+      <Filter>源文件\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="game_on_scene.cpp">
+      <Filter>源文件\scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -98,29 +125,14 @@
     <ClInclude Include="singleton.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="game_scene.h">
-      <Filter>头文件\scene</Filter>
-    </ClInclude>
     <ClInclude Include="game_over_scene.h">
       <Filter>头文件\scene</Filter>
-    </ClInclude>
-    <ClInclude Include="name.h">
-      <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="text.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="exit_scene.h">
       <Filter>头文件\scene</Filter>
-    </ClInclude>
-    <ClInclude Include="instruction_scene.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="player_Knight.h">
-      <Filter>头文件\character</Filter>
-    </ClInclude>
-    <ClInclude Include="player.h">
-      <Filter>头文件\character</Filter>
     </ClInclude>
     <ClInclude Include="collision_layer.h">
       <Filter>头文件\collision</Filter>
@@ -142,6 +154,39 @@
     </ClInclude>
     <ClInclude Include="camera.h">
       <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>头文件\character\plaeyr</Filter>
+    </ClInclude>
+    <ClInclude Include="player_Sprites.h">
+      <Filter>头文件\character\plaeyr</Filter>
+    </ClInclude>
+    <ClInclude Include="level_mgr.h">
+      <Filter>头文件\manager</Filter>
+    </ClInclude>
+    <ClInclude Include="character_name.h">
+      <Filter>头文件\character</Filter>
+    </ClInclude>
+    <ClInclude Include="player_state_node.h">
+      <Filter>头文件\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="level.h">
+      <Filter>头文件\level</Filter>
+    </ClInclude>
+    <ClInclude Include="level1.h">
+      <Filter>头文件\level</Filter>
+    </ClInclude>
+    <ClInclude Include="instruction_scene.h">
+      <Filter>头文件\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="enemy.h">
+      <Filter>头文件\character\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="item.h">
+      <Filter>头文件\character\item</Filter>
+    </ClInclude>
+    <ClInclude Include="game_on_scene.h">
+      <Filter>头文件\scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -63,7 +63,7 @@ void CollisionMgr::on_debug_render(Camera& camera) {
 			collision_box->size.y
 		};
 
-		camera.set_color(255, 0, 0, 255);
-		camera.draw_rect(&rect);
+		SDL_Color color{ 255, 0, 0, 255 };
+		camera.draw_rect(&rect, color);
 	}
 }

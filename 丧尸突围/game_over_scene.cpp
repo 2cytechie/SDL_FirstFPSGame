@@ -7,6 +7,8 @@ GameOverScene::GameOverScene() = default;
 GameOverScene::~GameOverScene() = default;
 
 void GameOverScene::on_enter() {
+	select_game = 0;
+
 	TTF_Font* font_max = TTF_OpenFont("resources/IPix.ttf", 100);
 	TTF_Font* font = TTF_OpenFont("resources/IPix.ttf", 30);
 	game_over			= Text(u8"游戏结束", font_max, { window_size.x / 2,window_size.y / 10 * 3 });	// 游戏结束
@@ -20,15 +22,15 @@ void GameOverScene::on_update(float delta) {
 }
 void GameOverScene::on_render(Camera& camera) {
 	// 背景
-	camera.set_color(135, 206, 235, 255);
+	SDL_Color bg_color{ 135, 206, 235, 255 };
 	SDL_Rect rect{ 0,0,1280,720 };
-	camera.fill_rect(&rect);
+	camera.fill_rect(&rect, bg_color);
 
 	// 选择框
-	camera.set_color(10, 10, 255, 255);
+	SDL_Color select_color{ 10, 10, 255, 255 };
 	Vector2 size{ 260,50 };
 	SDL_Rect dst{ window_size.x / 2 - size.x / 2, window_size.y / 10 * (5 + select_game) - size.y / 2,size.x,size.y };
-	camera.draw_rect(&dst);
+	camera.draw_rect(&dst, select_color);
 
 	
 	camera.draw_text(&game_over);

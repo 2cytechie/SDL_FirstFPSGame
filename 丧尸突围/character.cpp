@@ -1,5 +1,6 @@
 #include "character.h"
 #include "collision_mgr.h"
+#include "res_mgr.h"
 
 Character::Character() {
 	hit_box = CollisionMgr::instance()->creat();
@@ -30,8 +31,6 @@ void Character::decrease_hp(int damage) {
 void Character::on_input(const SDL_Event& msg) {}
 
 void Character::on_update(float delta) {
-	state_machine.on_update(delta);
-
 	if (hp <= 0) velocity.x = 0;
 	if (enable_gravity) {
 		velocity.y += GRAVITY * delta;
@@ -44,28 +43,27 @@ void Character::on_update(float delta) {
 		velocity.y = 0;
 	}
 
-	// ·ÀÖ¹³¬³öÆÁÄ»
-	if (pos.x <= 0)pos.x = 0;
-	
-
-	hurt_box->set_pos(get_logic_center());
-
 	timer_invulnerable_status.on_update(delta);
 
 	if (!current_animation) return;
+
+	current_animation->on_update(delta);
+	current_animation->set_pos(pos);
 }
 
-void Character::on_render(SDL_Renderer* renderer) {
-
+void Character::on_render(Camera& camera) {
+	if (!current_animation) return;
+	current_animation->set_interval(animation_frame_delta);
+	current_animation->set_size(animation_magnification);
+	current_animation->on_render(camera, is_facing_right);
 }
 
+// ÊÜ»÷ºó
 void Character::on_hurt() {
 
 }
 
-void Character::switch_state(const std::string& id) {
-
-}
 void Character::set_animation(const std::string& id) {
-
+	current_animation = ResMgr::instance()->find_animation(id);
+	current_animation->reset();
 }

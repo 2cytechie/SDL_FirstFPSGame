@@ -1,19 +1,22 @@
 #include "menu_scene.h"
 #include "scene_mgr.h"
-#include "name.h"
+#include "character_name.h"
 #include "res_mgr.h"
+#include "level_mgr.h"
+
+#include "player_Sprites.h"
 
 MenuScene::MenuScene() = default;
 
 MenuScene::~MenuScene() = default;
 
 void MenuScene::on_enter() {
-	select_player = 0;
+	select_game = 0;
 
 	font = TTF_OpenFont("resources/IPix.ttf", 30);
-	start_game			=	Text(u8"开始游戏", font, { window_size.x / 4,window_size.y / 10 * 5 });		// 开始游戏
-	playing_instrution	=	Text(u8"游戏玩法", font, { window_size.x / 4,window_size.y / 10 * 6 });		// 游戏玩法
-	exit_game			=	Text(u8"退出游戏", font, { window_size.x / 4,window_size.y / 10 * 7 });		// 退出游戏
+	start_game.set(u8"开始游戏", font, { window_size.x / 4,window_size.y / 10 * 5 });				// 开始游戏
+	playing_instrution.set(u8"游戏玩法", font, { window_size.x / 4,window_size.y / 10 * 6 });		// 游戏玩法
+	exit_game.set(u8"退出游戏", font, { window_size.x / 4,window_size.y / 10 * 7 });				// 退出游戏
 
 	update();
 }
@@ -24,15 +27,15 @@ void MenuScene::on_update(float delta) {
 
 void MenuScene::on_render(Camera& camera) {
 	// 背景
-	camera.set_color(135, 206, 235, 255);
+	SDL_Color bg_color{ 135, 206, 235, 255 };
 	SDL_Rect rect{ 0,0,1280,720 };
-	camera.fill_rect(&rect);
+	camera.fill_rect(&rect, bg_color);
 
 	// 选择框
-	camera.set_color(10, 10, 255, 255);
+	SDL_Color select_color{ 10, 10, 255, 255 };
 	Vector2 size{ 260,50 };
 	SDL_Rect dst{ window_size.x / 4 - size.x / 2, window_size.y / 10 * (5 + select_game) - size.y / 2,size.x,size.y };
-	camera.draw_rect(&dst);
+	camera.draw_rect(&dst, select_color);
 
 	camera.draw_text(&start_game);
 	camera.draw_text(&playing_instrution);
@@ -67,6 +70,10 @@ void MenuScene::on_input(const SDL_Event& msg) {
 		case SDLK_RETURN:
 		{
 			if (select_game == 0) {
+
+				Sprites* sprites = new Sprites();
+				LevelMgr::instance()->set_player(sprites);
+
 				SceneMgr::instance()->switch_to(SceneMgr::SceneType::GameOn);
 			}
 			else if (select_game == 1) {
@@ -94,5 +101,5 @@ void MenuScene::update() {
 	animation_player = ResMgr::instance()->find_animation(select_player_name + "_Idle");
 	animation_player->set_pos(window_size.x / 4 * 3, window_size.y / 10 * 7);
 	animation_player->set_size(5);
-	player_name = Text(select_player_name, font, { window_size.x / 4 * 3 ,window_size.y / 10 * 7 + 20 });	// 角色名字
+	player_name.set(select_player_name, font, { window_size.x / 4 * 3 ,window_size.y / 10 * 7 + 20 });	// 角色名字
 }

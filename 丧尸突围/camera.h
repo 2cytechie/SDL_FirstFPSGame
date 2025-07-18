@@ -12,6 +12,10 @@ public:
 
 	~Camera();
 
+	void set_pos(Vector2 pos) {
+		this->pos = pos;
+	}
+
 	const Vector2& get_pos()const {
 		return pos;
 	}
@@ -23,12 +27,12 @@ public:
 
 	void on_update(float delta);
 	void shake(float strength, float duration);
-	void set_color(Uint8 r, Uint8 g, Uint8 b, Uint8 a);
-	void fill_rect(const SDL_Rect* rect);
-	void draw_rect(const SDL_Rect* rect);
+	void fill_rect(const SDL_Rect* rect, SDL_Color color);
+	void draw_rect(const SDL_FRect* rect, SDL_Color color);
+	void draw_rect(const SDL_Rect* rect, SDL_Color color);
 	void draw_text(Text* text);
-	void render_texture(SDL_Texture* texture, const SDL_Rect* rect_src, const SDL_Rect* rect_dst, 
-		double angle, const SDL_Point* center, SDL_RendererFlip flip = SDL_RendererFlip::SDL_FLIP_NONE) const;
+	void render_texture(SDL_Texture* texture, const SDL_Rect* rect_src, const SDL_FRect* rect_dst, 
+		double angle, const SDL_FPoint* center, SDL_RendererFlip flip = SDL_RendererFlip::SDL_FLIP_NONE) const;
 
 
 public:

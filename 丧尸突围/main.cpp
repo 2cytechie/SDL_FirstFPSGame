@@ -14,15 +14,18 @@
 #include "animation.h"
 #include "scene_mgr.h"
 #include "menu_scene.h"
-#include "game_scene.h"
+#include "game_on_scene.h"
 #include "instruction_scene.h"
 #include "game_over_scene.h"
 #include "exit_scene.h"
 
 
+bool DEBUG = true;
+
+
 void scene_init() {
     SceneMgr::instance()->add(SceneMgr::SceneType::Menu, new MenuScene());
-    //SceneMgr::instance()->add(SceneMgr::SceneType::Game, new GameScene());
+    SceneMgr::instance()->add(SceneMgr::SceneType::GameOn, new GameOnScene());
     SceneMgr::instance()->add(SceneMgr::SceneType::PlayingInstrution, new InstructionScene());
     SceneMgr::instance()->add(SceneMgr::SceneType::GameOver, new GameOverScene());
     SceneMgr::instance()->add(SceneMgr::SceneType::Exit, new ExitScene());
@@ -50,12 +53,14 @@ int main(int argc, char** argv)
 
     // 隐藏光标
     //SDL_ShowCursor(SDL_DISABLE);
+    // 禁用输入法
+    SDL_StopTextInput();
 
     // 加载数据
     ResMgr::instance()->load(renderer);
     scene_init();
     
-    Camera camera = Camera(renderer);
+    Camera* camera = new Camera(renderer);
     SDL_Event event;
     bool is_quit = false;
 
@@ -86,7 +91,7 @@ int main(int argc, char** argv)
 
         // 清除上一次数据并渲染
         SDL_RenderClear(renderer);
-        SceneMgr::instance()->on_render(camera);
+        SceneMgr::instance()->on_render(*camera);
         SDL_RenderPresent(renderer);
 
         last_tick = frame_start;

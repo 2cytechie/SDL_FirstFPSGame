@@ -2,11 +2,12 @@
 
 #include "timer.h"
 #include "camera.h"
-#include "vector2.h"
 
 #include<vector>
 #include<functional>
 #include<SDL_image.h>
+
+extern bool DEBUG;
 
 class Animation {
 public:
@@ -66,7 +67,8 @@ public:
 		SDL_RendererFlip flip = facing_right ? SDL_FLIP_NONE : SDL_FLIP_HORIZONTAL;
 
 		if (texture) {
-			SDL_Rect rect_src, rect_dst;
+			SDL_Rect rect_src;
+			SDL_FRect rect_dst;
 			rect_src.x = idx_frame * frame_size.x;
 			rect_src.y = 0;
 			rect_src.w = frame_size.x;
@@ -77,16 +79,26 @@ public:
 			rect_dst.w = size.x;
 			rect_dst.h = size.y;
 
+			if (DEBUG) {
+				SDL_Color color{ 0, 255, 0, 255 };
+				camera.draw_rect(&rect_dst, color);
+			}
+
 			camera.render_texture(texture, &rect_src, &rect_dst, 0, nullptr, flip);
 			return;
 		}
 
 		if (animation_list.size() > 0) {
-			SDL_Rect rect_dst;
+			SDL_FRect rect_dst;
 			rect_dst.x = (int)pos.x - frame_size.x / 2;
 			rect_dst.y = (anchor_mode == AnchorMode::Centered) ? (int)pos.y - frame_size.y / 2 : (int)pos.y - frame_size.y;
 			rect_dst.w = size.x;
 			rect_dst.h = size.y;
+
+			if (DEBUG) {
+				SDL_Color color{ 0, 255, 0, 255 };
+				camera.draw_rect(&rect_dst, color);
+			}
 
 			camera.render_texture(animation_list[idx_frame], nullptr, &rect_dst, 0, nullptr, flip);
 			return;
@@ -96,6 +108,7 @@ public:
 	void reset() {
 		timer.restart();
 		idx_frame = 0;
+		//size = frame_size;
 	}
 
 	// ÃªµãÄ£Ê½

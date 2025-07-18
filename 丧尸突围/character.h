@@ -11,6 +11,10 @@ public:
 	Character();
 	~Character();
 
+	std::string get_name() {
+		return name;
+	}
+
 	void decrease_hp(int damage);
 
 	int get_hp() {
@@ -33,8 +37,12 @@ public:
 		return velocity;
 	}
 
-	Vector2 get_logic_center()const {
-		return Vector2(pos.x, pos.y - logic_height / 2);
+	float get_logic()const {
+		return logic_height;
+	}
+
+	bool facing_right() {
+		return is_facing_right;
 	}
 
 	void set_gravity_enabled(bool flag) {
@@ -64,11 +72,10 @@ public:
 
 	virtual void on_input(const SDL_Event& msg);
 	virtual void on_update(float delta);
-	virtual void on_render(SDL_Renderer* renderer);
+	virtual void on_render(Camera& camera);
 
 	virtual void on_hurt();
 
-	void switch_state(const std::string& id);
 	void set_animation(const std::string& id);
 
 
@@ -77,18 +84,20 @@ protected:
 	const float GRAVITY = 980 * 2;									// 重力大小
 
 protected:
-	int hp;															// 角色生命值
-	float max_hp;													// 角色最大生命值
+	std::string name;												// 角色名字
+	int hp = 0;														// 角色生命值
+	float max_hp = 0;												// 角色最大生命值
 	Vector2 pos;													// 角色脚底位置
 	Vector2 velocity;												// 角色速度
 	float logic_height = 0;											// 角色逻辑高度
 	bool is_facing_right = true;									// 角色是否面朝右
-	StateMachine state_machine;										// 角色逻辑状态机
 	bool enable_gravity = true;										// 启用重力模拟
 	bool is_invulnerable = false;									// 角色是否进入无敌状态
 	Timer timer_invulnerable_status;								// 无敌状态定时器
 	CollisionBox* hit_box = nullptr;								// 攻击碰撞箱
 	CollisionBox* hurt_box = nullptr;								// 受击碰撞箱
 	Animation* current_animation = nullptr;							// 当前角色动画
+	float animation_magnification = 0;								// 动画放大倍数
+	float animation_frame_delta = 0;								// 动画帧时间
 
 };

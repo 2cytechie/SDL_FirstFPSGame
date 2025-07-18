@@ -18,7 +18,7 @@ public:
 	void update();
 
 private:
-	SDL_Point window_size = { 1280,720 };		// 窗口大小
+	Vector2 window_size = { 1280,720 };		// 窗口大小
 
 	int select_player = 0;
 	std::vector<Text> instructions;				// 说明

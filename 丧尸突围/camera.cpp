@@ -29,11 +29,9 @@ void Camera::shake(float strength, float duration) {
 	timer_shake.restart();
 }
 
-void Camera::set_color(Uint8 r, Uint8 g, Uint8 b, Uint8 a) {
-	SDL_SetRenderDrawColor(renderer, r, g, b, a);
-}
+void Camera::fill_rect(const SDL_Rect* rect, SDL_Color color) {
+	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 
-void Camera::fill_rect(const SDL_Rect* rect) {
 	SDL_Rect rect_dst = *rect;
 	rect_dst.x -= pos.x;
 	rect_dst.y -= pos.y;
@@ -41,10 +39,24 @@ void Camera::fill_rect(const SDL_Rect* rect) {
 	SDL_RenderFillRect(renderer, &rect_dst);
 }
 
-void Camera::draw_rect(const SDL_Rect* rect) {
+void Camera::draw_rect(const SDL_Rect* rect, SDL_Color color) {
+	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+
 	SDL_Rect rect_dst = *rect;
 	rect_dst.x -= pos.x;
 	rect_dst.y -= pos.y;
+
+	SDL_RenderDrawRect(renderer, &rect_dst);
+}
+
+void Camera::draw_rect(const SDL_FRect* rect, SDL_Color color) {
+	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
+
+	SDL_Rect rect_dst;
+	rect_dst.x = rect->x - pos.x;
+	rect_dst.y = rect->y - pos.y;
+	rect_dst.w = rect->w;
+	rect_dst.h = rect->h;
 
 	SDL_RenderDrawRect(renderer, &rect_dst);
 }
@@ -71,7 +83,7 @@ void Camera::draw_text(Text* text) {
 		text->texture = SDL_CreateTextureFromSurface(renderer, surface);
 	}
 
-	SDL_Rect rect_dst;
+	SDL_FRect rect_dst;
 	switch (text->type) {
 	case Text::TextType::Center:
 		rect_dst.x = text->position.x - text->size.x / 2;
@@ -92,11 +104,11 @@ void Camera::draw_text(Text* text) {
 	render_texture(text->texture, nullptr, &rect_dst, 0, nullptr);
 }
 
-void Camera::render_texture(SDL_Texture* texture, const SDL_Rect* rect_src, const SDL_Rect* rect_dst, 
-	double angle, const SDL_Point* center, SDL_RendererFlip flip) const {
-	SDL_Rect rect_dst_win = *rect_dst;
+void Camera::render_texture(SDL_Texture* texture, const SDL_Rect* rect_src, const SDL_FRect* rect_dst, 
+	double angle, const SDL_FPoint* center, SDL_RendererFlip flip) const {
+	SDL_FRect rect_dst_win = *rect_dst;
 	rect_dst_win.x -= pos.x;
-	rect_dst_win.x -= pos.x;
+	rect_dst_win.y -= pos.y;
 
-	SDL_RenderCopyEx(renderer, texture, rect_src, &rect_dst_win, angle, center, flip);
+	SDL_RenderCopyExF(renderer, texture, rect_src, &rect_dst_win, angle, center, flip);
 }

@@ -1,24 +1,48 @@
 #pragma once
 
 #include "state_node.h"
+#include <string>
+#include <unordered_map>
 
-#include<string>
-#include<graphics.h>
-#include<unordered_map>
+extern bool DEBUG;
 
+template <typename T>
 class StateMachine {
 public:
-	StateMachine();
-	~StateMachine();
+    StateMachine() = default;
+    ~StateMachine() = default;
 
-	void on_update(float delta);
+    void on_update(float delta) {
+        if (!current_state) return;
 
-	void set_entry(const std::string& id);									// 状态机初始状态
-	void switch_state(const std::string& id);								// 切换状态机
-	void register_state(const std::string& id, StateNode* state_node);		// 向状态机中注册新的状态
+        if (need_init) {
+            current_state->on_enter(owner);
+            need_init = false;
+        }
+        current_state->on_update(owner, delta);
+    }
+
+    void set_entry(const std::string& id) {
+        current_state = state_pool[id];
+    }
+
+    void switch_state(const std::string& id) {
+        std::string debug = id;
+        SDL_Log(("current_state:    " + debug).c_str());
+
+        if (current_state) current_state->on_exit(owner);
+        current_state = state_pool[id];
+        if (current_state) current_state->on_enter(owner);
+    }
+
+    void register_state(T* owner, const std::string& id, StateNode<T>* state_node) {
+        this->owner = owner;
+        state_pool[id] = state_node;
+    }
 
 private:
-	bool need_init = true;													// 当前状态机是否被初始化
-	StateNode* current_state = nullptr;										// 当前状态机指针
-	std::unordered_map<std::string, StateNode*> state_pool;
+    T* owner;
+    bool need_init = true;
+    StateNode<T>* current_state = nullptr;
+    std::unordered_map<std::string, StateNode<T>*> state_pool;
 };
