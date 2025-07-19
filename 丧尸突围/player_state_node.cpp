@@ -3,19 +3,16 @@
 #include "scene_mgr.h"
 #include "util.h"
 
-PlayerAttackState::PlayerAttackState() {
-	timer.set_wait_time(0.2f);
-	timer.set_one_shot(true);
-	timer.set_on_timeout([&]()
-		{
-			Player* player = LevelMgr::instance()->get_player();
-			player->set_attacking(false);
-		});
-}
-
 void PlayerAttackState::on_enter(Player* player) {
 	std::string res_name = player->get_name() + "_" + "Attack";
 	player->set_animation(res_name);
+
+	timer.set_wait_time(player->get_current_animation_time());
+	timer.set_one_shot(true);
+	timer.set_on_timeout([player]()
+		{
+			player->set_attacking(false);
+		});
 
 	player->get_hit_box()->set_enabled(true);
 	player->set_attacking(true);
@@ -136,7 +133,7 @@ void PlayerJumpState::on_update(Player* player, float delta)
 }
 
 PlayerDashState::PlayerDashState() {
-	timer.set_wait_time(0.05f);
+	timer.set_wait_time(0.1f);
 	timer.set_one_shot(true);
 	timer.set_on_timeout([&]()
 		{

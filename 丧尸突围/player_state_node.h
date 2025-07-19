@@ -7,7 +7,7 @@
 class PlayerAttackState : public StateNode<Player>
 {
 public:
-	PlayerAttackState();
+	PlayerAttackState() = default;
 	~PlayerAttackState() = default;
 
 	void on_enter(Player* player) override;

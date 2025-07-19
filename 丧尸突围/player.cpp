@@ -26,7 +26,7 @@ Player::Player() {
         hit_box->set_enabled(false);
 		});
 
-	// 状态机
+	// 状态机  Attack  的时间不同放到不同角色类中添加
     state_machine.register_state(this, "Attack", new PlayerAttackState());
     state_machine.register_state(this, "Death", new PlayerDeathState());
     state_machine.register_state(this, "Idle", new PlayerIdleState());

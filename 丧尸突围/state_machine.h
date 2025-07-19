@@ -27,8 +27,10 @@ public:
     }
 
     void switch_state(const std::string& id) {
-        std::string debug = id;
-        SDL_Log(("current_state:    " + debug).c_str());
+        if (DEBUG) {
+            std::string debug = id;
+            SDL_Log((owner->get_name() + "    current_state:    " + debug).c_str());
+        }
 
         if (current_state) current_state->on_exit(owner);
         current_state = state_pool[id];
@@ -41,7 +43,7 @@ public:
     }
 
 private:
-    T* owner;
+    T* owner = nullptr;
     bool need_init = true;
     StateNode<T>* current_state = nullptr;
     std::unordered_map<std::string, StateNode<T>*> state_pool;

@@ -6,12 +6,7 @@ inline std::vector<std::string> PlayerName{
 	"Knight",
 	"Soldier",
 	"Sprites",
-	"Pexel",
-	"FlyingEye",
-	"Goblin",
-	"Mushroom",
-	"Skeleton",
-	"SpriteSheets"
+	"Pexel"
 };
 
 inline std::vector<std::string> MonsterName{

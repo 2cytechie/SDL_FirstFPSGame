@@ -1,6 +1,7 @@
 #pragma once
 
 #include "scene.h"
+#include "level.h"
 
 class GameOnScene : public Scene {
 public:
@@ -13,6 +14,6 @@ public:
 	void on_exit();
 
 private:
-
+	Level* level = nullptr;
 
 };

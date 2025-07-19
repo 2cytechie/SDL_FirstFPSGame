@@ -90,8 +90,8 @@ public:
 
 		if (animation_list.size() > 0) {
 			SDL_FRect rect_dst;
-			rect_dst.x = (int)pos.x - frame_size.x / 2;
-			rect_dst.y = (anchor_mode == AnchorMode::Centered) ? (int)pos.y - frame_size.y / 2 : (int)pos.y - frame_size.y;
+			rect_dst.x = (int)pos.x - size.x / 2;
+			rect_dst.y = (anchor_mode == AnchorMode::Centered) ? (int)pos.y - size.y / 2 : (int)pos.y - size.y;
 			rect_dst.w = size.x;
 			rect_dst.h = size.y;
 
@@ -141,6 +141,11 @@ public:
 
 	void set_interval(float interval) {
 		timer.set_wait_time(interval);
+	}
+
+	float get_time() {
+		// 不知道为啥
+		return timer.get_wait_time() * frame_count / 4;
 	}
 
 	void set_on_finished(std::function<void()> on_finished) {

@@ -88,6 +88,7 @@ int main(int argc, char** argv)
           
         // 更新游戏数据
         SceneMgr::instance()->on_update(delta.count());
+        camera->on_update(delta.count());
 
         // 清除上一次数据并渲染
         SDL_RenderClear(renderer);

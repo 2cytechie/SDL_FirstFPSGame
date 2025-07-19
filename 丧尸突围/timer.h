@@ -16,6 +16,10 @@ public:
 		wait_time = val;
 	}
 
+	float get_wait_time() {
+		return wait_time;
+	}
+
 	void set_one_shot(bool flag) {
 		one_shot = flag;
 	}

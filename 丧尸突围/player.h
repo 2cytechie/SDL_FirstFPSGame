@@ -30,6 +30,13 @@ public:
 		return is_attacking;
 	}
 
+	float get_current_animation_time() {
+		if (current_animation) {
+			return current_animation->get_time();
+		}
+		return 0.0f;
+	}
+
 	bool get_dashing() {
 		return is_dashing;
 	}
@@ -77,9 +84,9 @@ private:
 	bool is_attack_key_down = false;
 
 private:
-	const float CD_DASH = 0.3f;
+	const float CD_DASH = 0.5f;
 	const float CD_ATTACK = 0.3f;
 	const float SPEED_RUN = 300.0f;
 	const float SPEED_JUMP = 780.0f;
-	const float SPEED_DASH = 3000.0f;
+	const float SPEED_DASH = 2000.0f;
 };

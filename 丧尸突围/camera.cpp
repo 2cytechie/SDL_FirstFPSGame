@@ -29,6 +29,10 @@ void Camera::shake(float strength, float duration) {
 	timer_shake.restart();
 }
 
+void Camera::follow_pos(Vector2 target_pos) {
+	pos.x = target_pos.x - window_size.x / 2;
+}
+
 void Camera::fill_rect(const SDL_Rect* rect, SDL_Color color) {
 	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 
