@@ -81,3 +81,63 @@ public:
 	~Pexel() = default;
 
 };
+
+class Fighter :public Player {
+public:
+	Fighter() {
+		name = "Fighter";
+		hp = 100;
+		max_hp = 100;
+		pos = Vector2(100, 100);
+		logic_height = 120;
+
+		animation_magnification = 3.0f;
+		animation_frame_delta = 0.15f;
+
+		hit_box->set_size({ 100,120 });
+		hurt_box->set_size({ 60,100 });
+	}
+
+	~Fighter() = default;
+
+};
+
+class Samurai :public Player {
+public:
+	Samurai() {
+		name = "Samurai";
+		hp = 100;
+		max_hp = 100;
+		pos = Vector2(100, 100);
+		logic_height = 120;
+
+		animation_magnification = 3.0f;
+		animation_frame_delta = 0.15f;
+
+		hit_box->set_size({ 100,120 });
+		hurt_box->set_size({ 60,100 });
+	}
+
+	~Samurai() = default;
+
+};
+
+class Martial :public Player {
+public:
+	Martial() {
+		name = "Martial";
+		hp = 100;
+		max_hp = 100;
+		pos = Vector2(100, 100);
+		logic_height = 120;
+
+		animation_magnification = 3.0f;
+		animation_frame_delta = 0.15f;
+
+		hit_box->set_size({ 100,120 });
+		hurt_box->set_size({ 60,100 });
+	}
+
+	~Martial() = default;
+
+};

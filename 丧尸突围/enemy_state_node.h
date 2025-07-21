@@ -47,6 +47,19 @@ private:
 
 };
 
+class EnemyTakeHitState : public StateNode<Enemy>
+{
+public:
+    EnemyTakeHitState() = default;
+    ~EnemyTakeHitState() = default;
+
+    void on_enter(Enemy* enemy) override;
+    void on_update(Enemy* enemy, float delta) override;
+
+private:
+
+};
+
 class EnemyWalkState : public StateNode<Enemy>
 {
 public:

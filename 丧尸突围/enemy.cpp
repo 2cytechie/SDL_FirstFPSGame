@@ -5,7 +5,7 @@
 Enemy::Enemy(Vector2 revive_pos) {
 	pos_revive = revive_pos;
 
-	hit_box->set_layer_src(CollisionLayer::Item);
+	hit_box->set_layer_src(CollisionLayer::None);
 	hit_box->set_layer_dst(CollisionLayer::Player);
 
 	hurt_box->set_layer_src(CollisionLayer::Enemy);
@@ -14,6 +14,12 @@ Enemy::Enemy(Vector2 revive_pos) {
 	hit_box->set_enabled(false);
 	hit_box->set_on_collide([&]() {
 		velocity.y = 0;
+
+		SDL_Log("Enemy hit");
+		});
+
+	hurt_box->set_on_collide([&]() {
+		SDL_Log("Enemy hurt");
 		});
 
 	timer_attack_cd.set_wait_time(CD_ATTACK);

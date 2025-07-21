@@ -3,7 +3,7 @@
 #include "player_state_node.h"
 
 Player::Player() {
-	hit_box->set_layer_src(CollisionLayer::Item);
+	hit_box->set_layer_src(CollisionLayer::None);
 	hit_box->set_layer_dst(CollisionLayer::Enemy);
 
 	hurt_box->set_layer_src(CollisionLayer::Player);
@@ -12,7 +12,12 @@ Player::Player() {
 	hit_box->set_enabled(false);
 	hit_box->set_on_collide([&]() {
 		velocity.y = 0;
+        SDL_Log("Player hit");
 		});
+
+    hurt_box->set_on_collide([&]() {
+        SDL_Log("Player hurt");
+        });
 
 	timer_dash_cd.set_wait_time(CD_DASH);
 	timer_dash_cd.set_on_timeout([&]() {

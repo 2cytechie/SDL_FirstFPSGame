@@ -12,11 +12,12 @@ GameOnScene::~GameOnScene() = default;
 void GameOnScene::on_enter() {
 	level = new Level1();
 	LevelMgr::instance()->load_level(level);
-	CollisionMgr::instance()->process_collide();
 }
 
 void GameOnScene::on_update(float delta) {
 	LevelMgr::instance()->on_update(delta);
+	// ÆôÓÃÅö×²Ïä
+	CollisionMgr::instance()->process_collide();
 }
 
 void GameOnScene::on_render(Camera& camera) {

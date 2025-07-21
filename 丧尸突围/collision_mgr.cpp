@@ -26,6 +26,7 @@ void CollisionMgr::distory(CollisionBox* collision_box) {
 
 	delete collision_box;
 }
+
 void CollisionMgr::process_collide() {
 	for (CollisionBox* collision_box_src : collision_box_list) {
 		if (!collision_box_src->enabled || collision_box_src->layer_dst == CollisionLayer::None) continue;

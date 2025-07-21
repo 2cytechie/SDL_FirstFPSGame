@@ -24,24 +24,28 @@ public:
 	}
 
 	bool can_attack(const Vector2& player_pos) {
-		Vector2 distance = player_pos - pos;
-		return !is_attacking && distance.length() <= ATTACK_DIS;
+		Vector2 direction = player_pos - pos;
+		bool in_range = (direction.length() <= ATTACK_DIS);
+		bool facing_player = (is_facing_right && direction.x > 0) ||
+			(!is_facing_right && direction.x < 0);
+
+		return !is_attacking && in_range && facing_player;
 	}
 
 	bool can_pursuit(const Vector2& player_pos) {
-		if ((pos - pos_revive).length() > PURSUIT_DIS) {
+		if ((pos - pos_revive).length() > MAX_PURSUIT_DIS) {
 			return false;
 		}
 		Vector2 distance = player_pos - pos;
 		return distance.length() < PURSUIT_DIS;
 	}
 
-	bool need_return(const Vector2 player_pos) {
-		return (player_pos - pos).length() > MAX_PURSUIT_DIS;
+	bool need_return(const Vector2& player_pos) {
+		return (player_pos - pos).length() > PURSUIT_DIS;
 	}
 
 	bool finish_retrun() {
-		return std::abs(pos.x - pos_revive.x) < 1.0f;
+		return std::abs(pos.x - pos_revive.x) < 10.0f;
 	}
 
 	Vector2& get_revive_pos() {
@@ -89,8 +93,8 @@ private:
 	const float SPEED_WALK = 150.0f;			// ÐÐ×ßËÙ¶È
 	const float SPEED_PURSUIT = 250.0f;			// ×·»÷ËÙ¶È
 	const float ATTACK_DIS = 100.0f;			// ¹¥»÷¾àÀë
-	const float CD_ATTACK = 1.0f;				// ¹¥»÷CD
-	const float PURSUIT_DIS = 300;				// ×·»÷¾àÀë
+	const float CD_ATTACK = 2.5f;				// ¹¥»÷CD
+	const float PURSUIT_DIS = 400;				// ×·»÷¾àÀë
 	const float MAX_PURSUIT_DIS = 1000;			// ×î´ó×·»÷¾àÀë
 
 };

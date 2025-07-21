@@ -110,6 +110,22 @@ void EnemyIdleState::on_update(Enemy* enemy, float delta)
         enemy->switch_state("Pursuit");
 }
 
+void EnemyTakeHitState::on_enter(Enemy* enemy) {
+    std::string res_name = enemy->get_name() + "_" + "TakeHit";
+    enemy->set_animation(res_name);
+}
+
+void EnemyTakeHitState::on_update(Enemy* enemy, float delta) {
+    Vector2 player_pos = LevelMgr::instance()->get_player()->get_pos();
+
+    if (enemy->get_hp() <= 0)
+        enemy->switch_state("Death");
+    else if (enemy->can_attack(player_pos))
+        enemy->switch_state("Attack");
+    else if (enemy->can_pursuit(player_pos))
+        enemy->switch_state("Pursuit");
+}
+
 void EnemyWalkState::on_enter(Enemy* enemy)
 {
     std::string res_name = enemy->get_name() + "_" + "Run";

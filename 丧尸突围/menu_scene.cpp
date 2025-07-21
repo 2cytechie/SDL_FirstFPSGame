@@ -72,16 +72,25 @@ void MenuScene::on_input(const SDL_Event& msg) {
 				Player* player = nullptr;
 				switch (select_player) {
 				case 0:
-					player = new Knight();
-					break;
-				case 1:
-					player = new Soldier();
-					break;
-				case 2:
 					player = new Sprites();
 					break;
-				case 3:
+				case 1:
 					player = new Pexel();
+					break;
+				case 2:
+					player = new Knight();
+					break;
+				case 3:
+					player = new Soldier();
+					break;
+				case 4:
+					player = new Fighter();
+					break;
+				case 5:
+					player = new Samurai();
+					break;
+				case 6:
+					player = new Martial();
 					break;
 
 				default:

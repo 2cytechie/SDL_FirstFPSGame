@@ -65,7 +65,7 @@ int main(int argc, char** argv)
     bool is_quit = false;
 
     // ²¥·Å±³¾°ÒôÀÖ
-    Mix_PlayChannel(-1, ResMgr::instance()->find_audio("bgm"), -1);
+    Mix_PlayChannel(0, ResMgr::instance()->find_audio("bgm"), -1);
 
     const nanoseconds frame_duration(100000000 / 144);
     steady_clock::time_point last_tick = steady_clock::now();

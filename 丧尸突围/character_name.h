@@ -3,10 +3,13 @@
 #include <vector>
 
 inline std::vector<std::string> PlayerName{
+	"Sprites",
+	"Pexel",
 	"Knight",
 	"Soldier",
-	"Sprites",
-	"Pexel"
+	"Fighter",
+	"Samurai",
+	"Martial"
 };
 
 inline std::vector<std::string> MonsterName{
@@ -14,5 +17,7 @@ inline std::vector<std::string> MonsterName{
 	"Goblin",
 	"Mushroom",
 	"Skeleton",
-	"SpriteSheets"
+	"SpriteSheets",
+	"Ninja",
+	"Minotaur"
 };
