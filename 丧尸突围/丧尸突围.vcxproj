@@ -133,6 +133,7 @@
   <ItemGroup>
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="character.cpp" />
+    <ClCompile Include="edit_scene.cpp" />
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="enemy_state_node.cpp" />
     <ClCompile Include="game_on_scene.cpp" />
@@ -152,7 +153,7 @@
     <ClInclude Include="animation.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="character.h" />
-    <ClInclude Include="edit.h" />
+    <ClInclude Include="edit_scene.h" />
     <ClInclude Include="enemy_ins.h" />
     <ClInclude Include="enemy_state_node.h" />
     <ClInclude Include="game_on_scene.h" />

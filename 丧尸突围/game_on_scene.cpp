@@ -1,6 +1,4 @@
 #include "game_on_scene.h"
-
-#include "level1.h"
 #include "level_mgr.h"
 
 #include "scene_mgr.h"
@@ -10,8 +8,7 @@ GameOnScene::GameOnScene() = default;
 GameOnScene::~GameOnScene() = default;
 
 void GameOnScene::on_enter() {
-	level = new Level1();
-	LevelMgr::instance()->load_level(level);
+	LevelMgr::instance()->load_level(N_level);
 }
 
 void GameOnScene::on_update(float delta) {
@@ -50,7 +47,5 @@ void GameOnScene::on_input(const SDL_Event& msg) {
 }
 
 void GameOnScene::on_exit() {
-	delete level;
-	level = nullptr;
 	LevelMgr::instance()->destory();
 }

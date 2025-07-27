@@ -42,11 +42,7 @@ Enemy::Enemy(Vector2 revive_pos) {
 }
 
 void Enemy::on_update(float delta) {
-	state_machine.on_update(delta);
-
-	if (current_animation) {
-		current_animation->on_update(delta);
-	}
+	//state_machine.on_update(delta);
 
 	Character::on_update(delta);
 }

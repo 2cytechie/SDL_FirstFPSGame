@@ -136,10 +136,6 @@ void Player::on_update(float delta) {
     timer_dash_cd.on_update(delta);
     timer_attack_cd.on_update(delta);
 
-    if (current_animation) {
-        current_animation->on_update(delta);
-    }
-
     Character::on_update(delta);
 }
 

@@ -1,4 +1,5 @@
 #include "level_mgr.h"
+#include "level1.h"
 
 LevelMgr::LevelMgr() = default;
 
@@ -23,6 +24,8 @@ void LevelMgr::destory() {
 }
 
 void LevelMgr::destory_enemy(Enemy* enemy) {
+	if(!enemy) return;
+
 	auto it = std::find_if(enemy_list.begin(), enemy_list.end(),
 		[enemy](Enemy* e) { return e == enemy; });
 	if (it != enemy_list.end()) {
@@ -32,15 +35,18 @@ void LevelMgr::destory_enemy(Enemy* enemy) {
 }
 
 void LevelMgr::destory_item(Item* item) {
+	if (!item) return;
+
 	auto it = std::find_if(item_list.begin(), item_list.end(),
 		[item](Item* i) { return i == item; });
+
 	if (it != item_list.end()) {
 		delete* it;
 		item_list.erase(it);
 	}
 }
 
-void LevelMgr::load_level(Level* level) {
+void LevelMgr::load_level(int n) {
 	// 删除 new 的对象
 	for (auto& enemy : enemy_list) {
 		delete enemy;
@@ -51,27 +57,25 @@ void LevelMgr::load_level(Level* level) {
 	enemy_list.clear();
 	item_list.clear();
 
-	level->load();
+	// 增加关卡
+	switch (n) {
+	case 1: current_level = new Level1();	break;
 
-	enemy_list = level->get_enemy_list();
-	item_list = level->get_item_list();
+	default:
+		SDL_Log("N_level ERROR !!!");
+	}
+
+	current_level->load();
+	enemy_list = current_level->get_enemy_list();
+	item_list = current_level->get_item_list();
 }
 
 Player* LevelMgr::get_player() {
 	return player;
 }
 
-Enemy* LevelMgr::get_enemy(Enemy* enemy) {
-	auto it = std::find(enemy_list.begin(), enemy_list.end(), enemy);
-	return (it != enemy_list.end()) ? *it : nullptr;
-}
-
-Item* LevelMgr::get_item(Item* item) {
-	auto it = std::find(item_list.begin(), item_list.end(), item);
-	return (it != item_list.end()) ? *it : nullptr;
-}
-
 void LevelMgr::on_input(const SDL_Event& msg) {
+	if (!player) return;
 	player->on_input(msg);
 }
 
@@ -82,6 +86,7 @@ void LevelMgr::on_update(float delta) {
 	for (auto enemy : enemy_list) {
 		enemy->on_update(delta);
 	}
+	if (!player) return;
 	player->on_update(delta);
 }
 void LevelMgr::on_render(Camera& camera) {
@@ -91,6 +96,7 @@ void LevelMgr::on_render(Camera& camera) {
 	for (auto enemy : enemy_list) {
 		enemy->on_render(camera);
 	}
+	if (!player) return;
 	player->on_render(camera);
 }
 

@@ -17,6 +17,7 @@ public:
 	}
 
 protected:
+	std::string name;
 	std::vector<Enemy*> enemy_list;
 	std::vector<Item*> item_list;
 

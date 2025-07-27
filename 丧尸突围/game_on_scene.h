@@ -14,6 +14,6 @@ public:
 	void on_exit();
 
 private:
-	Level* level = nullptr;
+	int N_level = 1;
 
 };

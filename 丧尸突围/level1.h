@@ -7,7 +7,7 @@ class Level1 : public Level {
 		//enemy_list.push_back(new Skeleton({ 300,200 }));
 
 		item_list.push_back(new plant({ 0,680 }));
-		item_list.push_back(new notebook({ 0,400 }));
+		item_list.push_back(new notebook({ 0,500 }));
 		item_list.push_back(new BoxCat({ 400,600 }));
 	}
 };

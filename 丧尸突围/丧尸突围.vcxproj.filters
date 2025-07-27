@@ -46,9 +46,6 @@
     <Filter Include="源文件\characer\enemy">
       <UniqueIdentifier>{b8f7ccef-54e9-4da9-bca7-504471fe941d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件\character\plaeyr">
-      <UniqueIdentifier>{875b8078-a62a-4cf8-9797-d538b143fccf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="头文件\character\enemy">
       <UniqueIdentifier>{6014ed84-7f17-4cea-8f76-1bf40132e8b9}</UniqueIdentifier>
     </Filter>
@@ -60,6 +57,9 @@
     </Filter>
     <Filter Include="源文件\characer\item">
       <UniqueIdentifier>{b6a42b6e-7e20-4ac2-b6b2-291a38678a1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\character\player">
+      <UniqueIdentifier>{875b8078-a62a-4cf8-9797-d538b143fccf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -110,6 +110,9 @@
     </ClCompile>
     <ClCompile Include="item.cpp">
       <Filter>源文件\characer\item</Filter>
+    </ClCompile>
+    <ClCompile Include="edit_scene.cpp">
+      <Filter>源文件\scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -168,10 +171,10 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="player.h">
-      <Filter>头文件\character\plaeyr</Filter>
+      <Filter>头文件\character\player</Filter>
     </ClInclude>
     <ClInclude Include="player_ins.h">
-      <Filter>头文件\character\plaeyr</Filter>
+      <Filter>头文件\character\player</Filter>
     </ClInclude>
     <ClInclude Include="level_mgr.h">
       <Filter>头文件\manager</Filter>
@@ -209,7 +212,7 @@
     <ClInclude Include="enemy_ins.h">
       <Filter>头文件\character\enemy</Filter>
     </ClInclude>
-    <ClInclude Include="edit.h">
+    <ClInclude Include="edit_scene.h">
       <Filter>头文件\scene</Filter>
     </ClInclude>
   </ItemGroup>

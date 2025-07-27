@@ -81,14 +81,14 @@ void Character::on_update(float delta) {
 
 	if (!current_animation) return;
 
-	current_animation->on_update(delta);
 	current_animation->set_pos(pos);
+	current_animation->set_interval(animation_frame_delta);
+	current_animation->set_size(animation_magnification);
+	current_animation->on_update(delta);
 }
 
 void Character::on_render(Camera& camera) {
 	if (!current_animation) return;
-	current_animation->set_interval(animation_frame_delta);
-	current_animation->set_size(animation_magnification);
 	current_animation->on_render(camera, is_facing_right);
 }
 

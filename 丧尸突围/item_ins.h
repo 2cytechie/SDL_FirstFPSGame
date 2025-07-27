@@ -2,6 +2,19 @@
 
 #include "item.h"
 
+class plant :public Item {
+public:
+	plant(Vector2 p) : Item(p) {
+		name = "plant";
+		animation_magnification = 1.0;
+		animation_frame_delta = 0.1;
+		block_box->set_size({ 9999,50 });
+
+		Item::init();
+	}
+
+	~plant() = default;
+};
 
 class notebook :public Item {
 public:
@@ -188,7 +201,7 @@ public:
 class YellowCat :public Item {
 public:
 	YellowCat(Vector2 p) : Item(p) {
-		name = "trunk";
+		name = "YellowCat";
 		animation_magnification = 1.0;
 		animation_frame_delta = 0.1;
 		block_box->set_size({ 100,100 });
@@ -199,16 +212,86 @@ public:
 	~YellowCat() = default;
 };
 
-class plant :public Item {
+class background :public Item {
 public:
-	plant(Vector2 p) : Item(p) {
-		name = "plant";
+	background(Vector2 p) : Item(p) {
+		name = "background";
 		animation_magnification = 1.0;
 		animation_frame_delta = 0.1;
-		block_box->set_size({ 9999,50 });
+		block_box->set_size({ 100,100 });
 
 		Item::init();
 	}
 
-	~plant() = default;
+	~background() = default;
+};
+
+class sunsetbackground :public Item {
+public:
+	sunsetbackground(Vector2 p) : Item(p) {
+		name = "sunsetbackground";
+		animation_magnification = 1.0;
+		animation_frame_delta = 0.1;
+		block_box->set_size({ 100,100 });
+
+		Item::init();
+	}
+
+	~sunsetbackground() = default;
+};
+
+class background_layer :public Item {
+public:
+	background_layer(Vector2 p) : Item(p) {
+		name = "background_layer";
+		animation_magnification = 1.0;
+		animation_frame_delta = 0.1;
+		block_box->set_size({ 100,100 });
+
+		Item::init();
+	}
+
+	~background_layer() = default;
+};
+
+class cloud_1 :public Item {
+public:
+	cloud_1(Vector2 p) : Item(p) {
+		name = "cloud_1";
+		animation_magnification = 1.0;
+		animation_frame_delta = 0.1;
+		block_box->set_size({ 100,100 });
+
+		Item::init();
+	}
+
+	~cloud_1() = default;
+};
+
+class cloud_2 :public Item {
+public:
+	cloud_2(Vector2 p) : Item(p) {
+		name = "cloud_2";
+		animation_magnification = 1.0;
+		animation_frame_delta = 0.1;
+		block_box->set_size({ 100,100 });
+
+		Item::init();
+	}
+
+	~cloud_2() = default;
+};
+
+class cloud_3 :public Item {
+public:
+	cloud_3(Vector2 p) : Item(p) {
+		name = "cloud_3";
+		animation_magnification = 1.0;
+		animation_frame_delta = 0.1;
+		block_box->set_size({ 100,100 });
+
+		Item::init();
+	}
+
+	~cloud_3() = default;
 };

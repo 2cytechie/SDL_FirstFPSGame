@@ -50,6 +50,10 @@ public:
 		return hurt_box;
 	}
 
+	CollisionBox* get_block_box() {
+		return block_box;
+	}
+
 	void set_on_floor(bool flag) {
 		on_floor = flag;
 	}

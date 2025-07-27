@@ -147,7 +147,7 @@ public:
 
 	float get_time() {
 		// 不知道为啥
-		return timer.get_wait_time() * frame_count / 4;
+		return timer.get_wait_time() * frame_count / 2;
 	}
 
 	void set_on_finished(std::function<void()> on_finished) {

@@ -13,7 +13,8 @@ public:
 		GameOn,
 		PlayingInstrution,
 		GameOver,
-		Exit
+		Exit,
+		Edit
 	};
 
 	void add(SceneType type, Scene* scene) {
