@@ -52,6 +52,10 @@ public:
 		return pos_revive;
 	}
 
+	void take_hit() {
+
+	}
+
 	void walk() {
 		is_facing_right = (pos.x - pos_revive.x) < 0;
 		velocity.x = is_facing_right ? SPEED_WALK : -SPEED_WALK;

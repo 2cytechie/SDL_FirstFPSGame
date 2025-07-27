@@ -19,5 +19,7 @@ inline std::vector<std::string> MonsterName{
 	"Skeleton",
 	"SpriteSheets",
 	"Ninja",
-	"Minotaur"
+	"Minotaur",
+	"Slime1",
+	"Slime2"
 };

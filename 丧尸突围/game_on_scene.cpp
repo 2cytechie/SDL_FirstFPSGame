@@ -25,7 +25,7 @@ void GameOnScene::on_render(Camera& camera) {
 	Vector2 player_pos = LevelMgr::instance()->get_player()->get_pos();
 	camera.follow_pos(player_pos);
 
-	// ±³¾°É«
+	// ±³¾°
 	SDL_Color bg_color{ 0,255,255,255 };
 	SDL_Rect rect{
 		0,0,

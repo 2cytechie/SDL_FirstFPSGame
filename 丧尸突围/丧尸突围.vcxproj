@@ -136,6 +136,7 @@
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="enemy_state_node.cpp" />
     <ClCompile Include="game_on_scene.cpp" />
+    <ClCompile Include="item.cpp" />
     <ClCompile Include="level_mgr.cpp" />
     <ClCompile Include="collision_mgr.cpp" />
     <ClCompile Include="game_over_scene.cpp" />
@@ -151,6 +152,7 @@
     <ClInclude Include="animation.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="character.h" />
+    <ClInclude Include="edit.h" />
     <ClInclude Include="enemy_ins.h" />
     <ClInclude Include="enemy_state_node.h" />
     <ClInclude Include="game_on_scene.h" />

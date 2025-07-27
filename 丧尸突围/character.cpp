@@ -5,9 +5,40 @@
 Character::Character() {
 	hit_box = CollisionMgr::instance()->creat();
 	hurt_box = CollisionMgr::instance()->creat();
+	block_box = CollisionMgr::instance()->creat();
 
-	// 每秒最多受击一次
-	timer_invulnerable_status.set_wait_time(1.0f);
+	block_box->set_layer_src(CollisionLayer::Item);
+	block_box->set_layer_dst(CollisionLayer::None);
+
+	block_box->set_on_collide([&](const CollisionBox* box) {
+		Vector2 my_pos = block_box->get_pos();
+		Vector2 my_size = block_box->get_size();
+		Vector2 box_pos = box->get_pos();
+		Vector2 box_size = box->get_size();
+		// 掉落
+		if (pos.y <= box_pos.y && velocity.y >= 0) {
+			pos.y = box->get_pos().y - box->get_size().y / 2;
+			velocity.y = 0;
+			on_floor = true;
+		}
+		// 计算水平方向的重叠
+		float overlap_x = std::min(
+			my_pos.x + my_size.x / 2 - (box_pos.x - box_size.x / 2),
+			box_pos.x + box_size.x / 2 - (my_pos.x - my_size.x / 2)
+		);
+
+		if (on_floor && pos.y > box_pos.y - box_size.y / 2) {
+			if (velocity.x > 0) {
+				pos.x -= overlap_x;
+			}
+			else if (velocity.x < 0) {
+				pos.x += overlap_x;
+			}
+		}
+		});
+
+	// 每 0.5 秒最多受击一次
+	timer_invulnerable_status.set_wait_time(0.5f);
 	timer_invulnerable_status.set_one_shot(true);
 	timer_invulnerable_status.set_on_timeout([&]() {
 		is_invulnerable = false;
@@ -15,8 +46,9 @@ Character::Character() {
 }
 
 Character::~Character() {
-	CollisionMgr::instance()->distory(hit_box);
-	CollisionMgr::instance()->distory(hurt_box);
+	CollisionMgr::instance()->destory(hit_box);
+	CollisionMgr::instance()->destory(hurt_box);
+	CollisionMgr::instance()->destory(block_box);
 }
 
 void Character::decrease_hp(int damage) {
@@ -38,12 +70,14 @@ void Character::on_update(float delta) {
 
 	pos += velocity * delta;
 
-	if (pos.y >= FLOOR_Y) {
-		pos.y = FLOOR_Y;
-		velocity.y = 0;
-	}
-
 	timer_invulnerable_status.on_update(delta);
+
+	Vector2 pos_hurt_box = {
+		pos.x,
+		pos.y - hurt_box->get_size().y / 2
+	};
+	hurt_box->set_pos(pos_hurt_box);
+	block_box->set_pos(pos_hurt_box);
 
 	if (!current_animation) return;
 

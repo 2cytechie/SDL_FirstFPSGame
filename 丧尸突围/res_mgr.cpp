@@ -34,7 +34,7 @@ void ResMgr::load(SDL_Renderer* renderer)
                         // 查找 @ 符号的位置
                         size_t at_pos = file_name.find('@');
                         if (at_pos != std::string::npos && at_pos < file_name.length() - 1) {
-                            // 提取 @ 符号  前面作为key  后面的部分作为帧数
+                            // 提取 @ 符号  前面作为 key 后面的部分作为帧数
                             std::string key = file_name.substr(0, at_pos);
                             int animation_frame = std::stoi(file_name.substr(at_pos + 1));
 

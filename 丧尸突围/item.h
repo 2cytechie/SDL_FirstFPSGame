@@ -1,20 +1,25 @@
 #pragma once
 
-#include "character.h"
+#include "vector2.h"
+#include "animation.h"
+#include "collision_mgr.h"
 
-class Item : public Character {
+class Item {
+public:
+	Item(Vector2 p);
 
+	~Item();
 
-	void on_input(const SDL_Event& msg) override;
-	void on_update(float delta) override;
-	void on_render(Camera& camera)override;
+	void init();
+	void on_update(float delta);
+	void on_render(Camera& camera);
 
-	void on_hurt() override;
-
-	void attack();
-	void jump();
-	void dash();
-
-
-
+protected:
+	std::string name;
+	Vector2 pos;
+	float animation_magnification = 1;				// 放大倍数
+	float animation_frame_delta = 0.1f;				// 动画每帧时间
+	bool is_facing_right = true;
+	CollisionBox* block_box = nullptr;
+	Animation* animation = nullptr;
 };

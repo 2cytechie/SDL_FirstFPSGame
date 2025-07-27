@@ -57,12 +57,9 @@ void PlayerAttackState::update_hit_box_pos(Player* player) {
 	CollisionBox* hit_box = player->get_hit_box();
 	Vector2 size_hit_box = hit_box->get_size();
 	Vector2 player_pos = player->get_pos();
-	float logic_height = player->get_logic();
 	Vector2 pos_hit_box = player_pos;
-	pos_hit_box.y -= logic_height;
-	if (!player->facing_right()) {
-		pos_hit_box.x -= size_hit_box.x;
-	}
+	pos_hit_box.y -= size_hit_box.y / 2;
+	pos_hit_box.x += (player->facing_right() ? size_hit_box.x : -size_hit_box.x) / 2;
 	hit_box->set_pos(pos_hit_box);
 }
 
@@ -81,7 +78,7 @@ void PlayerDeathState::on_enter(Player* player)
 	std::string res_name = player->get_name() + "_" + "Death";
 	player->set_animation(res_name);
 
-	Mix_PlayChannel(1, ResMgr::instance()->find_audio("player_dead"), 0);
+	//Mix_PlayChannel(1, ResMgr::instance()->find_audio("player_dead"), 0);
 }
 
 void PlayerDeathState::on_update(Player* player, float delta)
@@ -113,7 +110,6 @@ void PlayerJumpState::on_enter(Player* player)
 {
 	std::string res_name = player->get_name() + "_" + "Jump";
 	player->set_animation(res_name);
-
 	player->jump();
 
 	Mix_PlayChannel(1, ResMgr::instance()->find_audio("player_jump"), 0);
@@ -180,7 +176,7 @@ void PlayerRunState::on_enter(Player* player)
 	std::string res_name = player->get_name() + "_" + "Run";
 	player->set_animation(res_name);
 
-	Mix_PlayChannel(1, ResMgr::instance()->find_audio("player_run"), 0);
+	Mix_PlayChannel(1, ResMgr::instance()->find_audio("player_run"), -1);
 }
 
 void PlayerRunState::on_update(Player* player, float delta)
@@ -195,4 +191,8 @@ void PlayerRunState::on_update(Player* player, float delta)
 		player->switch_state("Jump");
 	else if (player->can_dash())
 		player->switch_state("Dash");
+}
+
+void PlayerRunState::on_exit(Player* player) {
+	Mix_HaltChannel(1);
 }

@@ -3,6 +3,10 @@
 #include "player_state_node.h"
 
 Player::Player() {
+    hp = 100;
+    max_hp = 100;
+    pos = Vector2(100, 100);
+
 	hit_box->set_layer_src(CollisionLayer::None);
 	hit_box->set_layer_dst(CollisionLayer::Enemy);
 
@@ -10,13 +14,12 @@ Player::Player() {
 	hurt_box->set_layer_dst(CollisionLayer::None);
 
 	hit_box->set_enabled(false);
-	hit_box->set_on_collide([&]() {
-		velocity.y = 0;
+	hit_box->set_on_collide([&](const CollisionBox* box) {
         SDL_Log("Player hit");
 		});
 
-    hurt_box->set_on_collide([&]() {
-        SDL_Log("Player hurt");
+    hurt_box->set_on_collide([&](const CollisionBox* box) {
+        //SDL_Log("Player hurt");
         });
 
 	timer_dash_cd.set_wait_time(CD_DASH);
@@ -137,12 +140,6 @@ void Player::on_update(float delta) {
         current_animation->on_update(delta);
     }
 
-    Vector2 pos_hurt_box = {
-        pos.x - hurt_box->get_size().x / 2,
-        pos.y - hurt_box->get_size().y
-    };
-    hurt_box->set_pos(pos_hurt_box);
-
     Character::on_update(delta);
 }
 
@@ -163,6 +160,7 @@ void Player::attack() {
 
 void Player::jump() {
     velocity.y -= SPEED_JUMP;
+    on_floor = false;
 }
 
 void Player::dash() {

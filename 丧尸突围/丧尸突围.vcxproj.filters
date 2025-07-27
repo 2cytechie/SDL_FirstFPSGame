@@ -58,6 +58,9 @@
     <Filter Include="头文件\character\item">
       <UniqueIdentifier>{260b2619-718c-47fc-89f2-3f90cfc8f89c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\characer\item">
+      <UniqueIdentifier>{b6a42b6e-7e20-4ac2-b6b2-291a38678a1a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -104,6 +107,9 @@
     </ClCompile>
     <ClCompile Include="enemy_state_node.cpp">
       <Filter>源文件\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="item.cpp">
+      <Filter>源文件\characer\item</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -185,23 +191,26 @@
     <ClInclude Include="instruction_scene.h">
       <Filter>头文件\scene</Filter>
     </ClInclude>
-    <ClInclude Include="enemy.h">
-      <Filter>头文件\character\enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="item.h">
-      <Filter>头文件\character\item</Filter>
-    </ClInclude>
     <ClInclude Include="game_on_scene.h">
       <Filter>头文件\scene</Filter>
     </ClInclude>
-    <ClInclude Include="enemy_ins.h">
-      <Filter>头文件\character\enemy</Filter>
+    <ClInclude Include="enemy_state_node.h">
+      <Filter>头文件\FSM</Filter>
     </ClInclude>
     <ClInclude Include="item_ins.h">
       <Filter>头文件\character\item</Filter>
     </ClInclude>
-    <ClInclude Include="enemy_state_node.h">
-      <Filter>头文件\FSM</Filter>
+    <ClInclude Include="item.h">
+      <Filter>头文件\character\item</Filter>
+    </ClInclude>
+    <ClInclude Include="enemy.h">
+      <Filter>头文件\character\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="enemy_ins.h">
+      <Filter>头文件\character\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="edit.h">
+      <Filter>头文件\scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

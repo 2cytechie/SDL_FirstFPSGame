@@ -8,8 +8,6 @@ public:
         name = "FlyingEye";
         hp = 100;
         max_hp = 100;
-        pos = Vector2(100, 100);
-        logic_height = 120;
 
         animation_magnification = 3.0f;
         animation_frame_delta = 0.15f;
@@ -27,8 +25,6 @@ public:
         name = "Goblin";
         hp = 100;
         max_hp = 100;
-        pos = Vector2(100, 100);
-        logic_height = 120;
 
         animation_magnification = 3.0f;
         animation_frame_delta = 0.15f;
@@ -46,8 +42,6 @@ public:
         name = "Mushroom";
         hp = 100;
         max_hp = 100;
-        pos = Vector2(100, 100);
-        logic_height = 120;
 
         animation_magnification = 3.0f;
         animation_frame_delta = 0.15f;
@@ -65,8 +59,6 @@ public:
         name = "Skeleton";
         hp = 100;
         max_hp = 100;
-        pos = Vector2(100, 100);
-        logic_height = 120;
 
         animation_magnification = 3.0f;
         animation_frame_delta = 0.15f;
@@ -84,8 +76,6 @@ public:
         name = "SpriteSheets";
         hp = 100;
         max_hp = 100;
-        pos = Vector2(100, 100);
-        logic_height = 120;
 
         animation_magnification = 3.0f;
         animation_frame_delta = 0.15f;
@@ -103,8 +93,6 @@ public:
         name = "Ninja";
         hp = 100;
         max_hp = 100;
-        pos = Vector2(100, 100);
-        logic_height = 120;
 
         animation_magnification = 3.0f;
         animation_frame_delta = 0.15f;
@@ -122,8 +110,6 @@ public:
         name = "Minotaur";
         hp = 100;
         max_hp = 100;
-        pos = Vector2(100, 100);
-        logic_height = 120;
 
         animation_magnification = 3.0f;
         animation_frame_delta = 0.15f;
@@ -133,4 +119,38 @@ public:
     }
 
     ~Minotaur() = default;
+};
+
+class Slime1 : public Enemy {
+public:
+    Slime1(Vector2 revive_pos) : Enemy(revive_pos) {
+        name = "Slime1";
+        hp = 100;
+        max_hp = 100;
+
+        animation_magnification = 3.0f;
+        animation_frame_delta = 0.15f;
+
+        hit_box->set_size({ 100,120 });
+        hurt_box->set_size({ 60,100 });
+    }
+
+    ~Slime1() = default;
+};
+
+class Slime2 : public Enemy {
+public:
+    Slime2(Vector2 revive_pos) : Enemy(revive_pos) {
+        name = "Slime2";
+        hp = 100;
+        max_hp = 100;
+
+        animation_magnification = 3.0f;
+        animation_frame_delta = 0.15f;
+
+        hit_box->set_size({ 100,120 });
+        hurt_box->set_size({ 60,100 });
+    }
+
+    ~Slime2() = default;
 };

@@ -20,7 +20,7 @@ CollisionBox* CollisionMgr::creat() {
 	return collision_box;
 }
 
-void CollisionMgr::distory(CollisionBox* collision_box) {
+void CollisionMgr::destory(CollisionBox* collision_box) {
 	collision_box_list.erase(std::remove(collision_box_list.begin(), 
 		collision_box_list.end(), collision_box), collision_box_list.end());
 
@@ -49,22 +49,22 @@ void CollisionMgr::process_collide() {
 
 			if (is_collide_x && is_collide_y && collision_box_dst->on_collide)
 			{
-				collision_box_dst->on_collide();
+				collision_box_dst->on_collide(collision_box_src);
 			}
 		}
 	}
 }
+
 void CollisionMgr::on_debug_render(Camera& camera) {
 	for (CollisionBox* collision_box : collision_box_list)
 	{
 		SDL_Rect rect{
-			collision_box->pos.x,
-			collision_box->pos.y,
+			collision_box->pos.x - collision_box->size.x / 2,
+			collision_box->pos.y - collision_box->size.y / 2,
 			collision_box->size.x,
 			collision_box->size.y
 		};
-
-		SDL_Color color{ 255, 0, 0, 255 };
+		SDL_Color color = collision_box->enabled ? SDL_Color{ 255, 195, 195,255 } : SDL_Color{ 115, 115, 175,255 };
 		camera.draw_rect(&rect, color);
 	}
 }

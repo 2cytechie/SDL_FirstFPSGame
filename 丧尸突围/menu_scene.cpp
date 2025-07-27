@@ -123,6 +123,7 @@ void MenuScene::update() {
 	std::string select_player_name = PlayerName[select_player];
 	animation_player = ResMgr::instance()->find_animation(select_player_name + "_Idle");
 	animation_player->set_pos(window_size.x / 4 * 3, window_size.y / 10 * 7);
-	animation_player->set_size(5);
+	Vector2 animation_size = animation_player->get_frame_size();
+	animation_player->set_size(200 / animation_size.y);
 	player_name.set(select_player_name, font, { window_size.x / 4 * 3 ,window_size.y / 10 * 7 + 20 });	// ½ÇÉ«Ãû×Ö
 }

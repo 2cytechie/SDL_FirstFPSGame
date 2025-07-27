@@ -69,6 +69,7 @@ public:
 
 	void on_enter(Player* player) override;
 	void on_update(Player* player, float delta) override;
+	void on_exit(Player* player) override;
 
 private:
 

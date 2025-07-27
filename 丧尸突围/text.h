@@ -38,14 +38,17 @@ public:
         this->type = type;
         this->color = color;
         this->background_color = bg_color;
+
+        SDL_DestroyTexture(texture);
+        texture = nullptr;
     }
 
 public:
     std::string text;
     TextType type = TextType::Center;
     TTF_Font* font = nullptr;
-    SDL_Color color;
-    SDL_Color background_color;
+    SDL_Color color{ 0, 0, 0, 255 };
+    SDL_Color background_color{ 0, 0, 0, 0 };
     Vector2 position;
     Vector2 size{ 0,0 };
     SDL_Texture* texture = nullptr;

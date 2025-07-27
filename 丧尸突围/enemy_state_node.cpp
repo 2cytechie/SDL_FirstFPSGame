@@ -60,12 +60,9 @@ void EnemyAttackState::update_hit_box_pos(Enemy* enemy) {
     CollisionBox* hit_box = enemy->get_hit_box();
     Vector2 size_hit_box = hit_box->get_size();
     Vector2 player_pos = enemy->get_pos();
-    float logic_height = enemy->get_logic();
     Vector2 pos_hit_box = player_pos;
-    pos_hit_box.y -= logic_height;
-    if (!enemy->facing_right()) {
-        pos_hit_box.x -= size_hit_box.x;
-    }
+    pos_hit_box.y -= size_hit_box.y / 2;
+    pos_hit_box.x += (enemy->facing_right() ? size_hit_box.x : -size_hit_box.x) / 2;
     hit_box->set_pos(pos_hit_box);
 }
 
@@ -113,17 +110,19 @@ void EnemyIdleState::on_update(Enemy* enemy, float delta)
 void EnemyTakeHitState::on_enter(Enemy* enemy) {
     std::string res_name = enemy->get_name() + "_" + "TakeHit";
     enemy->set_animation(res_name);
+
+    timer.set_wait_time(enemy->get_current_animation_time());
+    timer.set_one_shot(true);
+    timer.set_on_timeout([enemy]()
+        {
+            SDL_Log("TakeHit Over");
+            enemy->switch_state("Idle");
+        });
+    timer.restart();
 }
 
 void EnemyTakeHitState::on_update(Enemy* enemy, float delta) {
-    Vector2 player_pos = LevelMgr::instance()->get_player()->get_pos();
-
-    if (enemy->get_hp() <= 0)
-        enemy->switch_state("Death");
-    else if (enemy->can_attack(player_pos))
-        enemy->switch_state("Attack");
-    else if (enemy->can_pursuit(player_pos))
-        enemy->switch_state("Pursuit");
+    timer.on_update(delta);
 }
 
 void EnemyWalkState::on_enter(Enemy* enemy)

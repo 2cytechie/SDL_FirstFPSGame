@@ -27,10 +27,10 @@ public:
     }
 
     void switch_state(const std::string& id) {
-        /*if (DEBUG) {
-            std::string debug = id;
-            SDL_Log((owner->get_name() + "    current_state:    " + debug).c_str());
-        }*/
+        //if (DEBUG) {
+        //    std::string debug = id;
+        //    SDL_Log((owner->get_name() + "    current_state:    " + debug).c_str());
+        //}
 
         if (current_state) current_state->on_exit(owner);
         current_state = state_pool[id];

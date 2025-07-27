@@ -35,6 +35,8 @@ public:
 	void load(SDL_Texture* texture, int animation_frame) {
 		if (this->texture) {
 			SDL_DestroyTexture(this->texture);
+			this->texture = nullptr;
+			SDL_Log("ReLoad Texture !!! ");
 		}
 
 		this->texture = texture;
@@ -150,6 +152,10 @@ public:
 
 	void set_on_finished(std::function<void()> on_finished) {
 		this->on_finished = on_finished;
+	}
+
+	Vector2 get_frame_size() {
+		return frame_size;
 	}
 
 private:

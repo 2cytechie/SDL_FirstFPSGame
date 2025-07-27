@@ -10,13 +10,16 @@ void LevelMgr::set_player(Player* player) {
 
 void LevelMgr::destory() {
 	delete player;
-
 	for (auto& enemy : enemy_list) {
 		delete enemy;
 	}
 	for (auto& item : item_list) {
 		delete item;
 	}
+
+	player = nullptr;
+	enemy_list.clear();
+	item_list.clear();
 }
 
 void LevelMgr::destory_enemy(Enemy* enemy) {
@@ -73,21 +76,21 @@ void LevelMgr::on_input(const SDL_Event& msg) {
 }
 
 void LevelMgr::on_update(float delta) {
-	player->on_update(delta);
+	for (auto item : item_list) {
+		item->on_update(delta);
+	}
 	for (auto enemy : enemy_list) {
 		enemy->on_update(delta);
 	}
-	//for (auto item : item_list) {
-	//	item->on_update(delta);
-	//}
+	player->on_update(delta);
 }
 void LevelMgr::on_render(Camera& camera) {
-	player->on_render(camera);
+	for (auto item : item_list) {
+		item->on_render(camera);
+	}
 	for (auto enemy : enemy_list) {
 		enemy->on_render(camera);
 	}
-	//for (auto item : item_list) {
-	//	item->on_render(camera);
-	//}
+	player->on_render(camera);
 }
 

@@ -11,7 +11,7 @@ class CollisionMgr :public Singleton<CollisionMgr> {
 
 public:
 	CollisionBox* creat();
-	void distory(CollisionBox* collision);
+	void destory(CollisionBox* collision);
 	void process_collide();			// ¼ì²âÅö×²
 	void on_debug_render(Camera& camera);
 

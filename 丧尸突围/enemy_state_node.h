@@ -57,6 +57,7 @@ public:
     void on_update(Enemy* enemy, float delta) override;
 
 private:
+    Timer timer;
 
 };
 

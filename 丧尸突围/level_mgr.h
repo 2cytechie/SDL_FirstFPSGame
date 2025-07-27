@@ -30,6 +30,7 @@ private:
 
 	~LevelMgr();
 
+	Timer timer_show_name;
 	std::string level_name;						// 关卡名字
 	int current_level = 1;						// 第 几 关
 

@@ -1,1 +1,214 @@
 #pragma once
+
+#include "item.h"
+
+
+class notebook :public Item {
+public:
+	notebook(Vector2 p) : Item(p) {
+		name = "notebook";
+		animation_magnification = 0.3;
+		animation_frame_delta = 100.0f;
+		block_box->set_size({ 300,100 });
+
+		Item::init();
+	}
+	
+	~notebook() = default;
+};
+
+class BoxCat :public Item {
+public:
+	BoxCat(Vector2 p) : Item(p) {
+		name = "BoxCat";
+		animation_magnification = 1.0;
+		animation_frame_delta = 0.1;
+		block_box->set_size({ 300,50 });
+
+		Item::init();
+	}
+
+	~BoxCat() = default;
+};
+
+class bush :public Item {
+public:
+	bush(Vector2 p) : Item(p) {
+		name = "bush";
+		animation_magnification = 1.0;
+		animation_frame_delta = 0.1;
+		block_box->set_size({ 100,100 });
+
+		Item::init();
+	}
+
+	~bush() = default;
+};
+
+class rock_1 :public Item {
+public:
+	rock_1(Vector2 p) : Item(p) {
+		name = "rock_1";
+		animation_magnification = 1.0;
+		animation_frame_delta = 0.1;
+		block_box->set_size({ 100,100 });
+
+		Item::init();
+	}
+
+	~rock_1() = default;
+};
+
+class rock_2 :public Item {
+public:
+	rock_2(Vector2 p) : Item(p) {
+		name = "rock_2";
+		animation_magnification = 1.0;
+		animation_frame_delta = 0.1;
+		block_box->set_size({ 100,100 });
+
+		Item::init();
+	}
+
+	~rock_2() = default;
+};
+
+class rock_3 :public Item {
+public:
+	rock_3(Vector2 p) : Item(p) {
+		name = "rock_3";
+		animation_magnification = 1.0;
+		animation_frame_delta = 0.1;
+		block_box->set_size({ 100,100 });
+
+		Item::init();
+	}
+
+	~rock_3() = default;
+};
+
+class sleepBlackCat :public Item {
+public:
+	sleepBlackCat(Vector2 p) : Item(p) {
+		name = "sleepBlackCat";
+		animation_magnification = 1.0;
+		animation_frame_delta = 0.1;
+		block_box->set_size({ 100,100 });
+
+		Item::init();
+	}
+
+	~sleepBlackCat() = default;
+};
+
+class stone1 :public Item {
+public:
+	stone1(Vector2 p) : Item(p) {
+		name = "stone1";
+		animation_magnification = 1.0;
+		animation_frame_delta = 0.1;
+		block_box->set_size({ 100,100 });
+
+		Item::init();
+	}
+
+	~stone1() = default;
+};
+
+class stone2 :public Item {
+public:
+	stone2(Vector2 p) : Item(p) {
+		name = "stone2";
+		animation_magnification = 1.0;
+		animation_frame_delta = 0.1;
+		block_box->set_size({ 100,100 });
+
+		Item::init();
+	}
+
+	~stone2() = default;
+};
+
+class streelight :public Item {
+public:
+	streelight(Vector2 p) : Item(p) {
+		name = "streelight";
+		animation_magnification = 1.0;
+		animation_frame_delta = 0.1;
+		block_box->set_size({ 100,100 });
+
+		Item::init();
+	}
+
+	~streelight() = default;
+};
+
+class stump :public Item {
+public:
+	stump(Vector2 p) : Item(p) {
+		name = "stump";
+		animation_magnification = 1.0;
+		animation_frame_delta = 0.1;
+		block_box->set_size({ 100,100 });
+
+		Item::init();
+	}
+
+	~stump() = default;
+};
+
+class tree1 :public Item {
+public:
+	tree1(Vector2 p) : Item(p) {
+		name = "tree1";
+		animation_magnification = 1.0;
+		animation_frame_delta = 0.1;
+		block_box->set_size({ 100,100 });
+
+		Item::init();
+	}
+
+	~tree1() = default;
+};
+
+class trunk :public Item {
+public:
+	trunk(Vector2 p) : Item(p) {
+		name = "trunk";
+		animation_magnification = 1.0;
+		animation_frame_delta = 0.1;
+		block_box->set_size({ 100,100 });
+
+		Item::init();
+	}
+
+	~trunk() = default;
+};
+
+class YellowCat :public Item {
+public:
+	YellowCat(Vector2 p) : Item(p) {
+		name = "trunk";
+		animation_magnification = 1.0;
+		animation_frame_delta = 0.1;
+		block_box->set_size({ 100,100 });
+
+		Item::init();
+	}
+
+	~YellowCat() = default;
+};
+
+class plant :public Item {
+public:
+	plant(Vector2 p) : Item(p) {
+		name = "plant";
+		animation_magnification = 1.0;
+		animation_frame_delta = 0.1;
+		block_box->set_size({ 9999,50 });
+
+		Item::init();
+	}
+
+	~plant() = default;
+};

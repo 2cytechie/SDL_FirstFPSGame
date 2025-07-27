@@ -12,14 +12,15 @@ Enemy::Enemy(Vector2 revive_pos) {
 	hurt_box->set_layer_dst(CollisionLayer::None);
 
 	hit_box->set_enabled(false);
-	hit_box->set_on_collide([&]() {
+	hit_box->set_on_collide([&](const CollisionBox* box) {
 		velocity.y = 0;
 
 		SDL_Log("Enemy hit");
 		});
 
-	hurt_box->set_on_collide([&]() {
-		SDL_Log("Enemy hurt");
+	hurt_box->set_on_collide([&](const CollisionBox* box) {
+		on_hurt();
+		//SDL_Log("Enemy hurt");
 		});
 
 	timer_attack_cd.set_wait_time(CD_ATTACK);
@@ -32,6 +33,7 @@ Enemy::Enemy(Vector2 revive_pos) {
 	state_machine.register_state(this, "Attack", new EnemyAttackState());
 	state_machine.register_state(this, "Death", new EnemyDeathState());
 	state_machine.register_state(this, "Idle", new EnemyIdleState());
+	state_machine.register_state(this, "TakeHit", new EnemyTakeHitState());
 	state_machine.register_state(this, "Walk", new EnemyWalkState());
 	state_machine.register_state(this, "Pursuit", new EnemyPursuitState());
 	state_machine.register_state(this, "Return", new EnemyReturnState());
@@ -46,12 +48,6 @@ void Enemy::on_update(float delta) {
 		current_animation->on_update(delta);
 	}
 
-	Vector2 pos_hurt_box = {
-		pos.x - hurt_box->get_size().x / 2,
-		pos.y - hurt_box->get_size().y
-	};
-	hurt_box->set_pos(pos_hurt_box);
-
 	Character::on_update(delta);
 }
 
@@ -64,6 +60,11 @@ void Enemy::switch_state(const std::string& id) {
 }
 
 void Enemy::on_hurt() {
+	if (is_invulnerable) return;
+
+	is_attacking = false;
+	is_attack_cd_comp = true;
+	state_machine.switch_state("TakeHit");
 	// ÊÜ»÷ÒôÐ§
 	Mix_PlayChannel(-1, ResMgr::instance()->find_audio("ui_switch"), 0);
 }
