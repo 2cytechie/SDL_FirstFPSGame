@@ -8,6 +8,8 @@ public:
 
 	~Enemy() = default;
 
+	void init();
+
 	float get_current_animation_time() {
 		if (current_animation) {
 			return current_animation->get_time();
@@ -52,29 +54,6 @@ public:
 		return pos_revive;
 	}
 
-	void take_hit() {
-
-	}
-
-	void walk() {
-		is_facing_right = (pos.x - pos_revive.x) < 0;
-		velocity.x = is_facing_right ? SPEED_WALK : -SPEED_WALK;
-	}
-
-	void idle() {
-		velocity.x = 0;
-	}
-
-	void pursuit(Vector2& player_pos) {
-		is_facing_right = (player_pos.x - pos.x) > 0;
-		velocity.x = is_facing_right ? SPEED_PURSUIT : -SPEED_PURSUIT;
-	}
-
-	void return_revive() {
-		is_facing_right = (pos.x - pos_revive.x) < 0;
-		velocity.x = is_facing_right ? SPEED_WALK : -SPEED_WALK;
-	}
-
 	void on_update(float delta) override;
 	void on_render(Camera& camera)override;
 
@@ -83,6 +62,11 @@ public:
 	void on_hurt() override;
 
 	void attack();
+	void take_hit();
+	void walk();
+	void idle();
+	void pursuit(Vector2& player_pos);
+	void return_revive();
 
 private:
 	StateMachine<Enemy> state_machine;			// µÐÈËÂß¼­×´Ì¬»ú

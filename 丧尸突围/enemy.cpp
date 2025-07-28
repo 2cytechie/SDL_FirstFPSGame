@@ -4,6 +4,7 @@
 
 Enemy::Enemy(Vector2 revive_pos) {
 	pos_revive = revive_pos;
+	pos = revive_pos;
 
 	hit_box->set_layer_src(CollisionLayer::None);
 	hit_box->set_layer_dst(CollisionLayer::Player);
@@ -41,8 +42,18 @@ Enemy::Enemy(Vector2 revive_pos) {
 	state_machine.set_entry("Idle");
 }
 
+void Enemy::init() {
+	block_box->set_size(hurt_box->get_size());
+
+	animation_pool["Attack"] = ResMgr::instance()->find_animation(name + "_Attack");
+	animation_pool["Death"] = ResMgr::instance()->find_animation(name + "_Death");
+	animation_pool["Idle"] = ResMgr::instance()->find_animation(name + "_Idle");
+	animation_pool["Run"] = ResMgr::instance()->find_animation(name + "_Run");
+	animation_pool["TakeHit"] = ResMgr::instance()->find_animation(name + "_TakeHit");
+}
+
 void Enemy::on_update(float delta) {
-	//state_machine.on_update(delta);
+	state_machine.on_update(delta);
 
 	Character::on_update(delta);
 }
@@ -70,4 +81,27 @@ void Enemy::attack() {
 	timer_attack_cd.restart();
 	is_attack_cd_comp = false;
 	hit_box->set_enabled(true);
+}
+
+void Enemy::take_hit() {
+
+}
+
+void Enemy::walk() {
+	is_facing_right = (pos.x - pos_revive.x) < 0;
+	velocity.x = is_facing_right ? SPEED_WALK : -SPEED_WALK;
+}
+
+void Enemy::idle() {
+	velocity.x = 0;
+}
+
+void Enemy::pursuit(Vector2& player_pos) {
+	is_facing_right = (player_pos.x - pos.x) > 0;
+	velocity.x = is_facing_right ? SPEED_PURSUIT : -SPEED_PURSUIT;
+}
+
+void Enemy::return_revive() {
+	is_facing_right = (pos.x - pos_revive.x) < 0;
+	velocity.x = is_facing_right ? SPEED_WALK : -SPEED_WALK;
 }

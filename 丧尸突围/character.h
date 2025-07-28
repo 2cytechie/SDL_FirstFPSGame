@@ -95,6 +95,7 @@ protected:
 	CollisionBox* hit_box = nullptr;								// 攻击碰撞箱
 	CollisionBox* hurt_box = nullptr;								// 受击碰撞箱
 	Animation* current_animation = nullptr;							// 当前角色动画
+	std::unordered_map<std::string, Animation*> animation_pool;		// 动画池
 	float animation_magnification = 1;								// 动画放大倍数
 	float animation_frame_delta = 0;								// 动画帧时间
 

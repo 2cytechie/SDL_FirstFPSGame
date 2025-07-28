@@ -4,8 +4,7 @@
 #include "util.h"
 
 void EnemyAttackState::on_enter(Enemy* enemy) {
-    std::string res_name = enemy->get_name() + "_" + "Attack";
-    enemy->set_animation(res_name);
+    enemy->set_animation("Attack");
 
     timer.set_wait_time(enemy->get_current_animation_time());
     timer.set_one_shot(true);
@@ -68,8 +67,7 @@ void EnemyAttackState::update_hit_box_pos(Enemy* enemy) {
 
 void EnemyDeathState::on_enter(Enemy* enemy)
 {
-    std::string res_name = enemy->get_name() + "_" + "Death";
-    enemy->set_animation(res_name);
+    enemy->set_animation("Death");
 
     Mix_PlayChannel(-1, ResMgr::instance()->find_audio("enemy_death"), 0);
 }
@@ -81,13 +79,12 @@ void EnemyDeathState::on_exit(Enemy* enemy)
 
 void EnemyIdleState::on_enter(Enemy* enemy)
 {
-    std::string res_name = enemy->get_name() + "_" + "Idle";
-    enemy->set_animation(res_name);
+    enemy->set_animation("Idle");
 
     timer.set_wait_time(range_randomF(2.0f,4.0f));
     timer.set_one_shot(true);
     timer.set_on_timeout([enemy]() {
-        enemy->switch_state("Walk");
+        //enemy->switch_state("Walk");
         });
     timer.restart();
 
@@ -99,17 +96,16 @@ void EnemyIdleState::on_update(Enemy* enemy, float delta)
     timer.on_update(delta);
     Vector2 player_pos = LevelMgr::instance()->get_player()->get_pos();
 
-    if (enemy->get_hp() <= 0)
-        enemy->switch_state("Death");
-    else if (enemy->can_attack(player_pos))
-        enemy->switch_state("Attack");
-    else if (enemy->can_pursuit(player_pos))
-        enemy->switch_state("Pursuit");
+    //if (enemy->get_hp() <= 0)
+    //    enemy->switch_state("Death");
+    //else if (enemy->can_attack(player_pos))
+    //    enemy->switch_state("Attack");
+    //else if (enemy->can_pursuit(player_pos))
+    //    enemy->switch_state("Pursuit");
 }
 
 void EnemyTakeHitState::on_enter(Enemy* enemy) {
-    std::string res_name = enemy->get_name() + "_" + "TakeHit";
-    enemy->set_animation(res_name);
+    enemy->set_animation("TakeHit");
 
     timer.set_wait_time(enemy->get_current_animation_time());
     timer.set_one_shot(true);
@@ -127,8 +123,7 @@ void EnemyTakeHitState::on_update(Enemy* enemy, float delta) {
 
 void EnemyWalkState::on_enter(Enemy* enemy)
 {
-    std::string res_name = enemy->get_name() + "_" + "Run";
-    enemy->set_animation(res_name);
+    enemy->set_animation("Run");
 
     timer.set_wait_time(range_randomF(0.5f,1.0f));
     timer.set_one_shot(true);
@@ -163,8 +158,7 @@ void EnemyWalkState::on_exit(Enemy* enemy) {
 
 void EnemyPursuitState::on_enter(Enemy* enemy)
 {
-    std::string res_name = enemy->get_name() + "_" + "Run";
-    enemy->set_animation(res_name);
+    enemy->set_animation("Run");
 
 }
 
@@ -187,8 +181,7 @@ void EnemyPursuitState::on_exit(Enemy* enemy) {
 
 void EnemyReturnState::on_enter(Enemy* enemy)
 {
-    std::string res_name = enemy->get_name() + "_" + "Run";
-    enemy->set_animation(res_name);
+    enemy->set_animation("Run");
 
 }
 

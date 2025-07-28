@@ -60,6 +60,20 @@ public:
 		size = frame_size;
 	}
 
+	Animation* copy() {
+		if (texture) {
+			Animation* new_animation = new Animation();
+			new_animation->load(texture, frame_count);
+			return new_animation;
+		}
+		if (animation_list.size() > 0) {
+			Animation* new_animation = new Animation();
+			new_animation->load(animation_list, timer.get_wait_time());
+			return new_animation;
+		}
+		return nullptr;
+	}
+
 	void on_update(float delta) {
 		timer.on_update(delta);
 	}

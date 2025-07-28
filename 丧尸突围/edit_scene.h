@@ -17,14 +17,13 @@ public:
 	void save();
 
 private:
-	Vector2 mouse_pos;				// 鼠标相对窗口位置
-	Vector2 window_pos;				// 窗口位置
-	Timer timer_generate;			// 最短生成时间 防止生成物品过多
-	bool is_generating = false;		// 是否正在生成物品
+	Vector2 mouse_pos;					// 鼠标相对窗口位置
+	Vector2 window_pos;					// 窗口位置
 
-	bool is_select = false;			// 是否选中
-	Enemy* selected_enemy = nullptr;// 选中的敌人
-	Item* selected_item = nullptr;	// 选中的物品
+	bool is_left_button_down = false;	// 鼠标左键是否按下
+	bool is_select = false;				// 是否选中
+	Enemy* selected_enemy = nullptr;	// 选中的敌人
+	Item* selected_item = nullptr;		// 选中的物品
 
 	bool mouse_in_box(CollisionBox* box);
 

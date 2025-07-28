@@ -10,7 +10,7 @@ Mix_Chunk* ResMgr::find_audio(const std::string& name)
 
 Animation* ResMgr::find_animation(const std::string& name)
 {
-    return animation_pool[name];
+    return animation_pool[name]->copy();
 }
 
 ResMgr::ResMgr() = default;

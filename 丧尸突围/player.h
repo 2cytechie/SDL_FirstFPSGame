@@ -10,6 +10,8 @@ public:
 	
 	~Player();
 
+	void init();
+
 	int get_move_axis()const {
 		// 1、向右移动  -1、向左移动   0、静止
 		return is_right_key_down - is_left_key_down;

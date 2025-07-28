@@ -14,6 +14,8 @@ public:
 
         hit_box->set_size({ 100,120 });
         hurt_box->set_size({ 60,100 });
+        
+        Enemy::init();
     }
 
     ~FlyingEye() = default;
@@ -31,6 +33,8 @@ public:
 
         hit_box->set_size({ 100,120 });
         hurt_box->set_size({ 60,100 });
+        
+        Enemy::init();
     }
 
     ~Goblin() = default;
@@ -48,6 +52,8 @@ public:
 
         hit_box->set_size({ 100,120 });
         hurt_box->set_size({ 60,100 });
+        
+        Enemy::init();
     }
 
     ~Mushroom() = default;
@@ -65,6 +71,8 @@ public:
 
         hit_box->set_size({ 100,120 });
         hurt_box->set_size({ 60,100 });
+        
+        Enemy::init();
     }
 
     ~Skeleton() = default;
@@ -82,6 +90,8 @@ public:
 
         hit_box->set_size({ 100,120 });
         hurt_box->set_size({ 60,100 });
+        
+        Enemy::init();
     }
 
     ~SpriteSheets() = default;
@@ -99,6 +109,8 @@ public:
 
         hit_box->set_size({ 100,120 });
         hurt_box->set_size({ 60,100 });
+        
+        Enemy::init();
     }
 
     ~Ninja() = default;
@@ -116,6 +128,8 @@ public:
 
         hit_box->set_size({ 100,120 });
         hurt_box->set_size({ 60,100 });
+        
+        Enemy::init();
     }
 
     ~Minotaur() = default;
@@ -133,6 +147,8 @@ public:
 
         hit_box->set_size({ 100,120 });
         hurt_box->set_size({ 60,100 });
+        
+        Enemy::init();
     }
 
     ~Slime1() = default;
@@ -150,6 +166,8 @@ public:
 
         hit_box->set_size({ 100,120 });
         hurt_box->set_size({ 60,100 });
+        
+        Enemy::init();
     }
 
     ~Slime2() = default;

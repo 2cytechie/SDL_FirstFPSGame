@@ -18,7 +18,6 @@
 #include "instruction_scene.h"
 #include "game_over_scene.h"
 #include "exit_scene.h"
-
 #include "edit_scene.h"
 
 
@@ -31,7 +30,6 @@ void scene_init() {
     SceneMgr::instance()->add(SceneMgr::SceneType::PlayingInstrution, new InstructionScene());
     SceneMgr::instance()->add(SceneMgr::SceneType::GameOver, new GameOverScene());
     SceneMgr::instance()->add(SceneMgr::SceneType::Exit, new ExitScene());
-
     SceneMgr::instance()->add(SceneMgr::SceneType::Edit, new EditScene());
 
     SceneMgr::instance()->set_current_scene(SceneMgr::SceneType::Edit);

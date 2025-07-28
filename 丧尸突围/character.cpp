@@ -98,6 +98,6 @@ void Character::on_hurt() {
 }
 
 void Character::set_animation(const std::string& id) {
-	current_animation = ResMgr::instance()->find_animation(id);
+	current_animation = animation_pool[id];
 	current_animation->reset();
 }

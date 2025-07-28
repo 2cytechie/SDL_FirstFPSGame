@@ -47,6 +47,16 @@ Player::Player() {
 
 Player::~Player() = default;
 
+void Player::init() {
+    block_box->set_size(hurt_box->get_size());
+
+    animation_pool["Attack"] = ResMgr::instance()->find_animation(name + "_Attack");
+    animation_pool["Death"] = ResMgr::instance()->find_animation(name + "_Death");
+    animation_pool["Idle"] = ResMgr::instance()->find_animation(name + "_Idle");
+    animation_pool["Jump"] = ResMgr::instance()->find_animation(name + "_Jump");
+    animation_pool["Run"] = ResMgr::instance()->find_animation(name + "_Run");
+}
+
 void Player::set_current_animation(std::string state) {
     std::string file_name = name + "_" + state;
     current_animation = ResMgr::instance()->find_animation(file_name);

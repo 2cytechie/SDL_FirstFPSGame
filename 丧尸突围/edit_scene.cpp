@@ -2,6 +2,7 @@
 
 #include "level_mgr.h"
 #include "scene_mgr.h"
+#include "player_ins.h"
 #include "enemy_ins.h"
 #include "item_ins.h"
 
@@ -19,22 +20,18 @@ bool EditScene::mouse_in_box(CollisionBox* box) {
 void EditScene::on_enter() {
 	// 设置编辑关卡
 	LevelMgr::instance()->load_level(1);
+	// 默认角色  并不设置重力
+	Player* player = new Pexel();
+	player->set_gravity_enabled(false);
+	LevelMgr::instance()->set_player(player);
 
-	timer_generate.set_wait_time(1.0f);
-	timer_generate.set_on_timeout([&]() {
-		is_generating = false;
-		});
 }
 
 void EditScene::on_update(float delta) {
-	// 敌人状态机不能进行更新 需要手动关闭  enemy.cpp -> state_machine.on_update(delta);
+	// 敌人和角色状态机都不能更新  需要手动关闭  让状态机保持 Idle 状态
+	// enemy_state_node.cpp -> EnemyIdleState::on_update
+	// player_state_node.cpp -> PlayerIdleState::on_update
 	LevelMgr::instance()->on_update(delta);
-
-	timer_generate.on_update(delta);
-	// 更新鼠标位置
-	int x, y;
-	SDL_GetMouseState(&x, &y);
-	mouse_pos = Vector2(x, y);
 }
 
 void EditScene::on_render(Camera& camera) {
@@ -62,7 +59,7 @@ void EditScene::on_input(const SDL_Event& msg) {
 	ENTER 保存文件方便创建关卡
 	BACK 删除物品
 	*/
-	if (!is_generating && msg.type == SDL_KEYDOWN) {
+	if (msg.type == SDL_KEYDOWN) {
 		switch (msg.key.keysym.sym) {
 		case SDLK_1:	LevelMgr::instance()->add_item(new notebook(window_pos + mouse_pos));			break;
 		case SDLK_2:	LevelMgr::instance()->add_item(new BoxCat(window_pos + mouse_pos));				break;
@@ -96,8 +93,14 @@ void EditScene::on_input(const SDL_Event& msg) {
 		case SDLK_KP_7:	LevelMgr::instance()->add_enemy(new Slime1(window_pos + mouse_pos));			break;
 		case SDLK_KP_8:	LevelMgr::instance()->add_enemy(new Slime2(window_pos + mouse_pos));			break;
 		}
+		// 敌人不启用重力
+		if (!LevelMgr::instance()->get_enemy_list().empty()) {
+			Enemy* enemy = LevelMgr::instance()->get_enemy_list().back();
+			if (enemy) {
+				enemy->set_gravity_enabled(false);
+			}
+		}
 
-		is_generating = true;
 	}
 
 	switch (msg.type) {
@@ -146,17 +149,18 @@ void EditScene::on_input(const SDL_Event& msg) {
 		break;
 	}
 	case SDL_MOUSEBUTTONDOWN:
-	{
 		if (msg.button.button == SDL_BUTTON_LEFT) {
+			is_left_button_down = true;
 			is_select = false;
 			selected_enemy = nullptr;
-            selected_item = nullptr;
+			selected_item = nullptr;
 
 			for (Enemy* enemy : LevelMgr::instance()->get_enemy_list()) {
 				CollisionBox* box = enemy->get_block_box();
 				if (mouse_in_box(box)) {
 					selected_enemy = enemy;
 					is_select = true;
+					if (DEBUG) SDL_Log("Selected Enemy");
 					break;
 				}
 			}
@@ -167,14 +171,28 @@ void EditScene::on_input(const SDL_Event& msg) {
 					if (mouse_in_box(box)) {
 						selected_item = item;
 						is_select = true;
+						if (DEBUG) SDL_Log("Selected Item");
 						break;
 					}
 				}
 			}
 		}
 		break;
-	}
-
+	case SDL_MOUSEBUTTONUP:
+		is_left_button_down = false;
+		break;
+	case SDL_MOUSEMOTION:
+		mouse_pos = Vector2(msg.motion.x, msg.motion.y);
+		Vector2 mouse_motion = Vector2(msg.motion.xrel, msg.motion.yrel);
+		if (is_left_button_down && is_select) {
+			if (selected_enemy) {
+				selected_enemy->set_pos(selected_enemy->get_pos() + mouse_motion);
+			}
+			if (selected_item) {
+				selected_item->set_pos(selected_item->get_pos() + mouse_motion);
+			}
+		}
+		break;
 	}
 }
 

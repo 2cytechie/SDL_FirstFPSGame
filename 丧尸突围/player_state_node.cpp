@@ -4,8 +4,7 @@
 #include "util.h"
 
 void PlayerAttackState::on_enter(Player* player) {
-	std::string res_name = player->get_name() + "_" + "Attack";
-	player->set_animation(res_name);
+	player->set_animation("Attack");
 
 	timer.set_wait_time(player->get_current_animation_time());
 	timer.set_one_shot(true);
@@ -75,8 +74,7 @@ PlayerDeathState::PlayerDeathState()
 
 void PlayerDeathState::on_enter(Player* player)
 {
-	std::string res_name = player->get_name() + "_" + "Death";
-	player->set_animation(res_name);
+	player->set_animation("Death");
 
 	//Mix_PlayChannel(1, ResMgr::instance()->find_audio("player_dead"), 0);
 }
@@ -88,28 +86,26 @@ void PlayerDeathState::on_update(Player* player, float delta)
 
 void PlayerIdleState::on_enter(Player* player)
 {
-	std::string res_name = player->get_name() + "_" + "Idle";
-	player->set_animation(res_name);
+	player->set_animation("Idle");
 }
 
 void PlayerIdleState::on_update(Player* player, float delta)
 {
-	if (player->get_hp() <= 0)
-		player->switch_state("Death");
-	else if (player->can_attack())
-		player->switch_state("Attack");
-	else if (player->can_jump())
-		player->switch_state("Jump");
-	else if (player->can_dash())
-		player->switch_state("Dash");
-	else if (player->is_on_floor() && player->get_move_axis() != 0)
-		player->switch_state("Run");
+	//if (player->get_hp() <= 0)
+	//	player->switch_state("Death");
+	//else if (player->can_attack())
+	//	player->switch_state("Attack");
+	//else if (player->can_jump())
+	//	player->switch_state("Jump");
+	//else if (player->can_dash())
+	//	player->switch_state("Dash");
+	//else if (player->is_on_floor() && player->get_move_axis() != 0)
+	//	player->switch_state("Run");
 }
 
 void PlayerJumpState::on_enter(Player* player)
 {
-	std::string res_name = player->get_name() + "_" + "Jump";
-	player->set_animation(res_name);
+	player->set_animation("Jump");
 	player->jump();
 
 	Mix_PlayChannel(1, ResMgr::instance()->find_audio("player_jump"), 0);
@@ -140,8 +136,7 @@ PlayerDashState::PlayerDashState() {
 
 void PlayerDashState::on_enter(Player* player)
 {
-	std::string res_name = player->get_name() + "_" + "Idle";
-	player->set_animation(res_name);
+	player->set_animation("Idle");
 
 	player->get_hurt_box()->set_enabled(false);
 	player->set_dashing(true);
@@ -173,8 +168,7 @@ void PlayerDashState::on_exit(Player* player)
 
 void PlayerRunState::on_enter(Player* player)
 {
-	std::string res_name = player->get_name() + "_" + "Run";
-	player->set_animation(res_name);
+	player->set_animation("Run");
 
 	Mix_PlayChannel(1, ResMgr::instance()->find_audio("player_run"), -1);
 }
