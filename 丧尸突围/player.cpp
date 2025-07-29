@@ -14,12 +14,9 @@ Player::Player() {
 	hurt_box->set_layer_dst(CollisionLayer::None);
 
 	hit_box->set_enabled(false);
-	hit_box->set_on_collide([&](const CollisionBox* box) {
-        SDL_Log("Player hit");
-		});
 
     hurt_box->set_on_collide([&](const CollisionBox* box) {
-        //SDL_Log("Player hurt");
+        decrease_hp(box->get_damage());
         });
 
 	timer_dash_cd.set_wait_time(CD_DASH);
@@ -48,6 +45,9 @@ Player::Player() {
 Player::~Player() = default;
 
 void Player::init() {
+    int damage = 1000 / hit_box->get_size().x;
+    hit_box->set_damage(damage);
+
     block_box->set_size(hurt_box->get_size());
 
     animation_pool["Attack"] = ResMgr::instance()->find_animation(name + "_Attack");
@@ -173,6 +173,10 @@ void Player::dash() {
     timer_dash_cd.restart();
     is_dash_cd_comp = false;
     velocity.x += is_facing_right ? SPEED_DASH : -SPEED_DASH;
+}
+
+void Player::hp_returning(int return_hp) {
+    hp = hp + return_hp >= max_hp ? max_hp : hp + return_hp;
 }
 
 void Player::switch_state(const std::string& id) {

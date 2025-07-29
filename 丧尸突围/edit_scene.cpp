@@ -1,5 +1,4 @@
 #include "edit_scene.h"
-
 #include "level_mgr.h"
 #include "scene_mgr.h"
 #include "player_ins.h"
@@ -19,12 +18,10 @@ bool EditScene::mouse_in_box(CollisionBox* box) {
 
 void EditScene::on_enter() {
 	// 设置编辑关卡
-	LevelMgr::instance()->load_level(1);
+	LevelMgr::instance()->load_level(EDIT_LEVEL);
 	// 默认角色  并不设置重力
-	Player* player = new Pexel();
-	player->set_gravity_enabled(false);
-	LevelMgr::instance()->set_player(player);
-
+	LevelMgr::instance()->select_player(1);
+	LevelMgr::instance()->get_player()->set_gravity_enabled(false);
 }
 
 void EditScene::on_update(float delta) {
@@ -192,6 +189,10 @@ void EditScene::on_input(const SDL_Event& msg) {
 				selected_item->set_pos(selected_item->get_pos() + mouse_motion);
 			}
 		}
+		// 移动窗口
+        if (is_left_button_down && !is_select) {
+            window_pos -= mouse_motion;
+        }
 		break;
 	}
 }

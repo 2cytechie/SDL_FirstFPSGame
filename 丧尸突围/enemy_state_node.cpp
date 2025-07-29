@@ -74,6 +74,8 @@ void EnemyDeathState::on_enter(Enemy* enemy)
 
 void EnemyDeathState::on_exit(Enemy* enemy)
 {
+    // 杀死敌人固定回复2点生命
+    LevelMgr::instance()->get_player()->hp_returning(2);
     LevelMgr::instance()->destory_enemy(enemy);
 }
 

@@ -13,15 +13,9 @@ Enemy::Enemy(Vector2 revive_pos) {
 	hurt_box->set_layer_dst(CollisionLayer::None);
 
 	hit_box->set_enabled(false);
-	hit_box->set_on_collide([&](const CollisionBox* box) {
-		velocity.y = 0;
-
-		SDL_Log("Enemy hit");
-		});
 
 	hurt_box->set_on_collide([&](const CollisionBox* box) {
-		on_hurt();
-		//SDL_Log("Enemy hurt");
+		decrease_hp(box->get_damage());
 		});
 
 	timer_attack_cd.set_wait_time(CD_ATTACK);
@@ -29,6 +23,12 @@ Enemy::Enemy(Vector2 revive_pos) {
 	timer_attack_cd.set_on_timeout([&]() {
 		is_attack_cd_comp = true;
 		hit_box->set_enabled(false);
+		});
+
+	timer_render_hp.set_wait_time(5.0f);
+    timer_render_hp.set_one_shot(true);
+	timer_render_hp.set_on_timeout([&]() {
+		is_render_hp = false;
 		});
 
 	state_machine.register_state(this, "Attack", new EnemyAttackState());
@@ -43,6 +43,9 @@ Enemy::Enemy(Vector2 revive_pos) {
 }
 
 void Enemy::init() {
+	int damage = 1000 / hit_box->get_size().x;
+	hit_box->set_damage(damage);
+
 	block_box->set_size(hurt_box->get_size());
 
 	animation_pool["Attack"] = ResMgr::instance()->find_animation(name + "_Attack");
@@ -60,6 +63,28 @@ void Enemy::on_update(float delta) {
 
 void Enemy::on_render(Camera& camera) {
 	Character::on_render(camera);
+	
+	if (is_render_hp) {
+		// 绘制血条
+		SDL_Color color_rect = { 128,0,0,255 };
+		SDL_Color color_hp = { 255,0,0,255 };
+
+		Vector2 size = hurt_box->get_size();
+		SDL_Rect rect_rect = {
+			pos.x - size.x / 3 * 2,
+			pos.y - size.y - 20,
+			size.x / 3 * 4,
+			10
+		};
+		SDL_Rect rect_hp = {
+			pos.x - size.x / 3 * 2,
+			pos.y - size.y - 20,
+			hp / max_hp * size.x / 3 * 4,
+			10
+		};
+		camera.draw_rect(&rect_rect, color_rect);
+		camera.fill_rect(&rect_hp, color_hp);
+	}
 }
 
 void Enemy::switch_state(const std::string& id) {
@@ -69,6 +94,10 @@ void Enemy::switch_state(const std::string& id) {
 void Enemy::on_hurt() {
 	if (is_invulnerable) return;
 
+	// 绘制血条
+	is_render_hp = true;
+
+	// 转换受击动画
 	is_attacking = false;
 	is_attack_cd_comp = true;
 	state_machine.switch_state("TakeHit");

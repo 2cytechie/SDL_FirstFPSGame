@@ -3,6 +3,9 @@
 
 class Level1 : public Level {
 	void load() override {
+		font = TTF_OpenFont("resources/IPix.ttf", 100);
+		name = new Text(u8"Óà½ý·ÐÑª", font, { 1280 / 2,720 / 2 });
+
 		//enemy_list.push_back(new Mushroom({ 100,200 }));
 		//enemy_list.push_back(new Skeleton({ 300,200 }));
 

@@ -3,7 +3,6 @@
 #include "character_name.h"
 #include "res_mgr.h"
 #include "level_mgr.h"
-#include "player_ins.h"
 
 MenuScene::MenuScene() = default;
 
@@ -69,34 +68,7 @@ void MenuScene::on_input(const SDL_Event& msg) {
 		case SDLK_RETURN:
 		{
 			if (select_game == 0) {
-				Player* player = nullptr;
-				switch (select_player) {
-				case 0:
-					player = new Sprites();
-					break;
-				case 1:
-					player = new Pexel();
-					break;
-				case 2:
-					player = new Knight();
-					break;
-				case 3:
-					player = new Soldier();
-					break;
-				case 4:
-					player = new Fighter();
-					break;
-				case 5:
-					player = new Samurai();
-					break;
-				case 6:
-					player = new Martial();
-					break;
-
-				default:
-					SDL_Log("Creat player Error !!!");
-				}
-				LevelMgr::instance()->set_player(player);
+				LevelMgr::instance()->select_player(select_player);
 				SceneMgr::instance()->switch_to(SceneMgr::SceneType::GameOn);
 			}
 			else if (select_game == 1) {

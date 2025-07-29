@@ -1,5 +1,4 @@
 #pragma once
-
 #include "player.h"
 
 class Knight :public Player {
@@ -61,7 +60,7 @@ public:
 		animation_frame_delta = 0.15f;
 
 		hit_box->set_size({ 100,140 });
-		hurt_box->set_size({ 50,80 });
+		hurt_box->set_size({ 50,85 });
 		
 		Player::init();
 	}

@@ -1,24 +1,31 @@
 #include "level_mgr.h"
 #include "level1.h"
+#include "player_ins.h"
 
 LevelMgr::LevelMgr() = default;
 
 LevelMgr::~LevelMgr() = default;
 
-void LevelMgr::set_player(Player* player) {
-	this->player = player;
+void LevelMgr::select_player(int select) {
+	delete player;
+	player = nullptr;
+	switch (select) {
+	case 0:		player = new Sprites();		break;
+	case 1:		player = new Pexel();		break;
+	case 2:		player = new Knight();		break;
+	case 3:		player = new Soldier();		break;
+	case 4:		player = new Fighter();		break;
+	case 5:		player = new Samurai();		break;
+	case 6:		player = new Martial();		break;
+
+	default:	SDL_Log("Creat player Error !!!");
+	}
 }
 
 void LevelMgr::destory() {
-	delete player;
-	for (auto& enemy : enemy_list) {
-		delete enemy;
-	}
-	for (auto& item : item_list) {
-		delete item;
-	}
+	delete current_level;
+	current_level = nullptr;
 
-	player = nullptr;
 	enemy_list.clear();
 	item_list.clear();
 }
@@ -47,18 +54,22 @@ void LevelMgr::destory_item(Item* item) {
 }
 
 void LevelMgr::load_level(int n) {
-	// 删除 new 的对象
-	for (auto& enemy : enemy_list) {
-		delete enemy;
-	}
-	for (auto& item : item_list) {
-		delete item;
-	}
-	enemy_list.clear();
-	item_list.clear();
+	N_Level = n;
+	timer_show_name.set_wait_time(3.0f);
+	timer_show_name.set_one_shot(true);
+	timer_show_name.set_on_timeout([&]() {
+		show_level_name = false;
+		});
+	timer_show_name.restart();
 
-	// 增加关卡
-	switch (n) {
+	delete background;
+	background = ResMgr::instance()->find_animation("background");
+
+	// 删除 new 的对象
+	destory();
+
+	// 增加关卡  再次  load_level  创建下一关
+	switch (N_Level++) {
 	case 1: current_level = new Level1();	break;
 
 	default:
@@ -66,6 +77,7 @@ void LevelMgr::load_level(int n) {
 	}
 
 	current_level->load();
+	level_name = current_level->get_name();
 	enemy_list = current_level->get_enemy_list();
 	item_list = current_level->get_item_list();
 }
@@ -80,6 +92,8 @@ void LevelMgr::on_input(const SDL_Event& msg) {
 }
 
 void LevelMgr::on_update(float delta) {
+	timer_show_name.on_update(delta);
+
 	for (auto item : item_list) {
 		item->on_update(delta);
 	}
@@ -90,13 +104,19 @@ void LevelMgr::on_update(float delta) {
 	player->on_update(delta);
 }
 void LevelMgr::on_render(Camera& camera) {
-	for (auto item : item_list) {
-		item->on_render(camera);
+	if (show_level_name) {
+		background->on_render(camera);
+		camera.draw_text(level_name);
 	}
-	for (auto enemy : enemy_list) {
-		enemy->on_render(camera);
+	else {
+		for (auto item : item_list) {
+			item->on_render(camera);
+		}
+		for (auto enemy : enemy_list) {
+			enemy->on_render(camera);
+		}
+		if (!player) return;
+		player->on_render(camera);
 	}
-	if (!player) return;
-	player->on_render(camera);
 }
 

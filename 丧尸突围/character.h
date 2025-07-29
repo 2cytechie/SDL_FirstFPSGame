@@ -18,6 +18,10 @@ public:
 		return hp;
 	}
 
+	int get_max_hp() {
+		return max_hp;
+	}
+
 	void set_pos(const Vector2& pos) {
 		this->pos = pos;
 	}
@@ -83,7 +87,7 @@ protected:
 protected:
 	std::string name;												// 角色名字
 	int hp = 0;														// 角色生命值
-	float max_hp = 0;												// 角色最大生命值
+	int max_hp = 0;												// 角色最大生命值
 	Vector2 pos;													// 角色脚底位置
 	Vector2 velocity;												// 角色速度
 	bool on_floor = false;											// 角色是否在地板上

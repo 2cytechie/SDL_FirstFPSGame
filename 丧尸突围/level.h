@@ -7,8 +7,24 @@
 
 class Level {
 public:
+	Level() = default;
+
+	~Level() {
+		TTF_CloseFont(font);
+		delete name;
+		for (auto enemy : enemy_list) {
+			delete enemy;
+		}
+		for (auto item : item_list) {
+			delete item;
+		}
+	}
+
 	virtual void load() = 0;
 
+	Text* get_name() {
+		return name;
+	}
 	std::vector<Enemy*> get_enemy_list() {
 		return enemy_list;
 	}
@@ -17,7 +33,8 @@ public:
 	}
 
 protected:
-	std::string name;
+	TTF_Font* font = nullptr;
+	Text* name = nullptr;
 	std::vector<Enemy*> enemy_list;
 	std::vector<Item*> item_list;
 

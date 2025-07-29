@@ -1,5 +1,4 @@
 #pragma once
-
 #include "vector2.h"
 #include "animation.h"
 #include "collision_mgr.h"

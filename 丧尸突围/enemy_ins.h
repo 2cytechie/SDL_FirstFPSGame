@@ -1,5 +1,4 @@
 #pragma once
-
 #include "enemy.h"
 
 class FlyingEye : public Enemy {
@@ -9,11 +8,11 @@ public:
         hp = 100;
         max_hp = 100;
 
-        animation_magnification = 3.0f;
+        animation_magnification = 2.0f;
         animation_frame_delta = 0.15f;
 
         hit_box->set_size({ 100,120 });
-        hurt_box->set_size({ 60,100 });
+        hurt_box->set_size({ 70,60});
         
         Enemy::init();
     }
@@ -28,11 +27,11 @@ public:
         hp = 100;
         max_hp = 100;
 
-        animation_magnification = 3.0f;
+        animation_magnification = 2.3f;
         animation_frame_delta = 0.15f;
 
         hit_box->set_size({ 100,120 });
-        hurt_box->set_size({ 60,100 });
+        hurt_box->set_size({ 70,85 });
         
         Enemy::init();
     }
@@ -47,7 +46,7 @@ public:
         hp = 100;
         max_hp = 100;
 
-        animation_magnification = 3.0f;
+        animation_magnification = 2.6f;
         animation_frame_delta = 0.15f;
 
         hit_box->set_size({ 100,120 });
@@ -66,7 +65,7 @@ public:
         hp = 100;
         max_hp = 100;
 
-        animation_magnification = 3.0f;
+        animation_magnification = 2.0f;
         animation_frame_delta = 0.15f;
 
         hit_box->set_size({ 100,120 });
@@ -85,11 +84,11 @@ public:
         hp = 100;
         max_hp = 100;
 
-        animation_magnification = 3.0f;
+        animation_magnification = 2.7f;
         animation_frame_delta = 0.15f;
 
         hit_box->set_size({ 100,120 });
-        hurt_box->set_size({ 60,100 });
+        hurt_box->set_size({ 50,66 });
         
         Enemy::init();
     }
@@ -104,11 +103,11 @@ public:
         hp = 100;
         max_hp = 100;
 
-        animation_magnification = 3.0f;
+        animation_magnification = 2.5f;
         animation_frame_delta = 0.15f;
 
         hit_box->set_size({ 100,120 });
-        hurt_box->set_size({ 60,100 });
+        hurt_box->set_size({ 60,90 });
         
         Enemy::init();
     }
@@ -123,11 +122,11 @@ public:
         hp = 100;
         max_hp = 100;
 
-        animation_magnification = 3.0f;
+        animation_magnification = 0.78f;
         animation_frame_delta = 0.15f;
 
         hit_box->set_size({ 100,120 });
-        hurt_box->set_size({ 60,100 });
+        hurt_box->set_size({ 50,75 });
         
         Enemy::init();
     }
@@ -142,11 +141,11 @@ public:
         hp = 100;
         max_hp = 100;
 
-        animation_magnification = 3.0f;
+        animation_magnification = 2.0f;
         animation_frame_delta = 0.15f;
 
         hit_box->set_size({ 100,120 });
-        hurt_box->set_size({ 60,100 });
+        hurt_box->set_size({ 40,40 });
         
         Enemy::init();
     }
@@ -161,11 +160,11 @@ public:
         hp = 100;
         max_hp = 100;
 
-        animation_magnification = 3.0f;
+        animation_magnification = 2.0f;
         animation_frame_delta = 0.15f;
 
         hit_box->set_size({ 100,120 });
-        hurt_box->set_size({ 60,100 });
+        hurt_box->set_size({ 40,40 });
         
         Enemy::init();
     }

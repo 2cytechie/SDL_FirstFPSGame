@@ -70,6 +70,12 @@ void Character::on_update(float delta) {
 
 	pos += velocity * delta;
 
+	// ·ÀÖ¹µôÈëÆÁÄ»Íâ
+	if (pos.y > 720) {
+		pos.y = 720;
+		velocity.y = 0;
+	}
+
 	timer_invulnerable_status.on_update(delta);
 
 	Vector2 pos_hurt_box = {
@@ -82,12 +88,11 @@ void Character::on_update(float delta) {
 	if (!current_animation) return;
 
 	current_animation->set_pos(pos);
-	current_animation->set_interval(animation_frame_delta);
-	current_animation->set_size(animation_magnification);
 	current_animation->on_update(delta);
 }
 
 void Character::on_render(Camera& camera) {
+	// »æÖÆ¶¯»­
 	if (!current_animation) return;
 	current_animation->on_render(camera, is_facing_right);
 }
@@ -99,5 +104,7 @@ void Character::on_hurt() {
 
 void Character::set_animation(const std::string& id) {
 	current_animation = animation_pool[id];
+	current_animation->set_interval(animation_frame_delta);
+	current_animation->set_size(animation_magnification);
 	current_animation->reset();
 }

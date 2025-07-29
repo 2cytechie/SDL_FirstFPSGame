@@ -25,6 +25,10 @@ public:
 		pos.y = 0;
 	}
 
+	void set_window_size(Vector2 size) {
+		window_size = size;
+	}
+
 	const Vector2& get_window_size()const {
 		return window_size;
 	}
@@ -46,15 +50,15 @@ public:
 
 
 public:
-	Vector2 window_size{ 1280,70 };		// 窗口大小
+	Vector2 window_size{ 1280,720 };		// 窗口大小
 	//const float damping = 0.1f;			// 阻尼系数，控制平滑度和残留效果
-	//Vector2 velocity;					// 摄像机的移动速度，静态变量以保持状态
+	//Vector2 velocity;						// 摄像机的移动速度，静态变量以保持状态
 
-	SDL_Renderer* renderer;				// 
-	Timer timer_shake;					// 窗口抖动
-	bool is_shaking = false;			// 窗口是否在抖动
-	Vector2 pos;						// 摄像机位置
-	float shaking_strength = 0;			// 抖动幅度大小
+	SDL_Renderer* renderer;					// 
+	Timer timer_shake;						// 窗口抖动
+	bool is_shaking = false;				// 窗口是否在抖动
+	Vector2 pos;							// 摄像机位置
+	float shaking_strength = 0;				// 抖动幅度大小
 
 };
 

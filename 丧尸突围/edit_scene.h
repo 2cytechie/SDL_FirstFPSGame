@@ -1,5 +1,4 @@
 #pragma once
-
 #include "scene.h"
 #include "collision_box.h"
 #include "enemy.h"
@@ -17,6 +16,8 @@ public:
 	void save();
 
 private:
+	const int EDIT_LEVEL = 1;
+
 	Vector2 mouse_pos;					// 鼠标相对窗口位置
 	Vector2 window_pos;					// 窗口位置
 

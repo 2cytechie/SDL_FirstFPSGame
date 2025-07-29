@@ -13,6 +13,7 @@ class CollisionBox {
 private:
 	Vector2 size;				// 尺寸
 	Vector2 pos;				// 中心点位置
+	int damage = 0;				// 伤害
 	bool enabled = true;		// 是否参与碰撞检测
 	std::function<void(const CollisionBox* box)> on_collide;
 	CollisionLayer layer_src = CollisionLayer::None;
@@ -45,6 +46,14 @@ public:
 
 	void set_pos(const Vector2& pos) {
 		this->pos = pos;
+	}
+
+	void set_damage(int damage) {
+		this->damage = damage;
+	}
+
+	int get_damage() const {
+		return damage;
 	}
 
 	const Vector2& get_size() const {

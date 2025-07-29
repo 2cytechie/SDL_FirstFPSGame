@@ -1,14 +1,13 @@
 #pragma once
-
 #include "item.h"
 
 class plant :public Item {
 public:
 	plant(Vector2 p) : Item(p) {
 		name = "plant";
-		animation_magnification = 1.0;
-		animation_frame_delta = 0.1;
-		block_box->set_size({ 9999,50 });
+		animation_magnification = 0.5f;
+		animation_frame_delta = 999.0f;
+		block_box->set_size({ 9999,100 });
 
 		Item::init();
 	}
@@ -20,9 +19,9 @@ class notebook :public Item {
 public:
 	notebook(Vector2 p) : Item(p) {
 		name = "notebook";
-		animation_magnification = 0.3;
-		animation_frame_delta = 100.0f;
-		block_box->set_size({ 300,100 });
+		animation_magnification = 0.2f;
+		animation_frame_delta = 999.0f;
+		block_box->set_size({ 76,50 });
 
 		Item::init();
 	}
@@ -34,9 +33,9 @@ class BoxCat :public Item {
 public:
 	BoxCat(Vector2 p) : Item(p) {
 		name = "BoxCat";
-		animation_magnification = 1.0;
-		animation_frame_delta = 0.1;
-		block_box->set_size({ 300,50 });
+		animation_magnification = 1.5f;
+		animation_frame_delta = 0.2f;
+		block_box->set_size({ 48,48 });
 
 		Item::init();
 	}
@@ -48,9 +47,9 @@ class bush :public Item {
 public:
 	bush(Vector2 p) : Item(p) {
 		name = "bush";
-		animation_magnification = 1.0;
-		animation_frame_delta = 0.1;
-		block_box->set_size({ 100,100 });
+		animation_magnification = 1.0f;
+		animation_frame_delta = 999.0f;
+		block_box->set_size({ 30,30 });
 
 		Item::init();
 	}
@@ -62,9 +61,9 @@ class rock_1 :public Item {
 public:
 	rock_1(Vector2 p) : Item(p) {
 		name = "rock_1";
-		animation_magnification = 1.0;
-		animation_frame_delta = 0.1;
-		block_box->set_size({ 100,100 });
+		animation_magnification = 2.0f;
+		animation_frame_delta = 999.0f;
+		block_box->set_size({ 40,24 });
 
 		Item::init();
 	}
@@ -76,9 +75,9 @@ class rock_2 :public Item {
 public:
 	rock_2(Vector2 p) : Item(p) {
 		name = "rock_2";
-		animation_magnification = 1.0;
-		animation_frame_delta = 0.1;
-		block_box->set_size({ 100,100 });
+		animation_magnification = 2.0f;
+		animation_frame_delta = 999.0f;
+		block_box->set_size({ 53,26 });
 
 		Item::init();
 	}
@@ -90,9 +89,9 @@ class rock_3 :public Item {
 public:
 	rock_3(Vector2 p) : Item(p) {
 		name = "rock_3";
-		animation_magnification = 1.0;
-		animation_frame_delta = 0.1;
-		block_box->set_size({ 100,100 });
+		animation_magnification = 2.0f;
+		animation_frame_delta = 999.0f;
+		block_box->set_size({ 90,38 });
 
 		Item::init();
 	}
@@ -104,9 +103,9 @@ class sleepBlackCat :public Item {
 public:
 	sleepBlackCat(Vector2 p) : Item(p) {
 		name = "sleepBlackCat";
-		animation_magnification = 1.0;
-		animation_frame_delta = 0.1;
-		block_box->set_size({ 100,100 });
+		animation_magnification = 1.0f;
+		animation_frame_delta = 0.15f;
+		block_box->set_size({ 60,50 });
 
 		Item::init();
 	}
@@ -118,9 +117,9 @@ class stone1 :public Item {
 public:
 	stone1(Vector2 p) : Item(p) {
 		name = "stone1";
-		animation_magnification = 1.0;
-		animation_frame_delta = 0.1;
-		block_box->set_size({ 100,100 });
+		animation_magnification = 2.0f;
+		animation_frame_delta = 999.0f;
+		block_box->set_size({ 35,30 });
 
 		Item::init();
 	}
@@ -132,9 +131,9 @@ class stone2 :public Item {
 public:
 	stone2(Vector2 p) : Item(p) {
 		name = "stone2";
-		animation_magnification = 1.0;
-		animation_frame_delta = 0.1;
-		block_box->set_size({ 100,100 });
+		animation_magnification = 2.0f;
+		animation_frame_delta = 999.0f;
+		block_box->set_size({ 33,28 });
 
 		Item::init();
 	}
@@ -146,9 +145,9 @@ class streelight :public Item {
 public:
 	streelight(Vector2 p) : Item(p) {
 		name = "streelight";
-		animation_magnification = 1.0;
-		animation_frame_delta = 0.1;
-		block_box->set_size({ 100,100 });
+		animation_magnification = 2.0f;
+		animation_frame_delta = 999.0f;
+		block_box->set_size({ 30,146 });
 
 		Item::init();
 	}
@@ -160,9 +159,9 @@ class stump :public Item {
 public:
 	stump(Vector2 p) : Item(p) {
 		name = "stump";
-		animation_magnification = 1.0;
-		animation_frame_delta = 0.1;
-		block_box->set_size({ 100,100 });
+		animation_magnification = 4.0f;
+		animation_frame_delta = 999.0f;
+		block_box->set_size({ 56,44 });
 
 		Item::init();
 	}
@@ -174,9 +173,9 @@ class tree1 :public Item {
 public:
 	tree1(Vector2 p) : Item(p) {
 		name = "tree1";
-		animation_magnification = 1.0;
-		animation_frame_delta = 0.1;
-		block_box->set_size({ 100,100 });
+		animation_magnification = 3.0f;
+		animation_frame_delta = 0.15f;
+		block_box->set_size({ 90,200 });
 
 		Item::init();
 	}
@@ -188,9 +187,9 @@ class trunk :public Item {
 public:
 	trunk(Vector2 p) : Item(p) {
 		name = "trunk";
-		animation_magnification = 1.0;
-		animation_frame_delta = 0.1;
-		block_box->set_size({ 100,100 });
+		animation_magnification = 2.0f;
+		animation_frame_delta = 999.0f;
+		block_box->set_size({ 62,38 });
 
 		Item::init();
 	}
@@ -202,9 +201,9 @@ class YellowCat :public Item {
 public:
 	YellowCat(Vector2 p) : Item(p) {
 		name = "YellowCat";
-		animation_magnification = 1.0;
-		animation_frame_delta = 0.1;
-		block_box->set_size({ 100,100 });
+		animation_magnification = 1.5f;
+		animation_frame_delta = 0.15f;
+		block_box->set_size({ 48,48 });
 
 		Item::init();
 	}
@@ -216,9 +215,11 @@ class background :public Item {
 public:
 	background(Vector2 p) : Item(p) {
 		name = "background";
-		animation_magnification = 1.0;
-		animation_frame_delta = 0.1;
-		block_box->set_size({ 100,100 });
+		animation_magnification = 1.0f;
+		animation_frame_delta = 999.0f;
+		block_box->set_size({ 576,324 });
+
+		block_box->set_enabled(false);
 
 		Item::init();
 	}
@@ -230,9 +231,11 @@ class sunsetbackground :public Item {
 public:
 	sunsetbackground(Vector2 p) : Item(p) {
 		name = "sunsetbackground";
-		animation_magnification = 1.0;
-		animation_frame_delta = 0.1;
-		block_box->set_size({ 100,100 });
+		animation_magnification = 1.0f;
+		animation_frame_delta = 0.15f;
+		block_box->set_size({ 1024,768 });
+
+		block_box->set_enabled(false);
 
 		Item::init();
 	}
@@ -244,9 +247,11 @@ class background_layer :public Item {
 public:
 	background_layer(Vector2 p) : Item(p) {
 		name = "background_layer";
-		animation_magnification = 1.0;
-		animation_frame_delta = 0.1;
-		block_box->set_size({ 100,100 });
+		animation_magnification = 4.0f;
+		animation_frame_delta = 999.0f;
+		block_box->set_size({ 1280,720 });
+
+		block_box->set_enabled(false);
 
 		Item::init();
 	}
@@ -258,9 +263,11 @@ class cloud_1 :public Item {
 public:
 	cloud_1(Vector2 p) : Item(p) {
 		name = "cloud_1";
-		animation_magnification = 1.0;
-		animation_frame_delta = 0.1;
-		block_box->set_size({ 100,100 });
+		animation_magnification = 2.0f;
+		animation_frame_delta = 999.0f;
+		block_box->set_size({ 1152,648 });
+
+		block_box->set_enabled(false);
 
 		Item::init();
 	}
@@ -272,9 +279,11 @@ class cloud_2 :public Item {
 public:
 	cloud_2(Vector2 p) : Item(p) {
 		name = "cloud_2";
-		animation_magnification = 1.0;
-		animation_frame_delta = 0.1;
-		block_box->set_size({ 100,100 });
+		animation_magnification = 2.0f;
+		animation_frame_delta = 999.0f;
+		block_box->set_size({ 1152,648 });
+
+		block_box->set_enabled(false);
 
 		Item::init();
 	}
@@ -286,9 +295,11 @@ class cloud_3 :public Item {
 public:
 	cloud_3(Vector2 p) : Item(p) {
 		name = "cloud_3";
-		animation_magnification = 1.0;
-		animation_frame_delta = 0.1;
-		block_box->set_size({ 100,100 });
+		animation_magnification = 2.0f;
+		animation_frame_delta = 999.0f;
+		block_box->set_size({ 1152,648 });
+
+		block_box->set_enabled(false);
 
 		Item::init();
 	}

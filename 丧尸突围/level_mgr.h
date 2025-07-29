@@ -10,7 +10,7 @@
 class LevelMgr : public Singleton<LevelMgr> {
 	friend Singleton<LevelMgr>;
 public:
-	void set_player(Player* player);
+	void select_player(int select);
 	void destory_enemy(Enemy* enemy);
 	void destory_item(Item* item);
 	void destory();
@@ -42,9 +42,11 @@ private:
 
 	~LevelMgr();
 
+	int N_Level = 1;							// 第 N_Level 关卡
 	Timer timer_show_name;
-	std::string level_name;						// 关卡名字
-	int N_level = 1;							// 第 几 关
+	Animation* background = nullptr;
+	bool show_level_name = false;
+	Text* level_name = nullptr;					// 关卡名字
 
 	Player* player = nullptr;
 	std::vector<Enemy*> enemy_list;

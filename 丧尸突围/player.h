@@ -1,5 +1,4 @@
 #pragma once
-
 #include "res_mgr.h"
 #include "character.h"
 
@@ -67,6 +66,7 @@ public:
 	void attack();
 	void jump();
 	void dash();
+	void hp_returning(int return_hp);
 
 private:
 	StateMachine<Player> state_machine;			// Íæ¼ÒÂß¼­×´Ì¬»ú
