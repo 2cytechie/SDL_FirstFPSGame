@@ -21,6 +21,7 @@ public:
 	}
 
 	virtual void load() = 0;
+	virtual void enemy_strung() = 0;
 
 	Text* get_name() {
 		return name;

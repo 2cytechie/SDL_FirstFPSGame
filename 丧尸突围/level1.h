@@ -13,4 +13,11 @@ class Level1 : public Level {
 		item_list.push_back(new notebook({ 0,500 }));
 		item_list.push_back(new BoxCat({ 400,600 }));
 	}
+
+	void enemy_strung() {
+		// Ôö¼ÓÑªÁ¿
+		for (Enemy* enemy : enemy_list) {
+			enemy->plus_max_hp(10);
+		}
+	}
 };

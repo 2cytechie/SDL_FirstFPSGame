@@ -12,12 +12,17 @@ public:
 
 	~Camera();
 
-	void set_pos(Vector2 pos) {
-		this->pos = pos;
+	void set_pos(Vector2 new_pos) {
+		last_pos = pos;
+		pos = new_pos;
 	}
 
 	const Vector2& get_pos()const {
 		return pos;
+	}
+
+	const Vector2& get_camera_move()const {
+		return pos - last_pos;
 	}
 
 	void reset() {
@@ -34,8 +39,6 @@ public:
 	}
 
 	void on_update(float delta);
-	// 抖动
-	void shake(float strength, float duration);
 	// 跟随点
 	void follow_pos(Vector2 target_pos);
 	// 绘制矩形
@@ -55,9 +58,8 @@ public:
 	//Vector2 velocity;						// 摄像机的移动速度，静态变量以保持状态
 
 	SDL_Renderer* renderer;					// 
-	Timer timer_shake;						// 窗口抖动
-	bool is_shaking = false;				// 窗口是否在抖动
 	Vector2 pos;							// 摄像机位置
+	Vector2 last_pos;						// 上一次摄像机位置
 	float shaking_strength = 0;				// 抖动幅度大小
 
 };

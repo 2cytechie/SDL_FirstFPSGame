@@ -18,8 +18,22 @@ public:
 		return hp;
 	}
 
+	void plus_max_hp(int plus_hp) {
+		max_hp += plus_hp;
+		hp += plus_hp;
+	}
+
 	int get_max_hp() {
 		return max_hp;
+	}
+
+	void plus_attack(int plus_attack) {
+		attack += plus_attack;
+		hit_box->set_damage(attack);
+	}
+
+	int get_damagge() {
+		return attack;
 	}
 
 	void set_pos(const Vector2& pos) {
@@ -87,7 +101,8 @@ protected:
 protected:
 	std::string name;												// 角色名字
 	int hp = 0;														// 角色生命值
-	int max_hp = 0;												// 角色最大生命值
+	int max_hp = 0;													// 角色最大生命值
+	int attack = 0;													// 角色攻击力
 	Vector2 pos;													// 角色脚底位置
 	Vector2 velocity;												// 角色速度
 	bool on_floor = false;											// 角色是否在地板上

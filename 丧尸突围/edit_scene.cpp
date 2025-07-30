@@ -103,85 +103,75 @@ void EditScene::on_input(const SDL_Event& msg) {
 	switch (msg.type) {
 	case SDL_KEYDOWN: 
 	{
-		if (is_select) {
-			Vector2 move_axis;
-			switch (msg.key.keysym.sym) {
-			case SDLK_UP:	move_axis.y -= 10;		break;
-			case SDLK_DOWN: move_axis.y += 10;		break;
-			case SDLK_LEFT: move_axis.x -= 10;		break;
-			case SDLK_RIGHT:move_axis.x += 10;		break;
+		Vector2 move_axis;
+		switch (msg.key.keysym.sym) {
+		case SDLK_UP:	move_axis.y -= 10;		break;
+		case SDLK_DOWN: move_axis.y += 10;		break;
+		case SDLK_LEFT: move_axis.x -= 10;		break;
+		case SDLK_RIGHT:move_axis.x += 10;		break;
+		case SDLK_RETURN: save();				break;
 
-			case SDLK_BACKSPACE:
-			{
-				if (selected_enemy) {
-					LevelMgr::instance()->destory_enemy(selected_enemy);
-					selected_enemy = nullptr;
-					if (DEBUG) SDL_Log("destory selected_enemy");
-				}
-				if (selected_item) {
-					LevelMgr::instance()->destory_item(selected_item);
-					selected_item = nullptr;
-					if (DEBUG) SDL_Log("destory selected_item");
-				}
-				break;
-			}
-			}
+		case SDLK_BACKSPACE:
 			if (selected_enemy) {
-				selected_enemy->set_pos(selected_enemy->get_pos() + move_axis);
+				LevelMgr::instance()->destory_enemy(selected_enemy);
+				selected_enemy = nullptr;
+				if (DEBUG) SDL_Log("destory selected_enemy");
 			}
 			if (selected_item) {
-				selected_item->set_pos(selected_item->get_pos() + move_axis);
+				LevelMgr::instance()->destory_item(selected_item);
+				selected_item = nullptr;
+				if (DEBUG) SDL_Log("destory selected_item");
 			}
+			break;
 		}
-		else {
-			switch (msg.key.keysym.sym) {
-			case SDLK_UP:	window_pos.y -= 20;		break;
-			case SDLK_DOWN: window_pos.y += 20;		break;
-            case SDLK_LEFT: window_pos.x -= 20;		break;
-            case SDLK_RIGHT:window_pos.x += 20;		break;
-
-			case SDLK_RETURN: save();				break;
-			}
+		if (selected_enemy) {
+			selected_enemy->set_pos(selected_enemy->get_pos() + move_axis);
+		}
+		if (selected_item) {
+			selected_item->set_pos(selected_item->get_pos() + move_axis);
 		}
 		break;
 	}
 	case SDL_MOUSEBUTTONDOWN:
 		if (msg.button.button == SDL_BUTTON_LEFT) {
 			is_left_button_down = true;
-			is_select = false;
 			selected_enemy = nullptr;
 			selected_item = nullptr;
 
+			bool is_selected = false;
 			for (Enemy* enemy : LevelMgr::instance()->get_enemy_list()) {
 				CollisionBox* box = enemy->get_block_box();
 				if (mouse_in_box(box)) {
 					selected_enemy = enemy;
-					is_select = true;
+					is_selected = true;
 					if (DEBUG) SDL_Log("Selected Enemy");
 					break;
 				}
 			}
 			// 确保选中一个
-			if (!is_select) {
+			if (!is_selected) {
 				for (Item* item : LevelMgr::instance()->get_item_list()) {
 					CollisionBox* box = item->get_block_box();
 					if (mouse_in_box(box)) {
 						selected_item = item;
-						is_select = true;
 						if (DEBUG) SDL_Log("Selected Item");
 						break;
 					}
 				}
 			}
 		}
+        if (msg.button.button == SDL_BUTTON_RIGHT) {
+			is_right_button_down = true;
+		}
 		break;
 	case SDL_MOUSEBUTTONUP:
 		is_left_button_down = false;
+		is_right_button_down = false;
 		break;
 	case SDL_MOUSEMOTION:
 		mouse_pos = Vector2(msg.motion.x, msg.motion.y);
 		Vector2 mouse_motion = Vector2(msg.motion.xrel, msg.motion.yrel);
-		if (is_left_button_down && is_select) {
+		if (is_left_button_down) {
 			if (selected_enemy) {
 				selected_enemy->set_pos(selected_enemy->get_pos() + mouse_motion);
 			}
@@ -190,7 +180,7 @@ void EditScene::on_input(const SDL_Event& msg) {
 			}
 		}
 		// 移动窗口
-        if (is_left_button_down && !is_select) {
+        if (is_right_button_down) {
             window_pos -= mouse_motion;
         }
 		break;

@@ -75,7 +75,7 @@ private:
 	bool is_attack_cd_comp = true;				// 攻击冷却是否结束
 
 	Timer timer_render_hp;						// 绘制血条计时器
-	bool is_render_hp = false;					// 是否绘制血条
+	bool is_render_hp = true;					// 是否绘制血条
 
 	Vector2 pos_revive;							// 出生点
 	bool is_pursuiting = false;

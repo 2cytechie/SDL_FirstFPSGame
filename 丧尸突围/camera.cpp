@@ -2,35 +2,18 @@
 
 Camera::Camera(SDL_Renderer* renderer) {
 	this->renderer = renderer;
-
-	timer_shake.set_one_shot(true);
-	timer_shake.set_on_timeout([&] {
-		is_shaking = false;
-		reset();
-		});
 }
 
 Camera::~Camera() = default;
 
 void Camera::on_update(float delta) {
-	timer_shake.on_update(delta);
 
-	if (is_shaking) {
-		pos.x = (-50 + rand() % 100) / 50.0f * shaking_strength;
-		pos.y = (-50 + rand() % 100) / 50.0f * shaking_strength;
-	}
-}
-
-void Camera::shake(float strength, float duration) {
-	is_shaking = true;
-	shaking_strength = strength;
-
-	timer_shake.set_wait_time(duration);
-	timer_shake.restart();
 }
 
 void Camera::follow_pos(Vector2 target_pos) {
-	pos.x = target_pos.x - window_size.x / 2;
+	Vector2 offset = pos;
+	offset.x = target_pos.x - window_size.x / 2;
+	set_pos(offset);
 }
 
 void Camera::fill_rect(const SDL_Rect* rect, SDL_Color color) {

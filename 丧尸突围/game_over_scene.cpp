@@ -12,7 +12,7 @@ void GameOverScene::on_enter() {
 	TTF_Font* font_max = TTF_OpenFont("resources/IPix.ttf", 100);
 	TTF_Font* font = TTF_OpenFont("resources/IPix.ttf", 30);
 	game_over			= Text(u8"游戏结束", font_max, { window_size.x / 2,window_size.y / 10 * 3 });	// 游戏结束
-	restart				= Text(u8"重新开始", font, { window_size.x / 2,window_size.y / 10 * 5 });		// 重新开始
+	resume				= Text(u8"继续游戏", font, { window_size.x / 2,window_size.y / 10 * 5 });		// 继续游戏
 	menu				= Text(u8"游戏菜单", font, { window_size.x / 2,window_size.y / 10 * 6 });		// 游戏菜单
 	exit_game			= Text(u8"退出游戏", font, { window_size.x / 2,window_size.y / 10 * 7 });		// 退出游戏
 	
@@ -34,7 +34,7 @@ void GameOverScene::on_render(Camera& camera) {
 
 	
 	camera.draw_text(&game_over);
-	camera.draw_text(&restart);
+	camera.draw_text(&resume);
 	camera.draw_text(&menu);
 	camera.draw_text(&exit_game);
 

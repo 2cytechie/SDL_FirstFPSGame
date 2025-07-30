@@ -43,15 +43,16 @@ private:
 	~LevelMgr();
 
 	int N_Level = 1;							// 第 N_Level 关卡
-	Timer timer_show_name;
-	Animation* background = nullptr;
-	bool show_level_name = false;
-	Text* level_name = nullptr;					// 关卡名字
-
+	int player_death_count = 0;					// 玩家死亡次数
+	
 	Player* player = nullptr;
 	std::vector<Enemy*> enemy_list;
 	std::vector<Item*> item_list;
 
+	Timer timer_show_name;
+	bool show_level_name = false;
+	Animation* background = nullptr;
+	Text* level_name = nullptr;					// 关卡名字
 	Level* current_level = nullptr;				// 当前关卡
 
 };

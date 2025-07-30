@@ -39,6 +39,9 @@ void LevelMgr::destory_enemy(Enemy* enemy) {
 		delete* it;
 		enemy_list.erase(it);
 	}
+
+	// 触发关卡事件
+	current_level->enemy_strung();
 }
 
 void LevelMgr::destory_item(Item* item) {
@@ -80,6 +83,12 @@ void LevelMgr::load_level(int n) {
 	level_name = current_level->get_name();
 	enemy_list = current_level->get_enemy_list();
 	item_list = current_level->get_item_list();
+
+	// 玩家增加血量和攻击力
+	if (player) {
+		player->plus_max_hp(5);
+		player->plus_attack(1);
+	}
 }
 
 Player* LevelMgr::get_player() {
@@ -118,5 +127,39 @@ void LevelMgr::on_render(Camera& camera) {
 		if (!player) return;
 		player->on_render(camera);
 	}
+
+	// UI
+	// 绘制血条  和攻击力
+	SDL_Color color_rect = { 128,0,0,255 };
+	SDL_Color color_hp = { 200,0,0,255 };
+
+	int max_hp = player->get_max_hp();
+	int hp = player->get_hp();
+	Vector2 window_size = camera.get_window_size();
+	Vector2 camera_pos = camera.get_pos();
+	SDL_Rect rect_max_hp = {
+		camera_pos.x + 10,
+		camera_pos.y + window_size.y - 35,
+		max_hp,
+		10
+	};
+	SDL_Rect rect_hp = {
+		camera_pos.x + 10,
+		camera_pos.y + window_size.y - 35,
+		hp / max_hp,
+		10
+	};
+	camera.draw_rect(&rect_max_hp, color_rect);
+	camera.fill_rect(&rect_hp, color_hp);
+
+	SDL_Color color_attack = { 0,0,128,255 };
+	int attack = player->get_damagge();
+	SDL_Rect rect_attack = {
+		camera_pos.x + 10,
+		camera_pos.y + window_size.y - 20,
+		attack * 2,
+		10
+	};
+	camera.fill_rect(&rect_attack, color_attack);
 }
 

@@ -31,6 +31,8 @@ void Item::on_update(float delta) {
 }
 
 void Item::on_render(Camera& camera) {
+	pos -= camera.get_camera_move() * relative_camera_speed;
+
 	if (!animation) return;
 	animation->on_render(camera, is_facing_right);
 }

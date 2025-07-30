@@ -34,31 +34,6 @@ void GameOnScene::on_render(Camera& camera) {
 
 	// DEBUG Åö×²Ïä
 	CollisionMgr::instance()->on_debug_render(camera);
-
-	// UI
-	// »æÖÆÑªÌõ
-	SDL_Color color_rect = { 128,0,0,255 };
-	SDL_Color color_hp = { 200,0,0,255 };
-
-	int max_hp = LevelMgr::instance()->get_player()->get_max_hp();
-    int hp = LevelMgr::instance()->get_player()->get_hp();
-	Vector2 window_size = camera.get_window_size();
-	Vector2 camera_pos = camera.get_pos();
-	SDL_Rect rect_rect = {
-		camera_pos.x + 10,
-		camera_pos.y + window_size.y - 20,
-		window_size.x / 3 * 2,
-		10
-	};
-	SDL_Rect rect_hp = {
-		camera_pos.x + 10,
-		camera_pos.y + window_size.y - 20,
-		hp / max_hp * window_size.x / 3 * 2,
-		10
-	};
-	camera.draw_rect(&rect_rect, color_rect);
-	camera.fill_rect(&rect_hp, color_hp);
-
 }
 
 void GameOnScene::on_input(const SDL_Event& msg) {

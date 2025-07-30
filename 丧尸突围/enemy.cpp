@@ -71,15 +71,15 @@ void Enemy::on_render(Camera& camera) {
 
 		Vector2 size = hurt_box->get_size();
 		SDL_Rect rect_rect = {
-			pos.x - size.x / 3 * 2,
+			pos.x - max_hp / 2,
 			pos.y - size.y - 20,
-			size.x / 3 * 4,
+			max_hp,
 			10
 		};
 		SDL_Rect rect_hp = {
-			pos.x - size.x / 3 * 2,
+			pos.x - max_hp / 2,
 			pos.y - size.y - 20,
-			hp / max_hp * size.x / 3 * 4,
+			hp / max_hp,
 			10
 		};
 		camera.draw_rect(&rect_rect, color_rect);

@@ -5,7 +5,7 @@
 Player::Player() {
     hp = 100;
     max_hp = 100;
-    pos = Vector2(100, 100);
+    pos = Vector2(0, 0);
 
 	hit_box->set_layer_src(CollisionLayer::None);
 	hit_box->set_layer_dst(CollisionLayer::Enemy);
@@ -45,8 +45,8 @@ Player::Player() {
 Player::~Player() = default;
 
 void Player::init() {
-    int damage = 1000 / hit_box->get_size().x;
-    hit_box->set_damage(damage);
+    Character::attack = 1000 / hit_box->get_size().x;
+    hit_box->set_damage(Character::attack);
 
     block_box->set_size(hurt_box->get_size());
 

@@ -22,7 +22,7 @@ private:
 	Vector2 window_pos;					// 窗口位置
 
 	bool is_left_button_down = false;	// 鼠标左键是否按下
-	bool is_select = false;				// 是否选中
+	bool is_right_button_down = false;	// 鼠标右键是否按下
 	Enemy* selected_enemy = nullptr;	// 选中的敌人
 	Item* selected_item = nullptr;		// 选中的物品
 

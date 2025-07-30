@@ -18,7 +18,7 @@ private:
 
 	int select_game = 0;
 	Text game_over;								// 游戏结束
-	Text restart;								// 重新开始
+	Text resume;								// 继续游戏
 	Text menu;									// 游戏菜单
 	Text exit_game;								// 退出游戏
 	TTF_Font* font_max = nullptr;				// 字体方便退出时销毁
