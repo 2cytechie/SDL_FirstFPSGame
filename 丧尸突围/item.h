@@ -32,7 +32,7 @@ public:
 protected:
 	std::string name;
 	Vector2 pos;									// 位置
-	float relative_camera_speed = 1;				// 相对于相机的移动速度
+	float relative_camera_speed = 0.0f;				// 相对于相机的移动速度
 	float animation_magnification = 1;				// 放大倍数
 	float animation_frame_delta = 0.1f;				// 动画每帧时间
 	bool is_facing_right = true;

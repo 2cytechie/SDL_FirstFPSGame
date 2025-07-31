@@ -215,7 +215,7 @@ class background :public Item {
 public:
 	background(Vector2 p) : Item(p) {
 		name = "background";
-		relative_camera_speed = 10.0f;
+		relative_camera_speed = 0.3f;
 		animation_magnification = 1.0f;
 		animation_frame_delta = 999.0f;
 		block_box->set_size({ 576,324 });

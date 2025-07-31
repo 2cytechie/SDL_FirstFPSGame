@@ -119,7 +119,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>Thirdparty\SDL2\include;Thirdparty\SDL2_image\include;Thirdparty\SDL2_mixer\include;Thirdparty\SDL2_ttf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>Thirdparty\SDL2\include;Thirdparty\SDL2_image\include;Thirdparty\SDL2_mixer\include;Thirdparty\SDL2_ttf\include;Thirdparty\nlohmann;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

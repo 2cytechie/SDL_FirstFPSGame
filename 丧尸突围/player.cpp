@@ -165,6 +165,7 @@ void Player::attack() {
 }
 
 void Player::jump() {
+    jump_count++;
     velocity.y -= SPEED_JUMP;
     on_floor = false;
 }

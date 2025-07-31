@@ -40,8 +40,8 @@ void LevelMgr::destory_enemy(Enemy* enemy) {
 		enemy_list.erase(it);
 	}
 
-	// 触发关卡事件
-	current_level->enemy_strung();
+	// 死亡触发关卡事件
+	current_level->death_buff();
 }
 
 void LevelMgr::destory_item(Item* item) {

@@ -47,7 +47,7 @@ public:
 	}
 
 	bool can_jump() {
-		return is_on_floor() && is_jump_key_down;
+		return is_on_floor() && is_jump_key_down && jump_count < max_jump_count;
 	}
 
 	bool can_dash()const {
@@ -70,6 +70,9 @@ public:
 
 private:
 	StateMachine<Player> state_machine;			// 玩家逻辑状态机
+
+	int jump_count = 0;							// 跳跃次数
+	int max_jump_count = 2;						// 最大跳跃次数
 
 	Timer timer_dash_cd;
 	bool is_dashing = false;
