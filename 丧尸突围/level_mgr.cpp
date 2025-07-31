@@ -146,7 +146,7 @@ void LevelMgr::on_render(Camera& camera) {
 	SDL_Rect rect_hp = {
 		camera_pos.x + 10,
 		camera_pos.y + window_size.y - 35,
-		hp / max_hp,
+		hp,
 		10
 	};
 	camera.draw_rect(&rect_max_hp, color_rect);

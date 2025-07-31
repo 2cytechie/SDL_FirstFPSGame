@@ -8,6 +8,24 @@ Item::Item(Vector2 p) {
 	block_box->set_layer_dst(CollisionLayer::Item);
 }
 
+Item::Item(std::string name, Vector2 p) {
+	this->name = name;
+    pos = p;
+
+	init();
+}
+
+Item::Item(nlohmann::json& json) {
+	pos = Vector2(json["pos"][0], json["pos"][1]);
+	name = json["name"];
+	is_block = json["is_block"];
+	animation_magnification = json["animation_magnification"];
+	animation_frame_delta = json["animation_frame_delta"];
+	relative_camera_speed = json["relative_camera_speed"];
+
+	init();
+}
+
 Item::~Item() {
 	CollisionMgr::instance()->destory(block_box);
 }
@@ -16,6 +34,12 @@ void Item::init() {
 	animation = ResMgr::instance()->find_animation(name);
 	animation->set_size(animation_magnification);
 	animation->set_interval(animation_frame_delta);
+
+	block_box = CollisionMgr::instance()->creat();
+	block_box->set_layer_src(CollisionLayer::None);
+	block_box->set_layer_dst(CollisionLayer::Item);
+	Vector2 size = animation->get_size();
+	block_box->set_size(size);
 }
 
 void Item::on_update(float delta) {
@@ -35,4 +59,15 @@ void Item::on_render(Camera& camera) {
 
 	if (!animation) return;
 	animation->on_render(camera, is_facing_right);
+}
+
+nlohmann::json Item::to_json() const {
+	return nlohmann::json{
+		{"name", name},
+		{"pos", {pos.x, pos.y}},
+		{"is_block", is_block},
+		{"animation_magnification", animation_magnification},
+		{"animation_frame_delta", animation_frame_delta},
+		{"relative_camera_speed", relative_camera_speed}
+	};
 }

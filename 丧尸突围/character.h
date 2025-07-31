@@ -32,6 +32,24 @@ public:
 		hit_box->set_damage(attack);
 	}
 
+	void plus_magnification(float val) {
+		animation_magnification += val;
+		for (auto& anim : animation_pool) {
+            anim.second->set_size(animation_magnification);
+		}
+		hurt_box->set_size(animation_pool["Idle"]->get_size());
+		block_box->set_size(animation_pool["Idle"]->get_size());
+	}
+
+	void minus_magnification(float val) {
+        animation_magnification -= val;
+		for (auto& anim : animation_pool) {
+			anim.second->set_interval(animation_magnification);
+		}
+		hurt_box->set_size(animation_pool["Idle"]->get_size());
+		block_box->set_size(animation_pool["Idle"]->get_size());
+	}
+
 	int get_damagge() {
 		return attack;
 	}
@@ -116,6 +134,6 @@ protected:
 	Animation* current_animation = nullptr;							// 当前角色动画
 	std::unordered_map<std::string, Animation*> animation_pool;		// 动画池
 	float animation_magnification = 1;								// 动画放大倍数
-	float animation_frame_delta = 0;								// 动画帧时间
+	float animation_frame_delta = 0.15;								// 动画帧时间
 
 };

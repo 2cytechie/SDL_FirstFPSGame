@@ -21,7 +21,6 @@ public:
 		name = "notebook";
 		animation_magnification = 0.2f;
 		animation_frame_delta = 999.0f;
-		block_box->set_size({ 76,50 });
 
 		Item::init();
 	}
@@ -35,7 +34,6 @@ public:
 		name = "BoxCat";
 		animation_magnification = 1.5f;
 		animation_frame_delta = 0.2f;
-		block_box->set_size({ 48,48 });
 
 		Item::init();
 	}
@@ -46,10 +44,9 @@ public:
 class bush :public Item {
 public:
 	bush(Vector2 p) : Item(p) {
-		name = "bush";
+		name = "bush2";
 		animation_magnification = 1.0f;
 		animation_frame_delta = 999.0f;
-		block_box->set_size({ 30,30 });
 
 		Item::init();
 	}
@@ -63,7 +60,6 @@ public:
 		name = "rock_1";
 		animation_magnification = 2.0f;
 		animation_frame_delta = 999.0f;
-		block_box->set_size({ 40,24 });
 
 		Item::init();
 	}
@@ -77,7 +73,6 @@ public:
 		name = "rock_2";
 		animation_magnification = 2.0f;
 		animation_frame_delta = 999.0f;
-		block_box->set_size({ 53,26 });
 
 		Item::init();
 	}
@@ -91,7 +86,6 @@ public:
 		name = "rock_3";
 		animation_magnification = 2.0f;
 		animation_frame_delta = 999.0f;
-		block_box->set_size({ 90,38 });
 
 		Item::init();
 	}
@@ -105,7 +99,6 @@ public:
 		name = "sleepBlackCat";
 		animation_magnification = 1.0f;
 		animation_frame_delta = 0.15f;
-		block_box->set_size({ 60,50 });
 
 		Item::init();
 	}

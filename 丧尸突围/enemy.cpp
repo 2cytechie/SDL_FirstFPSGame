@@ -42,17 +42,82 @@ Enemy::Enemy(Vector2 revive_pos) {
 	state_machine.set_entry("Idle");
 }
 
+Enemy::Enemy(std::string name, Vector2 revive_pos) {
+	max_hp = 100;
+
+	this->name = name;
+	pos_revive = revive_pos;
+	
+	init();
+}
+
+Enemy::Enemy(nlohmann::json& json) {
+	name = json["name"];
+	pos_revive = Vector2(json["pos_revive"][0], json["pos_revive"][1]);
+    max_hp = json["max_hp"];
+	Character::attack = json["attack"];
+	animation_magnification = json["animation_magnification"];
+	animation_frame_delta = json["animation_frame_delta"];
+
+	hit_box->set_size(Vector2(json["hit_box_size"][0],json["hit_box_size"][1]));
+	hurt_box->set_size(Vector2(json["hurt_box_size"][0],json["hurt_box_size"][1]));
+
+	init();
+}
+
 void Enemy::init() {
-	int damage = 1000 / hit_box->get_size().x;
-	hit_box->set_damage(damage);
+	pos = pos_revive;
+	hp = max_hp;
+
+	hit_box->set_layer_src(CollisionLayer::None);
+	hit_box->set_layer_dst(CollisionLayer::Player);
+
+	hurt_box->set_layer_src(CollisionLayer::Enemy);
+	hurt_box->set_layer_dst(CollisionLayer::None);
+
+	hit_box->set_enabled(false);
+	hit_box->set_damage(Character::attack);
+
+	hurt_box->set_on_collide([&](const CollisionBox* box) {
+		decrease_hp(box->get_damage());
+		});
 
 	block_box->set_size(hurt_box->get_size());
+
+	timer_attack_cd.set_wait_time(CD_ATTACK);
+	timer_attack_cd.set_one_shot(true);
+	timer_attack_cd.set_on_timeout([&]() {
+		is_attack_cd_comp = true;
+		hit_box->set_enabled(false);
+		});
+
+	timer_render_hp.set_wait_time(5.0f);
+	timer_render_hp.set_one_shot(true);
+	timer_render_hp.set_on_timeout([&]() {
+		is_render_hp = false;
+		});
 
 	animation_pool["Attack"] = ResMgr::instance()->find_animation(name + "_Attack");
 	animation_pool["Death"] = ResMgr::instance()->find_animation(name + "_Death");
 	animation_pool["Idle"] = ResMgr::instance()->find_animation(name + "_Idle");
 	animation_pool["Run"] = ResMgr::instance()->find_animation(name + "_Run");
 	animation_pool["TakeHit"] = ResMgr::instance()->find_animation(name + "_TakeHit");
+
+	state_machine.register_state(this, "Attack", new EnemyAttackState());
+	state_machine.register_state(this, "Death", new EnemyDeathState());
+	state_machine.register_state(this, "Idle", new EnemyIdleState());
+	state_machine.register_state(this, "TakeHit", new EnemyTakeHitState());
+	state_machine.register_state(this, "Walk", new EnemyWalkState());
+	state_machine.register_state(this, "Pursuit", new EnemyPursuitState());
+	state_machine.register_state(this, "Return", new EnemyReturnState());
+
+	state_machine.set_entry("Idle");
+
+	// 默认值  仅编辑模式使用
+	Vector2 animation_size = animation_pool["Idle"]->get_size() * animation_magnification;
+	hurt_box->set_size(animation_size);
+	block_box->set_size(hurt_box->get_size());
+	hit_box->set_size({ 100,120 });
 }
 
 void Enemy::on_update(float delta) {
@@ -66,7 +131,7 @@ void Enemy::on_render(Camera& camera) {
 	
 	if (is_render_hp) {
 		// 绘制血条
-		SDL_Color color_rect = { 128,0,0,255 };
+		SDL_Color color_rect = { 200,0,0,255 };
 		SDL_Color color_hp = { 255,0,0,255 };
 
 		Vector2 size = hurt_box->get_size();
@@ -79,7 +144,7 @@ void Enemy::on_render(Camera& camera) {
 		SDL_Rect rect_hp = {
 			pos.x - max_hp / 2,
 			pos.y - size.y - 20,
-			hp / max_hp,
+			hp,
 			10
 		};
 		camera.draw_rect(&rect_rect, color_rect);
@@ -94,7 +159,7 @@ void Enemy::switch_state(const std::string& id) {
 void Enemy::on_hurt() {
 	if (is_invulnerable) return;
 
-	// 绘制血条
+	// 是否绘制血条
 	is_render_hp = true;
 
 	// 转换受击动画
@@ -133,4 +198,21 @@ void Enemy::pursuit(Vector2& player_pos) {
 void Enemy::return_revive() {
 	is_facing_right = (pos.x - pos_revive.x) < 0;
 	velocity.x = is_facing_right ? SPEED_WALK : -SPEED_WALK;
+}
+
+nlohmann::json Enemy::to_json() const {
+	Vector2 hit_box_size = hit_box->get_size();
+	Vector2 hurt_box_size = hurt_box->get_size();
+	int damage = 1000 / hit_box->get_size().x;
+
+	return nlohmann::json{
+		{"name", name},
+		{"pos_revive", {pos_revive.x, pos_revive.y}},
+		{"hit_box_size", {hit_box_size.x, hit_box_size.y}},
+		{"hurt_box_size", {hurt_box_size.x, hurt_box_size.y}},
+		{"max_hp",max_hp},
+		{"animation_magnification", animation_magnification},
+		{"animation_frame_delta", animation_frame_delta},
+		{"attack",damage}
+	};
 }

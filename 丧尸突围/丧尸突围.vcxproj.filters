@@ -216,4 +216,9 @@
       <Filter>头文件\scene</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="level1.json">
+      <Filter>头文件\level</Filter>
+    </None>
+  </ItemGroup>
 </Project>

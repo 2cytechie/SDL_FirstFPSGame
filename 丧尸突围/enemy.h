@@ -1,9 +1,12 @@
 #pragma once
 #include "character.h"
+#include <json.hpp>
 
 class Enemy : public Character {
 public:
 	Enemy(Vector2 revive_pos);
+	Enemy(std::string name, Vector2 revive_pos);
+	Enemy(nlohmann::json& json);
 
 	~Enemy() = default;
 
@@ -52,6 +55,8 @@ public:
 	Vector2& get_revive_pos() {
 		return pos_revive;
 	}
+
+	nlohmann::json to_json() const;
 
 	void on_update(float delta) override;
 	void on_render(Camera& camera)override;

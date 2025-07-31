@@ -57,39 +57,66 @@ void EditScene::on_input(const SDL_Event& msg) {
 	BACK 删除物品
 	*/
 	if (msg.type == SDL_KEYDOWN) {
-		switch (msg.key.keysym.sym) {
-		case SDLK_1:	LevelMgr::instance()->add_item(new notebook(window_pos + mouse_pos));			break;
-		case SDLK_2:	LevelMgr::instance()->add_item(new BoxCat(window_pos + mouse_pos));				break;
-		case SDLK_3:	LevelMgr::instance()->add_item(new bush(window_pos + mouse_pos));				break;
-		case SDLK_4:	LevelMgr::instance()->add_item(new rock_1(window_pos + mouse_pos));				break;
-		case SDLK_5:	LevelMgr::instance()->add_item(new rock_2(window_pos + mouse_pos));				break;
-		case SDLK_6:	LevelMgr::instance()->add_item(new rock_3(window_pos + mouse_pos));				break;
-		case SDLK_7:	LevelMgr::instance()->add_item(new sleepBlackCat(window_pos + mouse_pos));		break;
-		case SDLK_8:	LevelMgr::instance()->add_item(new stone1(window_pos + mouse_pos));				break;
-		case SDLK_9:	LevelMgr::instance()->add_item(new stone2(window_pos + mouse_pos));				break;
-		case SDLK_a:	LevelMgr::instance()->add_item(new streelight(window_pos + mouse_pos));			break;
-		case SDLK_b:	LevelMgr::instance()->add_item(new stump(window_pos + mouse_pos));				break;
-		case SDLK_c:	LevelMgr::instance()->add_item(new tree1(window_pos + mouse_pos));				break;
-		case SDLK_d:	LevelMgr::instance()->add_item(new trunk(window_pos + mouse_pos));				break;
-		case SDLK_e:	LevelMgr::instance()->add_item(new YellowCat(window_pos + mouse_pos));			break;
-		case SDLK_f:	LevelMgr::instance()->add_item(new background(window_pos + mouse_pos));			break;
-		case SDLK_g:	LevelMgr::instance()->add_item(new sunsetbackground(window_pos + mouse_pos));	break;
-		case SDLK_h:	LevelMgr::instance()->add_item(new background_layer(window_pos + mouse_pos));	break;
-		case SDLK_i:	LevelMgr::instance()->add_item(new cloud_1(window_pos + mouse_pos));			break;
-		case SDLK_j:	LevelMgr::instance()->add_item(new cloud_2(window_pos + mouse_pos));			break;
-		case SDLK_k:	LevelMgr::instance()->add_item(new cloud_3(window_pos + mouse_pos));			break;
-
-
-		case SDLK_KP_0:	LevelMgr::instance()->add_enemy(new FlyingEye(window_pos + mouse_pos));			break;
-		case SDLK_KP_1:	LevelMgr::instance()->add_enemy(new Goblin(window_pos + mouse_pos));			break;
-		case SDLK_KP_2:	LevelMgr::instance()->add_enemy(new Mushroom(window_pos + mouse_pos));			break;
-		case SDLK_KP_3:	LevelMgr::instance()->add_enemy(new Skeleton(window_pos + mouse_pos));			break;
-		case SDLK_KP_4:	LevelMgr::instance()->add_enemy(new SpriteSheets(window_pos + mouse_pos));		break;
-		case SDLK_KP_5:	LevelMgr::instance()->add_enemy(new Ninja(window_pos + mouse_pos));				break;
-		case SDLK_KP_6:	LevelMgr::instance()->add_enemy(new Minotaur(window_pos + mouse_pos));			break;
-		case SDLK_KP_7:	LevelMgr::instance()->add_enemy(new Slime1(window_pos + mouse_pos));			break;
-		case SDLK_KP_8:	LevelMgr::instance()->add_enemy(new Slime2(window_pos + mouse_pos));			break;
+		std::string item_name;
+        switch (msg.key.keysym.sym) {
+		case SDLK_1:	item_name = "grass_plant";						break;
+        case SDLK_2:	item_name = "plant";							break;
+        case SDLK_3:	item_name = "background";						break;
+		case SDLK_4:	item_name = "background_cloud1";				break;
+		case SDLK_5:	item_name = "background_cloud2";				break;
+		case SDLK_6:	item_name = "background_cloud3";				break;
+		case SDLK_7:	item_name = "background_layer";					break;
+		case SDLK_8:	item_name = "background_mountion1";				break;
+		case SDLK_9:	item_name = "background_mountion2";				break;
+		case SDLK_a:	item_name = "background_tree1_left";			break;
+		case SDLK_b:	item_name = "background_tree1_mid";				break;
+		case SDLK_c:	item_name = "background_tree1_righ";			break;
+		case SDLK_d:	item_name = "background_tree2_left";			break;
+		case SDLK_e:	item_name = "background_tree2_mid";				break;
+		case SDLK_f:	item_name = "background_tree2_right";			break;
+		case SDLK_g:	item_name = "background1";						break;
+		case SDLK_h:	item_name = "background2";						break;
+		case SDLK_i:	item_name = "BoxCat";							break;
+		case SDLK_j:	item_name = "bridge_left";						break;
+		case SDLK_k:	item_name = "bridge_mid";						break;
+        case SDLK_l:	item_name = "bridge_right";						break;
+        case SDLK_m:	item_name = "bush1";							break;
+        case SDLK_n:	item_name = "bush2";							break;
+        case SDLK_o:	item_name = "flower_blue";						break;
+        case SDLK_p:	item_name = "lemongrass";						break;
+        case SDLK_q:	item_name = "lemongrasses";						break;
+        case SDLK_r:	item_name = "lotus";							break;
+        case SDLK_s:	item_name = "mushroom1";						break;
+        case SDLK_t:	item_name = "mushroom2";						break;
+        case SDLK_u:	item_name = "mushroom3";						break;
+        case SDLK_v:	item_name = "mushroom4";						break;
+        case SDLK_w:	item_name = "mushroom5";						break;
+        case SDLK_x:	item_name = "notebook";							break;
+        case SDLK_y:	item_name = "rock_1";							break;
+        case SDLK_z:	item_name = "next_level";						break;
+			
 		}
+		if (!item_name.empty()) {
+			LevelMgr::instance()->add_item(new Item(item_name, window_pos + mouse_pos));
+		}
+
+		std::string enemy_name;
+		switch (msg.key.keysym.sym) {
+		case SDLK_KP_0:	enemy_name = "FlyingEye";			break;
+		case SDLK_KP_1:	enemy_name = "Goblin";				break;
+		case SDLK_KP_2:	enemy_name = "Mushroom";			break;
+		case SDLK_KP_3:	enemy_name = "Skeleton";			break;
+		case SDLK_KP_4:	enemy_name = "SpriteSheets";		break;
+		case SDLK_KP_5:	enemy_name = "Ninja";				break;
+		case SDLK_KP_6:	enemy_name = "Minotaur";			break;
+		case SDLK_KP_7:	enemy_name = "Slime1";				break;
+		case SDLK_KP_8:	enemy_name = "Slime2";				break;
+
+		}
+		if (!enemy_name.empty()) {
+			LevelMgr::instance()->add_enemy(new Enemy(enemy_name, window_pos + mouse_pos));
+		}
+
 		// 敌人不启用重力
 		if (!LevelMgr::instance()->get_enemy_list().empty()) {
 			Enemy* enemy = LevelMgr::instance()->get_enemy_list().back();
@@ -121,6 +148,22 @@ void EditScene::on_input(const SDL_Event& msg) {
 				LevelMgr::instance()->destory_item(selected_item);
 				selected_item = nullptr;
 				if (DEBUG) SDL_Log("destory selected_item");
+			}
+			break;
+		case SDLK_EQUALS:
+			if (selected_enemy) {
+				selected_enemy->plus_magnification(0.1);
+			}
+			if (selected_item) {
+				selected_item->plus_magnification(0.1);
+			}
+			break;
+		case SDLK_MINUS:
+			if (selected_enemy) {
+				selected_enemy->minus_magnification(0.1);
+			}
+			if (selected_item) {
+				selected_item->minus_magnification(0.1);
 			}
 			break;
 		}
@@ -192,26 +235,50 @@ void EditScene::on_exit() {
 }
 
 void EditScene::save() {
-	std::ofstream file;
-	file.open("resources\\level.txt", std::ios::out | std::ios::trunc);
-	if (!file.is_open()) {
+	nlohmann::json json;
+
+	int count = 0;
+	for (Enemy* enemy : LevelMgr::instance()->get_enemy_list()) {
+		count++;
+
+		nlohmann::json enemy_json = enemy->to_json();
+		auto& enemy_name = enemy_json["name"];
+		auto& enemy_entry = json["enemy"][enemy_name];
+
+		enemy_entry["count"] = count;
+		enemy_entry["pos_revive"].push_back(enemy_json["pos_revive"]);
+		enemy_entry["hit_box_size"] = enemy_json["hit_box_size"];
+		enemy_entry["hurt_box_size"] = enemy_json["hurt_box_size"];
+		enemy_entry["max_hp"] = enemy_json["max_hp"];
+		enemy_entry["animation_magnification"] = enemy_json["animation_magnification"];
+		enemy_entry["animation_frame_delta"] = enemy_json["animation_frame_delta"];
+		enemy_entry["attack"] = enemy_json["attack"];
+	}
+
+	count = 0;
+	for (Item* item : LevelMgr::instance()->get_item_list()) {
+		count++;
+
+		nlohmann::json enemy_json = item->to_json();
+		auto& enemy_name = enemy_json["name"];
+		auto& enemy_entry = json["item"][enemy_name];
+
+		enemy_entry["count"] = count;
+		enemy_entry["pos"].push_back(enemy_json["pos"]);
+		enemy_entry["is_block"] = enemy_json["is_block"];
+		enemy_entry["animation_magnification"] = enemy_json["animation_magnification"];
+		enemy_entry["animation_frame_delta"] = enemy_json["animation_frame_delta"];
+	}
+
+
+	std::ofstream out("resources\\level.json");
+	if (out.is_open()) {
+		out << json;
+		out.close();
+		SDL_Log("File Save Success");
+	}
+	else {
 		SDL_Log("File Open ERROR");
 		return;
-	}
-
-	for (Enemy* enemy : LevelMgr::instance()->get_enemy_list()) {
-		file<<"enemy_list.push_back(new "<<enemy->get_name()<<"({ "<<enemy->get_pos().x<<","<<enemy->get_pos().y<<" }));"<<std::endl;
-	}
-	for (Item* item : LevelMgr::instance()->get_item_list()) {
-		file << "item_list.push_back(new " << item->get_name() << "({ " << item->get_pos().x << "," << item->get_pos().y << " }));" << std::endl;
-	}
-
-	if (!file.good()) {
-		SDL_Log("File Save ERROR");
-		return;
-	}
-	file.close();
-	if (DEBUG) {
-        SDL_Log("File Save Success");
 	}
 }

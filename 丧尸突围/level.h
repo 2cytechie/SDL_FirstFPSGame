@@ -1,6 +1,8 @@
 #pragma once
 
 #include <vector>
+#include <fstream>
+#include <json.hpp>
 
 #include "enemy_ins.h"
 #include "item_ins.h"

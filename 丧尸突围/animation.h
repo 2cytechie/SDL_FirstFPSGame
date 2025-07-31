@@ -150,6 +150,10 @@ public:
 		this->size = frame_size * scale;
 	}
 
+	Vector2 get_size() {
+        return size;
+	}
+
 	//  «∑Ò—≠ª∑≤•∑≈
 	void set_loop(bool flag) {
 		is_loop = flag;
