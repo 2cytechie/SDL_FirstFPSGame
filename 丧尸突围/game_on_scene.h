@@ -14,5 +14,6 @@ public:
 	void on_exit();
 
 private:
+	int level_num = 1;
 
 };

@@ -30,6 +30,13 @@ public:
 	std::vector<Item*> get_item_list() {
 		return item_list;
 	}
+	bool check_rewin() {
+		if (is_win) {
+			is_win = false;
+			return true;
+		}
+		return false;
+	}
 
 	void load_level(int n);
 	
@@ -42,7 +49,7 @@ private:
 
 	~LevelMgr();
 
-	int N_Level = 1;							// 第 N_Level 关卡
+	bool is_win = false;
 	int player_death_count = 0;					// 玩家死亡次数
 	
 	Player* player = nullptr;

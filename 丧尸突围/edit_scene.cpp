@@ -236,46 +236,81 @@ void EditScene::on_exit() {
 
 void EditScene::save() {
 	nlohmann::json json;
+	json["enemy"] = nlohmann::json::object();
+	json["item"] = nlohmann::json::object();
 
-	int count = 0;
 	for (Enemy* enemy : LevelMgr::instance()->get_enemy_list()) {
-		count++;
+		if (!enemy) continue;  // 避免空指针
 
 		nlohmann::json enemy_json = enemy->to_json();
-		auto& enemy_name = enemy_json["name"];
+		std::string enemy_name = enemy_json["name"];
 		auto& enemy_entry = json["enemy"][enemy_name];
 
-		enemy_entry["count"] = count;
+		// 初始化需要push_back的数组
+		if (!enemy_entry["pos_revive"].is_array()) {
+			enemy_entry["pos_revive"] = nlohmann::json::array();
+		}
+		if (!enemy_entry["animation_magnification"].is_array()) {
+			enemy_entry["animation_magnification"] = nlohmann::json::array();
+		}
+
 		enemy_entry["pos_revive"].push_back(enemy_json["pos_revive"]);
-		enemy_entry["hit_box_size"] = enemy_json["hit_box_size"];
-		enemy_entry["hurt_box_size"] = enemy_json["hurt_box_size"];
-		enemy_entry["max_hp"] = enemy_json["max_hp"];
-		enemy_entry["animation_magnification"] = enemy_json["animation_magnification"];
-		enemy_entry["animation_frame_delta"] = enemy_json["animation_frame_delta"];
-		enemy_entry["attack"] = enemy_json["attack"];
+		enemy_entry["animation_magnification"].push_back(enemy_json["animation_magnification"]);
+
+		// 仅首次设置
+		if (enemy_entry["hit_box_size"].is_null()) {
+			enemy_entry["hit_box_size"] = enemy_json["hit_box_size"];
+		}
+		if (enemy_entry["hurt_box_size"].is_null()) {
+			enemy_entry["hurt_box_size"] = enemy_json["hurt_box_size"];
+		}
+		if (enemy_entry["max_hp"].is_null()) {
+			enemy_entry["max_hp"] = enemy_json["max_hp"];
+		}
+		if (enemy_entry["animation_frame_delta"].is_null()) {
+			enemy_entry["animation_frame_delta"] = enemy_json["animation_frame_delta"];
+		}
+		if (enemy_entry["attack"].is_null()) {
+			enemy_entry["attack"] = enemy_json["attack"];
+		}
 	}
 
-	count = 0;
 	for (Item* item : LevelMgr::instance()->get_item_list()) {
-		count++;
+		if (!item) continue;  // 避免空指针
 
-		nlohmann::json enemy_json = item->to_json();
-		auto& enemy_name = enemy_json["name"];
-		auto& enemy_entry = json["item"][enemy_name];
+		nlohmann::json item_json = item->to_json();
+		std::string item_name = item_json["name"];
+		auto& item_entry = json["item"][item_name];
 
-		enemy_entry["count"] = count;
-		enemy_entry["pos"].push_back(enemy_json["pos"]);
-		enemy_entry["is_block"] = enemy_json["is_block"];
-		enemy_entry["animation_magnification"] = enemy_json["animation_magnification"];
-		enemy_entry["animation_frame_delta"] = enemy_json["animation_frame_delta"];
+		// 初始化数组
+		if (!item_entry["pos"].is_array()) {
+			item_entry["pos"] = nlohmann::json::array();
+		}
+		if (!item_entry["animation_magnification"].is_array()) {
+			item_entry["animation_magnification"] = nlohmann::json::array();
+		}
+
+		item_entry["pos"].push_back(item_json["pos"]);
+		item_entry["animation_magnification"].push_back(item_json["animation_magnification"]);
+
+		// 非数组字段首次设置
+		if (item_entry["is_block"].is_null()) {
+			item_entry["is_block"] = item_json["is_block"];
+		}
+		if (item_entry["animation_frame_delta"].is_null()) {
+			item_entry["animation_frame_delta"] = item_json["animation_frame_delta"];
+		}
+		if (item_entry["relative_camera_speed"].is_null()) {
+            item_entry["relative_camera_speed"] = item_json["relative_camera_speed"];
+		}
 	}
 
-
+	// 7. 格式化输出JSON，增强可读性
 	std::ofstream out("resources\\level.json");
 	if (out.is_open()) {
-		out << json;
+		out << json.dump(4);  // 缩进4个空格，格式化输出
 		out.close();
-		SDL_Log("File Save Success");
+		SDL_Log("File Save Success To resources\\level.json");
 	}
 	else {
 		SDL_Log("File Open ERROR");

@@ -57,7 +57,6 @@ void LevelMgr::destory_item(Item* item) {
 }
 
 void LevelMgr::load_level(int n) {
-	N_Level = n;
 	timer_show_name.set_wait_time(3.0f);
 	timer_show_name.set_one_shot(true);
 	timer_show_name.set_on_timeout([&]() {
@@ -71,12 +70,11 @@ void LevelMgr::load_level(int n) {
 	// 删除 new 的对象
 	destory();
 
-	// 增加关卡  再次  load_level  创建下一关
-	switch (N_Level++) {
+	switch (n) {
 	case 1: current_level = new Level1();	break;
 
 	default:
-		SDL_Log("N_level ERROR !!!");
+		SDL_Log("level_num ERROR !!!");
 	}
 
 	current_level->load();

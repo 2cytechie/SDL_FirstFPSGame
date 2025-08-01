@@ -16,8 +16,8 @@ Item::Item(std::string name, Vector2 p) {
 }
 
 Item::Item(nlohmann::json& json) {
-	pos = Vector2(json["pos"][0], json["pos"][1]);
 	name = json["name"];
+	pos = Vector2(json["pos"][0], json["pos"][1]);
 	is_block = json["is_block"];
 	animation_magnification = json["animation_magnification"];
 	animation_frame_delta = json["animation_frame_delta"];
@@ -38,6 +38,7 @@ void Item::init() {
 	block_box = CollisionMgr::instance()->creat();
 	block_box->set_layer_src(CollisionLayer::None);
 	block_box->set_layer_dst(CollisionLayer::Item);
+	block_box->set_enabled(is_block);
 	Vector2 size = animation->get_size();
 	block_box->set_size(size);
 }

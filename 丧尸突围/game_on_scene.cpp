@@ -8,7 +8,7 @@ GameOnScene::GameOnScene() = default;
 GameOnScene::~GameOnScene() = default;
 
 void GameOnScene::on_enter() {
-	LevelMgr::instance()->load_level(1);
+	LevelMgr::instance()->load_level(level_num);
 }
 
 void GameOnScene::on_update(float delta) {
@@ -21,14 +21,6 @@ void GameOnScene::on_render(Camera& camera) {
 	// ÉèÖÃÉãÏñ»ú¸úËæ
 	Vector2 player_pos = LevelMgr::instance()->get_player()->get_pos();
 	camera.follow_pos(player_pos);
-
-	// ±³¾°
-	SDL_Color bg_color{ 0,255,255,255 };
-	SDL_Rect rect{
-		0,0,
-		1280,720
-	};
-	camera.fill_rect(&rect, bg_color);
 
 	LevelMgr::instance()->on_render(camera);
 
@@ -48,4 +40,7 @@ void GameOnScene::on_input(const SDL_Event& msg) {
 
 void GameOnScene::on_exit() {
 	LevelMgr::instance()->destory();
+	if (LevelMgr::instance()->check_rewin()) {
+		level_num++;
+	}
 }
