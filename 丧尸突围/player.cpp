@@ -3,9 +3,8 @@
 #include "player_state_node.h"
 
 Player::Player() {
-    hp = 100;
-    max_hp = 100;
-    pos = Vector2(0, 0);
+    max_hp = 1000;
+    pos = Vector2(200, 100);
 
 	hit_box->set_layer_src(CollisionLayer::None);
 	hit_box->set_layer_dst(CollisionLayer::Enemy);
@@ -45,7 +44,9 @@ Player::Player() {
 Player::~Player() = default;
 
 void Player::init() {
+    hp = max_hp;
     Character::attack = 1000 / hit_box->get_size().x;
+    Character::attack = 1000;
     hit_box->set_damage(Character::attack);
 
     block_box->set_size(hurt_box->get_size());
@@ -165,7 +166,9 @@ void Player::attack() {
 }
 
 void Player::jump() {
+    is_jump_key_down = false;
     jump_count++;
+    velocity.y = 0;
     velocity.y -= SPEED_JUMP;
     on_floor = false;
 }
@@ -178,6 +181,10 @@ void Player::dash() {
 
 void Player::hp_returning(int return_hp) {
     hp = hp + return_hp >= max_hp ? max_hp : hp + return_hp;
+
+    if (DEBUG) {
+        SDL_Log("player returning %d hp", return_hp);
+    }
 }
 
 void Player::switch_state(const std::string& id) {

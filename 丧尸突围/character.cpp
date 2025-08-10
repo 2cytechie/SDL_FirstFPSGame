@@ -10,32 +10,52 @@ Character::Character() {
 	block_box->set_layer_src(CollisionLayer::Item);
 	block_box->set_layer_dst(CollisionLayer::None);
 
-	block_box->set_on_collide([&](const CollisionBox* box) {
-		Vector2 my_pos = block_box->get_pos();
-		Vector2 my_size = block_box->get_size();
-		Vector2 box_pos = box->get_pos();
-		Vector2 box_size = box->get_size();
-		// 掉落
-		if (pos.y <= box_pos.y && velocity.y >= 0) {
-			pos.y = box->get_pos().y - box->get_size().y / 2;
-			velocity.y = 0;
-			on_floor = true;
-		}
-		// 计算水平方向的重叠
-		float overlap_x = std::min(
-			my_pos.x + my_size.x / 2 - (box_pos.x - box_size.x / 2),
-			box_pos.x + box_size.x / 2 - (my_pos.x - my_size.x / 2)
-		);
+    block_box->set_on_collide([&](const CollisionBox* other) {
+        Vector2 my_pos = block_box->get_pos();
+        Vector2 my_size = block_box->get_size();
+        Vector2 other_pos = other->get_pos();
+        Vector2 other_size = other->get_size();
 
-		if (on_floor && pos.y > box_pos.y - box_size.y / 2) {
-			if (velocity.x > 0) {
-				pos.x -= overlap_x;
-			}
-			else if (velocity.x < 0) {
-				pos.x += overlap_x;
-			}
-		}
-		});
+        float overlap_x = std::min(
+            my_pos.x + my_size.x / 2 - (other_pos.x - other_size.x / 2),
+            other_pos.x + other_size.x / 2 - (my_pos.x - my_size.x / 2)
+        );
+
+        float overlap_y = std::min(
+            my_pos.y + my_size.y / 2 - (other_pos.y - other_size.y / 2),
+            other_pos.y + other_size.y / 2 - (my_pos.y - my_size.y / 2)
+        );
+
+        // 确定碰撞方向
+        bool from_above = (my_pos.y + my_size.y / 2) > (other_pos.y + other_size.y / 2);
+        bool from_below = (my_pos.y - my_size.y / 2) < (other_pos.y - other_size.y / 2);
+        bool from_left = (my_pos.x + my_size.x / 2) > (other_pos.x + other_size.x / 2);
+        bool from_right = (my_pos.x - my_size.x / 2) < (other_pos.x - other_size.x / 2);
+
+		// 水平平滑处理
+		const float SMOOTHNESS = 3.0f;
+        if (overlap_x < overlap_y - SMOOTHNESS) {
+            // 水平碰撞解决
+            if (from_left && velocity.x < 0) {
+                pos.x += overlap_x;
+            }
+            else if (from_right && velocity.x > 0) {
+                pos.x -= overlap_x;
+            }
+        }
+        else {
+            // 垂直碰撞解决
+            if (from_above && velocity.y < 0) {
+                pos.y += overlap_y;
+                velocity.y = 0;
+            }
+            else if (from_below && velocity.y > 0) {
+                pos.y -= overlap_y;
+                velocity.y = 0;
+                on_floor = true;
+            }
+        }
+        });
 
 	// 每 0.5 秒最多受击一次
 	timer_invulnerable_status.set_wait_time(0.5f);
@@ -69,12 +89,6 @@ void Character::on_update(float delta) {
 	}
 
 	pos += velocity * delta;
-
-	// 防止掉入屏幕外
-	if (pos.y > 720) {
-		pos.y = 720;
-		velocity.y = 0;
-	}
 
 	timer_invulnerable_status.on_update(delta);
 

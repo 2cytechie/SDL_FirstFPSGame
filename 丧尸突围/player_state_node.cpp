@@ -64,7 +64,7 @@ void PlayerAttackState::update_hit_box_pos(Player* player) {
 
 PlayerDeathState::PlayerDeathState()
 {
-	timer.set_wait_time(1.5f);
+	timer.set_wait_time(0.5f);
 	timer.set_one_shot(true);
 	timer.set_on_timeout([&]()
 		{
@@ -91,16 +91,18 @@ void PlayerIdleState::on_enter(Player* player)
 
 void PlayerIdleState::on_update(Player* player, float delta)
 {
-	//if (player->get_hp() <= 0)
-	//	player->switch_state("Death");
-	//else if (player->can_attack())
-	//	player->switch_state("Attack");
-	//else if (player->can_jump())
-	//	player->switch_state("Jump");
-	//else if (player->can_dash())
-	//	player->switch_state("Dash");
-	//else if (player->is_on_floor() && player->get_move_axis() != 0)
-	//	player->switch_state("Run");
+	if (SceneMgr::instance()->get_scene_type() != SceneMgr::SceneType::Edit) {
+		if (player->get_hp() <= 0)
+			player->switch_state("Death");
+		else if (player->can_attack())
+			player->switch_state("Attack");
+		else if (player->can_jump())
+			player->switch_state("Jump");
+		else if (player->can_dash())
+			player->switch_state("Dash");
+		else if (player->is_on_floor() && player->get_move_axis() != 0)
+			player->switch_state("Run");
+	}
 }
 
 void PlayerJumpState::on_enter(Player* player)
@@ -119,9 +121,10 @@ void PlayerJumpState::on_update(Player* player, float delta)
 		player->switch_state("Attack");
 	else if(player->is_on_floor())
 		player->switch_state("Idle");
-	else if (player->can_dash()) {
+	else if (player->can_dash())
 		player->switch_state("Dash");
-	}
+	else if (player->can_jump())
+		player->switch_state("Jump");
 }
 
 PlayerDashState::PlayerDashState() {

@@ -16,6 +16,17 @@ public:
 		return is_right_key_down - is_left_key_down;
 	}
 
+	void reset() {
+		hp = max_hp;
+		is_left_key_down = false;
+		is_right_key_down = false;
+		is_jump_key_down = false;
+		is_dash_key_down = false;
+		is_attack_key_down = false;
+		pos = Vector2(200, 0);
+		state_machine.switch_state("Idle");
+	}
+
 	void set_dashing(bool flag) {
 		is_dashing = flag;
 		if (flag) {
@@ -47,7 +58,10 @@ public:
 	}
 
 	bool can_jump() {
-		return is_on_floor() && is_jump_key_down && jump_count < max_jump_count;
+		if (is_on_floor()) {
+			jump_count = 0;
+		}
+		return is_jump_key_down && jump_count < max_jump_count;
 	}
 
 	bool can_dash()const {
@@ -92,6 +106,6 @@ private:
 	const float CD_DASH = 0.5f;
 	const float CD_ATTACK = 0.3f;
 	const float SPEED_RUN = 300.0f;
-	const float SPEED_JUMP = 780.0f;
+	const float SPEED_JUMP = 800.0f;
 	const float SPEED_DASH = 2000.0f;
 };

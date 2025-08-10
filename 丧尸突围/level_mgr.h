@@ -30,7 +30,7 @@ public:
 	std::vector<Item*> get_item_list() {
 		return item_list;
 	}
-	bool check_rewin() {
+	bool check_win() {
 		if (is_win) {
 			is_win = false;
 			return true;

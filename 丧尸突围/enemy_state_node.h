@@ -15,6 +15,7 @@ public:
     void on_exit(Enemy* enemy) override;
 
 private:
+    Timer attack_timer;
     Timer timer;
 
     void update_hit_box_pos(Enemy* enemy);
@@ -27,9 +28,10 @@ public:
     ~EnemyDeathState() = default;
 
     void on_enter(Enemy* enemy) override;
-    void on_exit(Enemy* enemy) override;
+    void on_update(Enemy* enemy, float delta) override;
 
 private:
+    Timer timer;
 
 };
 

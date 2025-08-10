@@ -8,7 +8,7 @@ public:
 	Enemy(std::string name, Vector2 revive_pos);
 	Enemy(nlohmann::json& json);
 
-	~Enemy() = default;
+	~Enemy();
 
 	void init();
 

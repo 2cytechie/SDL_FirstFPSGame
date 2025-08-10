@@ -6,6 +6,13 @@
 void EnemyAttackState::on_enter(Enemy* enemy) {
     enemy->set_animation("Attack");
 
+    attack_timer.set_wait_time(range_randomF(0.3f, 0.5f));
+    attack_timer.set_one_shot(true);
+    attack_timer.set_on_timeout([enemy]()
+        {
+            enemy->get_hit_box()->set_enabled(true);
+        });
+
     timer.set_wait_time(enemy->get_current_animation_time());
     timer.set_one_shot(true);
     timer.set_on_timeout([enemy]()
@@ -13,10 +20,10 @@ void EnemyAttackState::on_enter(Enemy* enemy) {
             enemy->set_attacking(false);
         });
 
-    enemy->get_hit_box()->set_enabled(true);
     enemy->set_attacking(true);
     update_hit_box_pos(enemy);
     enemy->attack();
+    attack_timer.restart();
     timer.restart();
 
     //switch (range_random(1, 3))
@@ -68,15 +75,25 @@ void EnemyAttackState::update_hit_box_pos(Enemy* enemy) {
 void EnemyDeathState::on_enter(Enemy* enemy)
 {
     enemy->set_animation("Death");
+    timer.set_wait_time(enemy->get_current_animation_time());
+    timer.set_one_shot(true);
+    timer.set_on_timeout([enemy]()
+        {
+            // 杀死敌人固定回复2点生命
+            LevelMgr::instance()->get_player()->hp_returning(2);
+
+            if (DEBUG) {
+                SDL_Log("Enemy Death !!!");
+            }
+
+            LevelMgr::instance()->destory_enemy(enemy);
+        });
 
     Mix_PlayChannel(-1, ResMgr::instance()->find_audio("enemy_death"), 0);
 }
 
-void EnemyDeathState::on_exit(Enemy* enemy)
-{
-    // 杀死敌人固定回复2点生命
-    LevelMgr::instance()->get_player()->hp_returning(2);
-    LevelMgr::instance()->destory_enemy(enemy);
+void EnemyDeathState::on_update(Enemy* enemy, float delta) {
+    timer.on_update(delta);
 }
 
 void EnemyIdleState::on_enter(Enemy* enemy)
@@ -98,12 +115,14 @@ void EnemyIdleState::on_update(Enemy* enemy, float delta)
     timer.on_update(delta);
     Vector2 player_pos = LevelMgr::instance()->get_player()->get_pos();
 
-    //if (enemy->get_hp() <= 0)
-    //    enemy->switch_state("Death");
-    //else if (enemy->can_attack(player_pos))
-    //    enemy->switch_state("Attack");
-    //else if (enemy->can_pursuit(player_pos))
-    //    enemy->switch_state("Pursuit");
+    if (SceneMgr::instance()->get_scene_type() != SceneMgr::SceneType::Edit) {
+        if (enemy->get_hp() <= 0)
+            enemy->switch_state("Death");
+        else if (enemy->can_attack(player_pos))
+            enemy->switch_state("Attack");
+        else if (enemy->can_pursuit(player_pos))
+            enemy->switch_state("Pursuit");
+    }
 }
 
 void EnemyTakeHitState::on_enter(Enemy* enemy) {

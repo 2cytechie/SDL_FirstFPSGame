@@ -49,6 +49,9 @@ public:
 		size = frame_size;
 	}
 	void load(std::vector<SDL_Texture*> tex_list,float delta) {
+		for (auto tex : animation_list) {
+            SDL_DestroyTexture(tex);
+		}
 		animation_list.clear();
 		animation_list = tex_list;
 		frame_count = tex_list.size();

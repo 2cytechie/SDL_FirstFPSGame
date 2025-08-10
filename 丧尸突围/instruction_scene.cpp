@@ -27,6 +27,7 @@ void InstructionScene::on_update(float delta) {
 	attack_animation->on_update(delta);
 }
 void InstructionScene::on_render(Camera& camera) {
+    camera.reset();
 	// ±³¾°
 	SDL_Color bg_color{ 135, 206, 235, 255 };
 	SDL_Rect rect{ 0,0,1280,720 };

@@ -31,6 +31,10 @@ void LevelMgr::destory() {
 }
 
 void LevelMgr::destory_enemy(Enemy* enemy) {
+	if (DEBUG) {
+		SDL_Log("destory enemy : %s",enemy->get_name().c_str());
+	}
+
 	if(!enemy) return;
 
 	auto it = std::find_if(enemy_list.begin(), enemy_list.end(),
@@ -84,6 +88,7 @@ void LevelMgr::load_level(int n) {
 
 	// 玩家增加血量和攻击力
 	if (player) {
+		player->reset();
 		player->plus_max_hp(5);
 		player->plus_attack(1);
 	}
@@ -103,6 +108,13 @@ void LevelMgr::on_update(float delta) {
 
 	for (auto item : item_list) {
 		item->on_update(delta);
+		if (item->get_name().substr(0, 10) == "next_level") {
+			if (!player) return;
+			Vector2 dis = player->get_pos() - item->get_pos();
+			if (dis.length() < 1000 && dis.x < 10) {
+				is_win = true;
+			}
+		}
 	}
 	for (auto enemy : enemy_list) {
 		enemy->on_update(delta);
@@ -144,7 +156,7 @@ void LevelMgr::on_render(Camera& camera) {
 	SDL_Rect rect_hp = {
 		camera_pos.x + 10,
 		camera_pos.y + window_size.y - 35,
-		hp,
+		hp > 0 ? hp : 0,
 		10
 	};
 	camera.draw_rect(&rect_max_hp, color_rect);

@@ -10,7 +10,11 @@ template <typename T>
 class StateMachine {
 public:
     StateMachine() = default;
-    ~StateMachine() = default;
+    ~StateMachine() {
+        for (auto& state : state_pool) {
+            delete state.second;
+        }
+    }
 
     void on_update(float delta) {
         if (!current_state) return;

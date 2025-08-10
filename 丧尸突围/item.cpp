@@ -16,14 +16,50 @@ Item::Item(std::string name, Vector2 p) {
 }
 
 Item::Item(nlohmann::json& json) {
-	name = json["name"];
-	pos = Vector2(json["pos"][0], json["pos"][1]);
-	is_block = json["is_block"];
-	animation_magnification = json["animation_magnification"];
-	animation_frame_delta = json["animation_frame_delta"];
-	relative_camera_speed = json["relative_camera_speed"];
+    if (json.contains("name")) {
+        name = json["name"].get<std::string>();
+    }
+    else {
+        name = "unknown_item";
+        SDL_Log("Item name ERROR");
+    }
+    if (json.contains("pos")) {
+        pos = Vector2(json["pos"][0].get<float>(), json["pos"][1].get<float>());
+    }
+    else {
+        pos = Vector2(0.0f, 0.0f);
+        SDL_Log("Item pos Error : name = %s", name.c_str());
+    }
+    if (json.contains("is_block")) {
+        is_block = json["is_block"].get<bool>();
+    }
+    else {
+        is_block = false;
+        SDL_Log("Item is_block Error : name = %s", name.c_str());
+    }
+    if (json.contains("block_box_size")) {
+        block_box_size = Vector2(json["block_box_size"][0].get<float>(), json["block_box_size"][1].get<float>());
+    }
+    else {
+        block_box_size = Vector2(0.0f, 0.0f);
+        SDL_Log("Item block_box_size Error : name = %s", name.c_str());
+    }
+    if (json.contains("animation_magnification")) {
+        animation_magnification = json["animation_magnification"].get<float>();
+    }
+    else {
+        animation_magnification = 1.0f;
+        SDL_Log("Item animation_magnification Error : name = %s", name.c_str());
+    }
+    if (json.contains("animation_frame_delta")) {
+        animation_frame_delta = json["animation_frame_delta"];
+    }
+    else {
+        animation_frame_delta = 0.1f;
+        SDL_Log("Item animation_frame_delta Error : name = %s", name.c_str());
+    }
 
-	init();
+    init();
 }
 
 Item::~Item() {
@@ -39,8 +75,12 @@ void Item::init() {
 	block_box->set_layer_src(CollisionLayer::None);
 	block_box->set_layer_dst(CollisionLayer::Item);
 	block_box->set_enabled(is_block);
-	Vector2 size = animation->get_size();
-	block_box->set_size(size);
+
+	// �༭ģʽ
+	//Vector2 size = animation->get_size();
+	//block_box_size = size;
+
+	block_box->set_size(block_box_size);
 }
 
 void Item::on_update(float delta) {
@@ -56,8 +96,6 @@ void Item::on_update(float delta) {
 }
 
 void Item::on_render(Camera& camera) {
-	pos -= camera.get_camera_move() * relative_camera_speed;
-
 	if (!animation) return;
 	animation->on_render(camera, is_facing_right);
 }
@@ -67,8 +105,8 @@ nlohmann::json Item::to_json() const {
 		{"name", name},
 		{"pos", {pos.x, pos.y}},
 		{"is_block", is_block},
+		{"block_box_size", {block_box_size.x, block_box_size.y}},
 		{"animation_magnification", animation_magnification},
-		{"animation_frame_delta", animation_frame_delta},
-		{"relative_camera_speed", relative_camera_speed}
+		{"animation_frame_delta", animation_frame_delta}
 	};
 }

@@ -1,19 +1,35 @@
 #pragma once
 #include "item.h"
 
+class grass_plant :public Item {
+public:
+	grass_plant(Vector2 p) : Item(p) {
+		name = "grass_plant";
+		animation_magnification = 1.3f;
+		animation_frame_delta = 999.0f;
+		is_block = true;
+
+		Item::init();
+	}
+
+	~grass_plant() = default;
+};
+
 class plant :public Item {
 public:
 	plant(Vector2 p) : Item(p) {
 		name = "plant";
-		animation_magnification = 0.5f;
+		animation_magnification = 1.3f;
 		animation_frame_delta = 999.0f;
-		block_box->set_size({ 9999,100 });
+		is_block = true;
 
 		Item::init();
 	}
 
 	~plant() = default;
 };
+
+
 
 class notebook :public Item {
 public:
@@ -26,6 +42,71 @@ public:
 	}
 	
 	~notebook() = default;
+};
+
+class bridge_left :public Item {
+public:
+	bridge_left(Vector2 p) : Item(p) {
+		name = "bridge_left";
+		animation_magnification = 2.0f;
+		animation_frame_delta = 999.0f;
+
+		Item::init();
+	}
+
+	~bridge_left() = default;
+};
+
+class bridge_mid :public Item {
+public:
+	bridge_mid(Vector2 p) : Item(p) {
+		name = "bridge_mid";
+		animation_magnification = 2.0f;
+		animation_frame_delta = 999.0f;
+
+		Item::init();
+	}
+
+	~bridge_mid() = default;
+};
+
+class bridge_right :public Item {
+public:
+	bridge_right(Vector2 p) : Item(p) {
+		name = "bridge_right";
+		animation_magnification = 2.0f;
+		animation_frame_delta = 999.0f;
+
+		Item::init();
+	}
+
+	~bridge_right() = default;
+};
+
+class stream :public Item {
+public:
+	stream(Vector2 p) : Item(p) {
+		name = "stream";
+		animation_magnification = 2.8f;
+		animation_frame_delta = 0.2f;
+
+		Item::init();
+	}
+
+	~stream() = default;
+};
+
+class waterfall :public Item {
+public:
+	waterfall(Vector2 p) : Item(p) {
+		name = "waterfall";
+		animation_magnification = 7.6f;
+		animation_frame_delta = 0.2f;
+
+		Item::init();
+	}
+
+	~waterfall() = default;
 };
 
 class BoxCat :public Item {
@@ -208,7 +289,6 @@ class background :public Item {
 public:
 	background(Vector2 p) : Item(p) {
 		name = "background";
-		relative_camera_speed = 0.3f;
 		animation_magnification = 1.0f;
 		animation_frame_delta = 999.0f;
 		block_box->set_size({ 576,324 });

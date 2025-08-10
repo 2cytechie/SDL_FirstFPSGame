@@ -26,7 +26,7 @@ Enemy::Enemy(Vector2 revive_pos) {
 		});
 
 	timer_render_hp.set_wait_time(5.0f);
-    timer_render_hp.set_one_shot(true);
+	timer_render_hp.set_one_shot(true);
 	timer_render_hp.set_on_timeout([&]() {
 		is_render_hp = false;
 		});
@@ -47,23 +47,73 @@ Enemy::Enemy(std::string name, Vector2 revive_pos) {
 
 	this->name = name;
 	pos_revive = revive_pos;
-	
+
 	init();
 }
 
 Enemy::Enemy(nlohmann::json& json) {
-	name = json["name"];
-	pos_revive = Vector2(json["pos_revive"][0], json["pos_revive"][1]);
-    max_hp = json["max_hp"];
-	Character::attack = json["attack"];
-	animation_magnification = json["animation_magnification"];
-	animation_frame_delta = json["animation_frame_delta"];
-
-	hit_box->set_size(Vector2(json["hit_box_size"][0],json["hit_box_size"][1]));
-	hurt_box->set_size(Vector2(json["hurt_box_size"][0],json["hurt_box_size"][1]));
+	if (json.contains("name")) {
+		name = json["name"].get<std::string>();
+	}
+	else {
+		name = "unknown_enemy";
+		SDL_Log("Enemy name ERROR");
+	}
+	if (json.contains("pos_revive")) {
+		pos_revive = Vector2(json["pos_revive"][0].get<float>(), json["pos_revive"][1].get<float>());
+	}
+	else {
+		pos_revive = Vector2(0.0f, 0.0f);
+		SDL_Log("Enemy pos_revive ERROR : name = %s",name.c_str());
+	}
+	if (json.contains("max_hp")) {
+		max_hp = json["max_hp"].get<int>();
+	}
+	else {
+		max_hp = 100;
+		SDL_Log("Enemy max_hp ERROR : name = %s", name.c_str());
+	}
+	if (json.contains("attack")) {
+		Character::attack = json["attack"].get<int>();
+	}
+	else {
+		Character::attack = 10;
+		SDL_Log("Enemy attack ERROR : name = %s", name.c_str());
+	}
+	if (json.contains("animation_magnification")) {
+		animation_magnification = json["animation_magnification"].get<float>();
+	}
+	else {
+		animation_magnification = 1.0f;
+		SDL_Log("Enemy animation_magnification ERROR : name = %s", name.c_str());
+	}
+	if (json.contains("animation_frame_delta")) {
+		animation_frame_delta = json["animation_frame_delta"].get<float>();
+	}
+	else {
+		animation_frame_delta = 0.1f;
+		SDL_Log("Enemy animation_frame_delta ERROR : name = %s", name.c_str());
+	}
+	if (json.contains("hit_box_size")) {
+		hit_box->set_size(Vector2(json["hit_box_size"][0].get<float>(), json["hit_box_size"][1].get<float>()));
+	}
+	else {
+		hit_box->set_size(Vector2(0.0f, 0.0f));
+		SDL_Log("Enemy hit_box_size ERROR : name = %s", name.c_str());
+	}
+	if (json.contains("hurt_box_size")) {
+		hurt_box->set_size(Vector2(json["hurt_box_size"][0].get<float>(), json["hurt_box_size"][1].get<float>()));
+	}
+	else {
+		hurt_box->set_size(Vector2(0.0f, 0.0f));
+		SDL_Log("Enemy hurt_box_size ERROR : name = %s", name.c_str());
+	}
 
 	init();
 }
+
+
+Enemy::~Enemy() = default;
 
 void Enemy::init() {
 	pos = pos_revive;
@@ -144,7 +194,7 @@ void Enemy::on_render(Camera& camera) {
 		SDL_Rect rect_hp = {
 			pos.x - max_hp / 2,
 			pos.y - size.y - 20,
-			hp,
+			hp > 0 ? hp : 0,
 			10
 		};
 		camera.draw_rect(&rect_rect, color_rect);
@@ -207,7 +257,7 @@ nlohmann::json Enemy::to_json() const {
 
 	return nlohmann::json{
 		{"name", name},
-		{"pos_revive", {pos_revive.x, pos_revive.y}},
+		{"pos_revive", {pos.x, pos.y}},
 		{"hit_box_size", {hit_box_size.x, hit_box_size.y}},
 		{"hurt_box_size", {hurt_box_size.x, hurt_box_size.y}},
 		{"max_hp",max_hp},

@@ -49,11 +49,11 @@ public:
 protected:
 	std::string name;
 	Vector2 pos;									// 位置
-	float relative_camera_speed = 0.0f;				// 相对于相机的移动速度
 	float animation_magnification = 1;				// 放大倍数
 	float animation_frame_delta = 0.1f;				// 动画每帧时间
 	bool is_facing_right = true;
 	bool is_block = false;							// 是否开启碰撞
+	Vector2 block_box_size;							// 碰撞箱大小
 	CollisionBox* block_box = nullptr;
 	Animation* animation = nullptr;
 };

@@ -13,6 +13,7 @@ void Camera::on_update(float delta) {
 void Camera::follow_pos(Vector2 target_pos) {
 	Vector2 offset = pos;
 	offset.x = target_pos.x - window_size.x / 2;
+    offset.y = target_pos.y - window_size.y * 2 / 3;
 	set_pos(offset);
 }
 
@@ -24,6 +25,7 @@ void Camera::fill_rect(const SDL_Rect* rect, SDL_Color color) {
 	rect_dst.y -= pos.y;
 
 	SDL_RenderFillRect(renderer, &rect_dst);
+	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 }
 
 void Camera::draw_rect(const SDL_Rect* rect, SDL_Color color) {
@@ -34,6 +36,7 @@ void Camera::draw_rect(const SDL_Rect* rect, SDL_Color color) {
 	rect_dst.y -= pos.y;
 
 	SDL_RenderDrawRect(renderer, &rect_dst);
+	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 }
 
 void Camera::draw_rect(const SDL_FRect* rect, SDL_Color color) {
@@ -46,6 +49,7 @@ void Camera::draw_rect(const SDL_FRect* rect, SDL_Color color) {
 	rect_dst.h = rect->h;
 
 	SDL_RenderDrawRect(renderer, &rect_dst);
+	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 }
 
 void Camera::draw_text(Text* text) {

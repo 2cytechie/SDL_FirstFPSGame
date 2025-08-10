@@ -23,7 +23,7 @@ public:
 	Soldier() {
 		name = "Soldier";
 		animation_magnification = 2.5f;
-		animation_frame_delta = 0.15f;
+		animation_frame_delta = 0.08f;
 
 		hit_box->set_size({ 150,110 });
 		hurt_box->set_size({ 60,100 });
@@ -40,7 +40,7 @@ public:
 	Sprites() {
 		name = "Sprites";
 		animation_magnification = 3.0f;
-		animation_frame_delta = 0.15f;
+		animation_frame_delta = 0.05f;
 
 		hit_box->set_size({ 140,100 });
 		hurt_box->set_size({ 50,100 });

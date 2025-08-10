@@ -2,10 +2,9 @@
 
 #include <vector>
 #include <fstream>
-#include <json.hpp>
-
-#include "enemy_ins.h"
-#include "item_ins.h"
+#include "scene_mgr.h"
+#include "enemy.h"
+#include "item.h"
 
 class Level {
 public:
@@ -64,7 +63,11 @@ public:
                 enemy_piece["animation_frame_delta"] = enemy_group["animation_frame_delta"];
                 enemy_piece["attack"] = enemy_group["attack"];
 
-                enemy_list.push_back(new Enemy(enemy_piece));
+                Enemy* enemy = new Enemy(enemy_piece);
+                // 编辑模式下不设置重力
+                enemy->set_gravity_enabled(false);
+
+                enemy_list.push_back(enemy);
             }
         }
         for (auto& [item_name, item_group] : data["item"].items()) {
@@ -74,11 +77,10 @@ public:
                 item_piece["name"] = item_name;
                 item_piece["pos"] = item_group["pos"][i];
                 item_piece["is_block"] = item_group["is_block"];
+                item_piece["block_box_size"] = item_group["block_box_size"];
                 item_piece["animation_magnification"] = item_group["animation_magnification"][i];
                 item_piece["animation_frame_delta"] = item_group["animation_frame_delta"];
                 item_piece["relative_camera_speed"] = item_group["relative_camera_speed"];
-
-                SDL_Log("item_piece.dump(4).c_str()");
 
                 item_list.push_back(new Item(item_piece));
             }

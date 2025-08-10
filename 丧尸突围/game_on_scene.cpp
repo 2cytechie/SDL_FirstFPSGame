@@ -15,6 +15,14 @@ void GameOnScene::on_update(float delta) {
 	LevelMgr::instance()->on_update(delta);
 	// ÆôÓÃÅö×²Ïä
 	CollisionMgr::instance()->process_collide();
+
+	if (LevelMgr::instance()->check_win()) {
+		level_num++;
+		SceneMgr::instance()->switch_to(SceneMgr::SceneType::GameOn);
+		if (DEBUG) {
+			SDL_Log("Next level");
+		}
+	}
 }
 
 void GameOnScene::on_render(Camera& camera) {
@@ -40,7 +48,4 @@ void GameOnScene::on_input(const SDL_Event& msg) {
 
 void GameOnScene::on_exit() {
 	LevelMgr::instance()->destory();
-	if (LevelMgr::instance()->check_rewin()) {
-		level_num++;
-	}
 }
