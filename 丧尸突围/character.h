@@ -21,10 +21,6 @@ public:
 	void plus_max_hp(int plus_hp) {
 		max_hp += plus_hp;
 		hp += plus_hp;
-
-		if (DEBUG) {
-			SDL_Log("player plus max hp");
-		}
 	}
 
 	int get_max_hp() {

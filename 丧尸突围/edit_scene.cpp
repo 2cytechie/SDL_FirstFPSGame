@@ -58,10 +58,10 @@ void EditScene::on_input(const SDL_Event& msg) {
 		std::string item_name;
         switch (msg.key.keysym.sym) {
 		case SDLK_1:	LevelMgr::instance()->add_item(new grass_plant(window_pos + mouse_pos));						break;
-        case SDLK_2:	LevelMgr::instance()->add_item(new plant(window_pos + mouse_pos));							break;
-        case SDLK_3:	item_name = "sleepBlackCat";						break;
-		case SDLK_4:	item_name = "cherry_tree";				break;
-		case SDLK_5:	item_name = "background_cloud2";				break;
+        case SDLK_2:	LevelMgr::instance()->add_item(new grass_plant2(window_pos + mouse_pos));							break;
+        case SDLK_3:	LevelMgr::instance()->add_item(new plant(window_pos + mouse_pos));						break;
+		case SDLK_4:	LevelMgr::instance()->add_item(new plant2(window_pos + mouse_pos));				break;
+		case SDLK_5:	item_name = "cherry_tree";				break;
 		case SDLK_6:	item_name = "background_cloud3";				break;
 		case SDLK_7:	item_name = "background_layer";					break;
 		case SDLK_8:	LevelMgr::instance()->add_item(new stream(window_pos + mouse_pos));			break;
@@ -89,9 +89,9 @@ void EditScene::on_input(const SDL_Event& msg) {
         case SDLK_u:	item_name = "mushroom3";						break;
         case SDLK_v:	item_name = "mushroom4";						break;
         case SDLK_w:	item_name = "mushroom5";						break;
-        case SDLK_x:	item_name = "notebook";							break;
+        case SDLK_x:	item_name = "red_spider_lily";							break;
         case SDLK_y:	item_name = "rock_1";							break;
-        case SDLK_z:	item_name = "next_level_left";						break;
+        case SDLK_z:	item_name = "next_level_right";						break;
 			
 		}
 		if (!item_name.empty()) {

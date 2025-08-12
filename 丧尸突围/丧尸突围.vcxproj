@@ -159,6 +159,7 @@
     <ClInclude Include="game_on_scene.h" />
     <ClInclude Include="item.h" />
     <ClInclude Include="item_ins.h" />
+    <ClInclude Include="level2.h" />
     <ClInclude Include="level_mgr.h" />
     <ClInclude Include="collision_layer.h" />
     <ClInclude Include="collision_box.h" />
@@ -183,9 +184,6 @@
     <ClInclude Include="text.h" />
     <ClInclude Include="timer.h" />
     <ClInclude Include="util.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="level1.json" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -15,6 +15,20 @@ public:
 	~grass_plant() = default;
 };
 
+class grass_plant2 :public Item {
+public:
+	grass_plant2(Vector2 p) : Item(p) {
+		name = "grass_plant2";
+		animation_magnification = 1.3f;
+		animation_frame_delta = 999.0f;
+		is_block = true;
+
+		Item::init();
+	}
+
+	~grass_plant2() = default;
+};
+
 class plant :public Item {
 public:
 	plant(Vector2 p) : Item(p) {
@@ -29,7 +43,19 @@ public:
 	~plant() = default;
 };
 
+class plant2 :public Item {
+public:
+	plant2(Vector2 p) : Item(p) {
+		name = "plant2";
+		animation_magnification = 1.3f;
+		animation_frame_delta = 999.0f;
+		is_block = true;
 
+		Item::init();
+	}
+
+	~plant2() = default;
+};
 
 class notebook :public Item {
 public:

@@ -77,8 +77,8 @@ void Item::init() {
 	block_box->set_enabled(is_block);
 
 	// �༭ģʽ
-	//Vector2 size = animation->get_size();
-	//block_box_size = size;
+	Vector2 size = animation->get_size();
+	block_box_size = size;
 
 	block_box->set_size(block_box_size);
 }

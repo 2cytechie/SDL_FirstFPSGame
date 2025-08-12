@@ -103,7 +103,9 @@ void EnemyIdleState::on_enter(Enemy* enemy)
     timer.set_wait_time(range_randomF(2.0f,4.0f));
     timer.set_one_shot(true);
     timer.set_on_timeout([enemy]() {
-        //enemy->switch_state("Walk");
+        if (SceneMgr::instance()->get_scene_type() != SceneMgr::SceneType::Edit) {
+            enemy->switch_state("Walk");
+        }
         });
     timer.restart();
 
@@ -150,8 +152,6 @@ void EnemyWalkState::on_enter(Enemy* enemy)
     timer.set_one_shot(true);
     timer.set_on_timeout([enemy]() {
         enemy->switch_state("Idle");
-
-        SDL_Log("Walk State One Peace !!!");
         });
     timer.restart();
 

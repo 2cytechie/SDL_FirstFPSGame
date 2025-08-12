@@ -215,10 +215,8 @@
     <ClInclude Include="edit_scene.h">
       <Filter>头文件\scene</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="level1.json">
+    <ClInclude Include="level2.h">
       <Filter>头文件\level</Filter>
-    </None>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -64,6 +64,9 @@ public:
 	void switch_state(const std::string& id);
 
 	void on_hurt() override;
+	void plus_pursuit_dis(float dis) {
+		MAX_PURSUIT_DIS += dis;
+	}
 
 	void attack();
 	void take_hit();
@@ -85,11 +88,11 @@ private:
 	Vector2 pos_revive;							// 出生点
 	bool is_pursuiting = false;
 
+	float MAX_PURSUIT_DIS = 1000;				// 最大追击距离
 	const float SPEED_WALK = 150.0f;			// 行走速度
 	const float SPEED_PURSUIT = 250.0f;			// 追击速度
 	const float ATTACK_DIS = 100.0f;			// 攻击距离
 	const float CD_ATTACK = 2.5f;				// 攻击CD
 	const float PURSUIT_DIS = 400;				// 追击距离
-	const float MAX_PURSUIT_DIS = 1000;			// 最大追击距离
 
 };

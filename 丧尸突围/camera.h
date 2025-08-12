@@ -54,8 +54,6 @@ public:
 
 public:
 	Vector2 window_size{ 1280,720 };		// 窗口大小
-	//const float damping = 0.1f;			// 阻尼系数，控制平滑度和残留效果
-	//Vector2 velocity;						// 摄像机的移动速度，静态变量以保持状态
 
 	SDL_Renderer* renderer;					// 
 	Vector2 pos;							// 摄像机位置

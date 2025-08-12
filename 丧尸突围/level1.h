@@ -4,7 +4,7 @@
 class Level1 : public Level {
     void load() override {
         level_name = u8"Óà½ý·ÐÑª";
-        level_config_path = "resources\\level.json";
+        level_config_path = "resources\\level\\level1.json";
 
         Level::load();
     }
@@ -16,7 +16,7 @@ class Level1 : public Level {
 			SDL_Log("Enemy plus HP");
 		}
 		for (Enemy* enemy : enemy_list) {
-			//enemy->plus_max_hp(10);
+			enemy->plus_max_hp(5);
 		}
 	}
 };

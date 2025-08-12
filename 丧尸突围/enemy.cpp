@@ -162,12 +162,6 @@ void Enemy::init() {
 	state_machine.register_state(this, "Return", new EnemyReturnState());
 
 	state_machine.set_entry("Idle");
-
-	// 默认值  仅编辑模式使用
-	Vector2 animation_size = animation_pool["Idle"]->get_size() * animation_magnification;
-	hurt_box->set_size(animation_size);
-	block_box->set_size(hurt_box->get_size());
-	hit_box->set_size({ 100,120 });
 }
 
 void Enemy::on_update(float delta) {

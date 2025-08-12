@@ -1,5 +1,6 @@
 #include "level_mgr.h"
 #include "level1.h"
+#include "level2.h"
 #include "player_ins.h"
 
 LevelMgr::LevelMgr() = default;
@@ -76,6 +77,7 @@ void LevelMgr::load_level(int n) {
 
 	switch (n) {
 	case 1: current_level = new Level1();	break;
+	case 2: current_level = new Level2();	break;
 
 	default:
 		SDL_Log("level_num ERROR !!!");
@@ -111,8 +113,9 @@ void LevelMgr::on_update(float delta) {
 		if (item->get_name().substr(0, 10) == "next_level") {
 			if (!player) return;
 			Vector2 dis = player->get_pos() - item->get_pos();
-			if (dis.length() < 1000 && dis.x < 10) {
+			if (dis.length() < 500 && dis.x < 10) {
 				is_win = true;
+				break;
 			}
 		}
 	}

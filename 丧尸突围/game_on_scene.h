@@ -14,6 +14,6 @@ public:
 	void on_exit();
 
 private:
-	int level_num = 1;
+	int level_num = 2;
 
 };
