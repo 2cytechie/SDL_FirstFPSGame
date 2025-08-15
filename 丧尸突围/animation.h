@@ -127,7 +127,6 @@ public:
 	void reset() {
 		timer.restart();
 		idx_frame = 0;
-		//size = frame_size;
 	}
 
 	// ÃªµãÄ£Ê½

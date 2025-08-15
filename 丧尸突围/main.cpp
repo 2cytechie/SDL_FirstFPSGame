@@ -21,7 +21,7 @@
 #include "edit_scene.h"
 
 
-bool DEBUG = true;
+bool DEBUG = false;
 
 
 void scene_init() {
@@ -45,7 +45,7 @@ int main(int argc, char** argv)
     Mix_Init(MIX_INIT_MP3);
     TTF_Init();
 
-    Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 4, 2048);
+    Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
 
     SDL_Window* window = SDL_CreateWindow(u8"¡¶É¥Ê¬Í»Î§¡·",
         SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,

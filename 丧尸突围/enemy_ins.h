@@ -5,9 +5,8 @@ class FlyingEye : public Enemy {
 public:
     FlyingEye(Vector2 revive_pos) : Enemy(revive_pos) {
         name = "FlyingEye";
-        hp = 100;
-        max_hp = 100;
-        Character::attack = 10;
+        max_hp = 80;
+        Character::attack = 8;
 
         animation_magnification = 2.0f;
         animation_frame_delta = 0.15f;
@@ -25,9 +24,8 @@ class Goblin : public Enemy {
 public:
     Goblin(Vector2 revive_pos) : Enemy(revive_pos) {
         name = "Goblin";
-        hp = 100;
-        max_hp = 100;
-        Character::attack = 8;
+        max_hp = 120;
+        Character::attack = 10;
 
         animation_magnification = 2.3f;
         animation_frame_delta = 0.15f;
@@ -45,8 +43,7 @@ class Mushroom : public Enemy {
 public:
     Mushroom(Vector2 revive_pos) : Enemy(revive_pos) {
         name = "Mushroom";
-        hp = 100;
-        max_hp = 100;
+        max_hp = 110;
         Character::attack = 10;
 
         animation_magnification = 2.6f;
@@ -65,7 +62,6 @@ class Skeleton : public Enemy {
 public:
     Skeleton(Vector2 revive_pos) : Enemy(revive_pos) {
         name = "Skeleton";
-        hp = 100;
         max_hp = 100;
         Character::attack = 8;
 
@@ -85,9 +81,8 @@ class SpriteSheets : public Enemy {
 public:
     SpriteSheets(Vector2 revive_pos) : Enemy(revive_pos) {
         name = "SpriteSheets";
-        hp = 100;
         max_hp = 100;
-        Character::attack = 8;
+        Character::attack = 10;
 
         animation_magnification = 2.7f;
         animation_frame_delta = 0.15f;
@@ -105,8 +100,7 @@ class Ninja : public Enemy {
 public:
     Ninja(Vector2 revive_pos) : Enemy(revive_pos) {
         name = "Ninja";
-        hp = 100;
-        max_hp = 100;
+        max_hp = 120;
         Character::attack = 15;
 
         animation_magnification = 2.5f;
@@ -125,8 +119,7 @@ class Minotaur : public Enemy {
 public:
     Minotaur(Vector2 revive_pos) : Enemy(revive_pos) {
         name = "Minotaur";
-        hp = 100;
-        max_hp = 100;
+        max_hp = 110;
         Character::attack = 10;
 
         animation_magnification = 0.78f;
@@ -145,8 +138,7 @@ class Slime1 : public Enemy {
 public:
     Slime1(Vector2 revive_pos) : Enemy(revive_pos) {
         name = "Slime1";
-        hp = 100;
-        max_hp = 100;
+        max_hp = 80;
         Character::attack = 5;
 
         animation_magnification = 2.0f;
@@ -165,8 +157,7 @@ class Slime2 : public Enemy {
 public:
     Slime2(Vector2 revive_pos) : Enemy(revive_pos) {
         name = "Slime2";
-        hp = 100;
-        max_hp = 100;
+        max_hp = 80;
         Character::attack = 5;
 
         animation_magnification = 2.0f;

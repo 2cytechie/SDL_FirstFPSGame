@@ -69,6 +69,9 @@ Character::~Character() {
 	CollisionMgr::instance()->destory(hit_box);
 	CollisionMgr::instance()->destory(hurt_box);
 	CollisionMgr::instance()->destory(block_box);
+	for (auto& animation : animation_pool) {
+		delete animation.second;
+	}
 }
 
 void Character::decrease_hp(int damage) {

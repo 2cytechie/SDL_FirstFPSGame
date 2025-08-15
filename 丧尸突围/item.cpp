@@ -64,10 +64,11 @@ Item::Item(nlohmann::json& json) {
 
 Item::~Item() {
 	CollisionMgr::instance()->destory(block_box);
+    delete animation;
 }
 
 void Item::init() {
-	animation = ResMgr::instance()->find_animation(name);
+	animation = ResMgr::instance()->copy_animation(name);
     if (animation) {
         animation->set_size(animation_magnification);
         animation->set_interval(animation_frame_delta);

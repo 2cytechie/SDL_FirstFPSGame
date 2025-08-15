@@ -16,6 +16,7 @@ public:
     void load(SDL_Renderer* renderer);
     Mix_Chunk* find_audio(const std::string& name);
     Animation* find_animation(const std::string& name);
+    Animation* copy_animation(const std::string& name);
 
 private:
     ResMgr();

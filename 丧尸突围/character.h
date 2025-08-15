@@ -37,8 +37,9 @@ public:
 		for (auto& anim : animation_pool) {
             anim.second->set_size(animation_magnification);
 		}
-		hurt_box->set_size(animation_pool["Idle"]->get_size());
-		block_box->set_size(animation_pool["Idle"]->get_size());
+		Vector2 box_size = hurt_box->get_size();
+		hurt_box->set_size(box_size * animation_magnification);
+		block_box->set_size(box_size * animation_magnification);
 	}
 
 	void minus_magnification(float val) {
@@ -46,8 +47,9 @@ public:
 		for (auto& anim : animation_pool) {
 			anim.second->set_interval(animation_magnification);
 		}
-		hurt_box->set_size(animation_pool["Idle"]->get_size());
-		block_box->set_size(animation_pool["Idle"]->get_size());
+		Vector2 box_size = hurt_box->get_size();
+		hurt_box->set_size(box_size * animation_magnification);
+		block_box->set_size(box_size * animation_magnification);
 	}
 
 	int get_damagge() {

@@ -144,11 +144,11 @@ void Enemy::init() {
 		is_render_hp = false;
 		});
 
-	animation_pool["Attack"] = ResMgr::instance()->find_animation(name + "_Attack");
-	animation_pool["Death"] = ResMgr::instance()->find_animation(name + "_Death");
-	animation_pool["Idle"] = ResMgr::instance()->find_animation(name + "_Idle");
-	animation_pool["Run"] = ResMgr::instance()->find_animation(name + "_Run");
-	animation_pool["TakeHit"] = ResMgr::instance()->find_animation(name + "_TakeHit");
+	animation_pool["Attack"] = ResMgr::instance()->copy_animation(name + "_Attack");
+	animation_pool["Death"] = ResMgr::instance()->copy_animation(name + "_Death");
+	animation_pool["Idle"] = ResMgr::instance()->copy_animation(name + "_Idle");
+	animation_pool["Run"] = ResMgr::instance()->copy_animation(name + "_Run");
+	animation_pool["TakeHit"] = ResMgr::instance()->copy_animation(name + "_TakeHit");
 
 	state_machine.register_state(this, "Attack", new EnemyAttackState());
 	state_machine.register_state(this, "Death", new EnemyDeathState());
@@ -206,7 +206,9 @@ void Enemy::on_hurt() {
 	// 转换受击动画
 	is_attacking = false;
 	is_attack_cd_comp = true;
-	state_machine.switch_state("TakeHit");
+	if (hp > 0) {
+		state_machine.switch_state("TakeHit");
+	}
 	// 受击音效
 	Mix_PlayChannel(-1, ResMgr::instance()->find_audio("ui_switch"), 0);
 }

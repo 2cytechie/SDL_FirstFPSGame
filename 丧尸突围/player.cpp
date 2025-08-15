@@ -3,7 +3,7 @@
 #include "player_state_node.h"
 
 Player::Player() {
-    max_hp = 90;
+    max_hp = 75;
     pos = Vector2(200, 100);
 
 	hit_box->set_layer_src(CollisionLayer::None);
@@ -53,16 +53,16 @@ void Player::init() {
 
     block_box->set_size(hurt_box->get_size());
 
-    animation_pool["Attack"] = ResMgr::instance()->find_animation(name + "_Attack");
-    animation_pool["Death"] = ResMgr::instance()->find_animation(name + "_Death");
-    animation_pool["Idle"] = ResMgr::instance()->find_animation(name + "_Idle");
-    animation_pool["Jump"] = ResMgr::instance()->find_animation(name + "_Jump");
-    animation_pool["Run"] = ResMgr::instance()->find_animation(name + "_Run");
+    animation_pool["Attack"] = ResMgr::instance()->copy_animation(name + "_Attack");
+    animation_pool["Death"] = ResMgr::instance()->copy_animation(name + "_Death");
+    animation_pool["Idle"] = ResMgr::instance()->copy_animation(name + "_Idle");
+    animation_pool["Jump"] = ResMgr::instance()->copy_animation(name + "_Jump");
+    animation_pool["Run"] = ResMgr::instance()->copy_animation(name + "_Run");
 }
 
 void Player::set_current_animation(std::string state) {
     std::string file_name = name + "_" + state;
-    current_animation = ResMgr::instance()->find_animation(file_name);
+    current_animation = animation_pool[file_name];
     current_animation->reset();
     current_animation->set_loop(true);
 }
@@ -205,7 +205,7 @@ void Player::on_render(Camera& camera) {
     SDL_Rect rect_attack = {
         camera_pos.x + 100,
         camera_pos.y + window_size.y - 20,
-        Character::attack * 5,
+        Character::attack * 3,
         10
     };
     camera.draw_text(&text_attack);

@@ -28,6 +28,13 @@ void LevelMgr::destory() {
 	delete current_level;
 	current_level = nullptr;
 
+	for (auto& enemy : enemy_list) {
+		delete enemy;
+	}
+	for (auto& item : item_list) {
+		delete item;
+	}
+
 	enemy_list.clear();
 	item_list.clear();
 }
@@ -63,7 +70,7 @@ void LevelMgr::destory_item(Item* item) {
 }
 
 void LevelMgr::load_level(int n) {
-	timer_show_name.set_wait_time(2.0f);
+	timer_show_name.set_wait_time(1.5f);
 	timer_show_name.set_one_shot(true);
 	timer_show_name.set_on_timeout([&]() {
 		show_level_name = false;
@@ -93,8 +100,8 @@ void LevelMgr::load_level(int n) {
 	// 玩家增加血量和攻击力
 	if (player) {
 		player->reset();
-		player->plus_max_hp(10);
-		player->plus_attack(2);
+		player->plus_max_hp(25);
+		player->plus_attack(5);
 
 		if (DEBUG) {
 			SDL_Log("player plus max_hp and attack");

@@ -8,13 +8,21 @@ Mix_Chunk* ResMgr::find_audio(const std::string& name)
     return audio_pool[name];
 }
 
-Animation* ResMgr::find_animation(const std::string& name)
+Animation* ResMgr::copy_animation(const std::string& name)
 {
     if (animation_pool.find(name) == animation_pool.end()) {
         SDL_Log("animation name ERROR: name = %s", name.c_str());
         return nullptr;
     }
     return animation_pool[name]->copy();
+}
+
+Animation* ResMgr::find_animation(const std::string& name) {
+    if (animation_pool.find(name) == animation_pool.end()) {
+        SDL_Log("animation name ERROR: name = %s", name.c_str());
+        return nullptr;
+    }
+    return animation_pool[name];
 }
 
 ResMgr::ResMgr() = default;
