@@ -76,6 +76,7 @@ public:
 		name = "bridge_left";
 		animation_magnification = 2.0f;
 		animation_frame_delta = 999.0f;
+		block_box_size = Vector2();
 
 		Item::init();
 	}

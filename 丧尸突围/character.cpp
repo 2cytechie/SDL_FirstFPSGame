@@ -57,8 +57,8 @@ Character::Character() {
         }
         });
 
-	// 每 0.5 秒最多受击一次
-	timer_invulnerable_status.set_wait_time(0.5f);
+	// 每 0.3 秒最多受击一次
+	timer_invulnerable_status.set_wait_time(0.3f);
 	timer_invulnerable_status.set_one_shot(true);
 	timer_invulnerable_status.set_on_timeout([&]() {
 		is_invulnerable = false;

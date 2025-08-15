@@ -72,6 +72,6 @@ void InstructionScene::update() {
 	std::string attack_player_name = PlayerName[select_player];
 	attack_animation = ResMgr::instance()->find_animation(attack_player_name + "_Attack");
 	attack_animation->set_pos(window_size.x / 4 * 3, window_size.y / 10 * 7);
-	attack_animation->set_size(200 / attack_animation->get_size().y);
+	attack_animation->set_size(200 / attack_animation->get_frame_size().y);
 	player_name.set(attack_player_name, font, { window_size.x / 4 * 3 ,window_size.y / 10 * 7 + 20 });
 }

@@ -68,6 +68,7 @@ void MenuScene::on_input(const SDL_Event& msg) {
 		case SDLK_KP_ENTER:
 		case SDLK_RETURN:
 		{
+			Mix_PlayChannel(-1, ResMgr::instance()->find_audio("ui_confirm"), 0);
 			if (select_game == 0) {
 				LevelMgr::instance()->select_player(select_player);
 				SceneMgr::instance()->switch_to(SceneMgr::SceneType::GameOn);
@@ -76,7 +77,6 @@ void MenuScene::on_input(const SDL_Event& msg) {
 				SceneMgr::instance()->switch_to(SceneMgr::SceneType::PlayingInstrution);
 			}
 			else if (select_game == 2) {
-				Mix_PlayChannel(-1, ResMgr::instance()->find_audio("ui_confirm"), 0);
 				SceneMgr::instance()->switch_to(SceneMgr::SceneType::Exit);
 			}
 			return;

@@ -106,6 +106,13 @@ void Player::on_input(const SDL_Event& msg) {
         case SDLK_d:
             is_right_key_down = true;
             break;
+        case SDLK_F1:
+            if (DEBUG) {
+                plus_max_hp(25);
+                plus_attack(5);
+                SDL_Log("plus max_hp and attack");
+            }
+            break;
         }
         break;
 

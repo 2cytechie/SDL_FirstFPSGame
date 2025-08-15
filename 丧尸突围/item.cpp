@@ -80,7 +80,7 @@ void Item::init() {
 	block_box->set_enabled(is_block);
 
 	// �༭ģʽ
-    if (animation) {
+    if (animation && block_box_size == Vector2(0,0)) {
         Vector2 size = animation->get_size();
         block_box_size = size;
     }
