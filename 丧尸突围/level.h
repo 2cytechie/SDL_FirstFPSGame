@@ -13,12 +13,6 @@ public:
 	~Level() {
 		TTF_CloseFont(font);
 		delete name;
-		for (auto enemy : enemy_list) {
-			delete enemy;
-		}
-		for (auto item : item_list) {
-			delete item;
-		}
 	}
 	Text* get_name() {
 		return name;
@@ -62,10 +56,13 @@ public:
                 enemy_piece["animation_magnification"] = enemy_group["animation_magnification"][i];
                 enemy_piece["animation_frame_delta"] = enemy_group["animation_frame_delta"];
                 enemy_piece["attack"] = enemy_group["attack"];
+                if (enemy_group.contains("enable_gravity")) {
+                    enemy_piece["enable_gravity"] = enemy_group["enable_gravity"];
+                }
 
                 Enemy* enemy = new Enemy(enemy_piece);
                 // 编辑模式下不设置重力
-                enemy->set_gravity_enabled(false);
+                //enemy->set_gravity_enabled(false);
 
                 enemy_list.push_back(enemy);
             }

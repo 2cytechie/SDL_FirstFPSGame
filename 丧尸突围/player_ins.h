@@ -1,29 +1,12 @@
 #pragma once
 #include "player.h"
 
-class Knight :public Player {
-public:
-	Knight() {
-		name = "Knight";
-		animation_magnification = 3.0f;
-		animation_frame_delta = 0.15f;
-
-		hit_box->set_size({ 140,100 });
-		hurt_box->set_size({ 50,100 });
-
-		Player::init();
-	}
-
-	~Knight() = default;
-
-};
-
 class Soldier :public Player {
 public:
 	Soldier() {
 		name = "Soldier";
 		animation_magnification = 2.5f;
-		animation_frame_delta = 0.08f;
+		animation_frame_delta = 0.1f;
 
 		hit_box->set_size({ 150,110 });
 		hurt_box->set_size({ 60,100 });
@@ -40,7 +23,7 @@ public:
 	Sprites() {
 		name = "Sprites";
 		animation_magnification = 3.0f;
-		animation_frame_delta = 0.05f;
+		animation_frame_delta = 0.1f;
 
 		hit_box->set_size({ 140,100 });
 		hurt_box->set_size({ 50,100 });
@@ -57,7 +40,7 @@ public:
 	Pexel() {
 		name = "Pexel";
 		animation_magnification = 3.0f;
-		animation_frame_delta = 0.15f;
+		animation_frame_delta = 0.08f;
 
 		hit_box->set_size({ 100,140 });
 		hurt_box->set_size({ 50,85 });

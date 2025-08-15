@@ -17,6 +17,22 @@ void Camera::follow_pos(Vector2 target_pos) {
 	set_pos(offset);
 }
 
+void Camera::follow_pos(Vector2 follow_pos, bool is_facing_right) {
+	Vector2 offset;
+	offset.x = follow_pos.x - window_size.x / 2 + (is_facing_right ? window_size.x / 8 : -window_size.x / 8);
+	offset.y = follow_pos.y - window_size.y * 2 / 3;
+
+	Vector2 distance = offset - pos;
+
+	if (distance.length() > move_speed) {
+		Vector2 velocity = distance * move_speed;
+		pos += velocity;
+	}
+	else {
+		pos = offset;
+	}
+}
+
 void Camera::fill_rect(const SDL_Rect* rect, SDL_Color color) {
 	SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 
@@ -25,7 +41,7 @@ void Camera::fill_rect(const SDL_Rect* rect, SDL_Color color) {
 	rect_dst.y -= pos.y;
 
 	SDL_RenderFillRect(renderer, &rect_dst);
-	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+	SDL_SetRenderDrawColor(renderer, 0, 255, 255, 255);
 }
 
 void Camera::draw_rect(const SDL_Rect* rect, SDL_Color color) {
@@ -36,7 +52,7 @@ void Camera::draw_rect(const SDL_Rect* rect, SDL_Color color) {
 	rect_dst.y -= pos.y;
 
 	SDL_RenderDrawRect(renderer, &rect_dst);
-	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+	SDL_SetRenderDrawColor(renderer, 0, 255, 255, 255);
 }
 
 void Camera::draw_rect(const SDL_FRect* rect, SDL_Color color) {
@@ -49,7 +65,7 @@ void Camera::draw_rect(const SDL_FRect* rect, SDL_Color color) {
 	rect_dst.h = rect->h;
 
 	SDL_RenderDrawRect(renderer, &rect_dst);
-	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+	SDL_SetRenderDrawColor(renderer, 0, 255, 255, 255);
 }
 
 void Camera::draw_text(Text* text) {
@@ -72,6 +88,7 @@ void Camera::draw_text(Text* text) {
 
 		text->size.x = surface->w, text->size.y = surface->h;
 		text->texture = SDL_CreateTextureFromSurface(renderer, surface);
+		SDL_FreeSurface(surface);
 	}
 
 	SDL_FRect rect_dst;

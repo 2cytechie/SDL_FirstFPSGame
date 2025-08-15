@@ -22,13 +22,13 @@ void PlayerAttackState::on_enter(Player* player) {
 	switch (range_random(1, 3))
 	{
 	case 1:
-		Mix_PlayChannel(1, ResMgr::instance()->find_audio("player_attack_1"), 0);
+		Mix_PlayChannel(-1, ResMgr::instance()->find_audio("player_attack_1"), 0);
 		break;
 	case 2:
-		Mix_PlayChannel(1, ResMgr::instance()->find_audio("player_attack_2"), 0);
+		Mix_PlayChannel(-1, ResMgr::instance()->find_audio("player_attack_2"), 0);
 		break;
 	case 3:
-		Mix_PlayChannel(1, ResMgr::instance()->find_audio("player_attack_3"), 0);
+		Mix_PlayChannel(-1, ResMgr::instance()->find_audio("player_attack_3"), 0);
 		break;
 	}
 }
@@ -75,8 +75,6 @@ PlayerDeathState::PlayerDeathState()
 void PlayerDeathState::on_enter(Player* player)
 {
 	player->set_animation("Death");
-
-	//Mix_PlayChannel(1, ResMgr::instance()->find_audio("player_dead"), 0);
 }
 
 void PlayerDeathState::on_update(Player* player, float delta)
@@ -110,7 +108,7 @@ void PlayerJumpState::on_enter(Player* player)
 	player->set_animation("Jump");
 	player->jump();
 
-	Mix_PlayChannel(1, ResMgr::instance()->find_audio("player_jump"), 0);
+	Mix_PlayChannel(-1, ResMgr::instance()->find_audio("player_jump"), 0);
 }
 
 void PlayerJumpState::on_update(Player* player, float delta)
@@ -146,7 +144,7 @@ void PlayerDashState::on_enter(Player* player)
 	player->dash();
 	timer.restart();
 
-	Mix_PlayChannel(1, ResMgr::instance()->find_audio("player_dash"), 0);
+	Mix_PlayChannel(-1, ResMgr::instance()->find_audio("player_dash"), 0);
 }
 
 void PlayerDashState::on_update(Player* player, float delta)

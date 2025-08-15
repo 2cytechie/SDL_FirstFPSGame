@@ -11,11 +11,13 @@ void InstructionScene::on_enter() {
 	font_max = TTF_OpenFont("resources/IPix.ttf", 40);
 	font = TTF_OpenFont("resources/IPix.ttf", 30);
 	font_min = TTF_OpenFont("resources/IPix.ttf", 20);
-	instructions.push_back(Text(u8"游戏玩法:", font_max, { window_size.x / 16, window_size.y / 16 * 4 }, Text::TextType::Left));
-	instructions.push_back(Text(u8"  移动:    W  A  S  D  上下左右移动", font, { window_size.x / 16,window_size.y / 16 * 6 }, Text::TextType::Left));
-	instructions.push_back(Text(u8"  攻击:    鼠标左键", font, { window_size.x / 16,window_size.y / 16 * 7 }, Text::TextType::Left));
+	instructions.push_back(Text(u8"Enter  返回菜单界面", font, { 50,window_size.y / 16 * 1 }, Text::TextType::Left, { 200,20,20,255 }));
 
-	instructions.push_back(Text(u8"Enter  返回菜单界面", font, { window_size.x / 2,window_size.y / 16 * 12 }, Text::TextType::Right, { 200,20,20,255 }));
+	instructions.push_back(Text(u8"游戏玩法:", font_max, { window_size.x / 16, window_size.y / 16 * 4 }, Text::TextType::Left));
+	instructions.push_back(Text(u8"  移动:    A  D  左右移动", font, { window_size.x / 16,window_size.y / 16 * 6 }, Text::TextType::Left));
+	instructions.push_back(Text(u8"  跳跃:    空格 或 W", font, { window_size.x / 16,window_size.y / 16 * 7 }, Text::TextType::Left));
+	instructions.push_back(Text(u8"  闪避:    左 Shift 或 S", font, { window_size.x / 16,window_size.y / 16 * 8 }, Text::TextType::Left));
+	instructions.push_back(Text(u8"  攻击:    鼠标左键", font, { window_size.x / 16,window_size.y / 16 * 9 }, Text::TextType::Left));
 
 	instructions.push_back(Text(u8"制作人名单:", font, { window_size.x / 16,window_size.y / 16 * 13 }, Text::TextType::Left));
 	instructions.push_back(Text(u8"2cytechie", font_min, { window_size.x / 16,window_size.y / 16 * 14 }, Text::TextType::Left));
@@ -70,6 +72,6 @@ void InstructionScene::update() {
 	std::string attack_player_name = PlayerName[select_player];
 	attack_animation = ResMgr::instance()->find_animation(attack_player_name + "_Attack");
 	attack_animation->set_pos(window_size.x / 4 * 3, window_size.y / 10 * 7);
-	attack_animation->set_size(5);
+	attack_animation->set_size(200 / attack_animation->get_size().y);
 	player_name.set(attack_player_name, font, { window_size.x / 4 * 3 ,window_size.y / 10 * 7 + 20 });
 }

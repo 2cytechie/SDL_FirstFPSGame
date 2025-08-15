@@ -13,16 +13,11 @@ public:
 	~Camera();
 
 	void set_pos(Vector2 new_pos) {
-		last_pos = pos;
 		pos = new_pos;
 	}
 
 	const Vector2& get_pos()const {
 		return pos;
-	}
-
-	const Vector2& get_camera_move()const {
-		return pos - last_pos;
 	}
 
 	void reset() {
@@ -41,6 +36,7 @@ public:
 	void on_update(float delta);
 	// 跟随点
 	void follow_pos(Vector2 target_pos);
+	void follow_pos(Vector2 follow_pos,bool is_facing_right);
 	// 绘制矩形
 	void fill_rect(const SDL_Rect* rect, SDL_Color color);
 	// 绘制矩形框
@@ -57,7 +53,7 @@ public:
 
 	SDL_Renderer* renderer;					// 
 	Vector2 pos;							// 摄像机位置
-	Vector2 last_pos;						// 上一次摄像机位置
+	float move_speed = 0.01f;				// 摄像机移动速度
 	float shaking_strength = 0;				// 抖动幅度大小
 
 };

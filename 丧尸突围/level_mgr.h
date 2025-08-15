@@ -50,14 +50,13 @@ private:
 	~LevelMgr();
 
 	bool is_win = false;
-	int player_death_count = 0;					// 玩家死亡次数
 	
 	Player* player = nullptr;
 	std::vector<Enemy*> enemy_list;
 	std::vector<Item*> item_list;
 
 	Timer timer_show_name;
-	bool show_level_name = false;
+	bool show_level_name = true;
 	Animation* background = nullptr;
 	Text* level_name = nullptr;					// 关卡名字
 	Level* current_level = nullptr;				// 当前关卡

@@ -26,24 +26,22 @@ void GameOnScene::on_update(float delta) {
 }
 
 void GameOnScene::on_render(Camera& camera) {
-	// ÉèÖÃÉãÏñ»ú¸úËæ
-	Vector2 player_pos = LevelMgr::instance()->get_player()->get_pos();
-	camera.follow_pos(player_pos);
-
 	LevelMgr::instance()->on_render(camera);
 
 	// DEBUG Åö×²Ïä
-	CollisionMgr::instance()->on_debug_render(camera);
+	if (DEBUG) {
+		CollisionMgr::instance()->on_debug_render(camera);
+	}
 }
 
 void GameOnScene::on_input(const SDL_Event& msg) {
 	LevelMgr::instance()->on_input(msg);
 
-	if (msg.type == SDL_KEYDOWN) {
-		if (msg.key.keysym.sym == SDLK_RETURN) {
-			SceneMgr::instance()->switch_to(SceneMgr::SceneType::Menu);
-		}
-	}
+	//if (msg.type == SDL_KEYDOWN) {
+	//	if (msg.key.keysym.sym == SDLK_RETURN) {
+	//		SceneMgr::instance()->switch_to(SceneMgr::SceneType::Menu);
+	//	}
+	//}
 }
 
 void GameOnScene::on_exit() {

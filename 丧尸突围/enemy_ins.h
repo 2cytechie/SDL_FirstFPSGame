@@ -7,6 +7,7 @@ public:
         name = "FlyingEye";
         hp = 100;
         max_hp = 100;
+        Character::attack = 10;
 
         animation_magnification = 2.0f;
         animation_frame_delta = 0.15f;
@@ -26,6 +27,7 @@ public:
         name = "Goblin";
         hp = 100;
         max_hp = 100;
+        Character::attack = 8;
 
         animation_magnification = 2.3f;
         animation_frame_delta = 0.15f;
@@ -45,6 +47,7 @@ public:
         name = "Mushroom";
         hp = 100;
         max_hp = 100;
+        Character::attack = 10;
 
         animation_magnification = 2.6f;
         animation_frame_delta = 0.15f;
@@ -64,6 +67,7 @@ public:
         name = "Skeleton";
         hp = 100;
         max_hp = 100;
+        Character::attack = 8;
 
         animation_magnification = 2.0f;
         animation_frame_delta = 0.15f;
@@ -83,6 +87,7 @@ public:
         name = "SpriteSheets";
         hp = 100;
         max_hp = 100;
+        Character::attack = 8;
 
         animation_magnification = 2.7f;
         animation_frame_delta = 0.15f;
@@ -102,11 +107,12 @@ public:
         name = "Ninja";
         hp = 100;
         max_hp = 100;
+        Character::attack = 15;
 
         animation_magnification = 2.5f;
         animation_frame_delta = 0.15f;
 
-        hit_box->set_size({ 100,120 });
+        hit_box->set_size({ 180,60 });
         hurt_box->set_size({ 60,90 });
         
         Enemy::init();
@@ -121,6 +127,7 @@ public:
         name = "Minotaur";
         hp = 100;
         max_hp = 100;
+        Character::attack = 10;
 
         animation_magnification = 0.78f;
         animation_frame_delta = 0.15f;
@@ -140,6 +147,7 @@ public:
         name = "Slime1";
         hp = 100;
         max_hp = 100;
+        Character::attack = 5;
 
         animation_magnification = 2.0f;
         animation_frame_delta = 0.15f;
@@ -159,6 +167,7 @@ public:
         name = "Slime2";
         hp = 100;
         max_hp = 100;
+        Character::attack = 5;
 
         animation_magnification = 2.0f;
         animation_frame_delta = 0.15f;

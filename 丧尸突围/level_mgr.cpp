@@ -8,16 +8,17 @@ LevelMgr::LevelMgr() = default;
 LevelMgr::~LevelMgr() = default;
 
 void LevelMgr::select_player(int select) {
-	delete player;
-	player = nullptr;
+	if (player) {
+		delete player;
+		player = nullptr;
+	}
 	switch (select) {
 	case 0:		player = new Sprites();		break;
 	case 1:		player = new Pexel();		break;
-	case 2:		player = new Knight();		break;
-	case 3:		player = new Soldier();		break;
-	case 4:		player = new Fighter();		break;
-	case 5:		player = new Samurai();		break;
-	case 6:		player = new Martial();		break;
+	case 2:		player = new Soldier();		break;
+	case 3:		player = new Fighter();		break;
+	case 4:		player = new Samurai();		break;
+	case 5:		player = new Martial();		break;
 
 	default:	SDL_Log("Creat player Error !!!");
 	}
@@ -62,15 +63,16 @@ void LevelMgr::destory_item(Item* item) {
 }
 
 void LevelMgr::load_level(int n) {
-	timer_show_name.set_wait_time(3.0f);
+	timer_show_name.set_wait_time(2.0f);
 	timer_show_name.set_one_shot(true);
 	timer_show_name.set_on_timeout([&]() {
 		show_level_name = false;
 		});
 	timer_show_name.restart();
 
-	delete background;
-	background = ResMgr::instance()->find_animation("background");
+	if (!background) {
+		background = ResMgr::instance()->find_animation("background");
+	}
 
 	// 删除 new 的对象
 	destory();
@@ -91,8 +93,12 @@ void LevelMgr::load_level(int n) {
 	// 玩家增加血量和攻击力
 	if (player) {
 		player->reset();
-		player->plus_max_hp(5);
-		player->plus_attack(1);
+		player->plus_max_hp(10);
+		player->plus_attack(2);
+
+		if (DEBUG) {
+			SDL_Log("player plus max_hp and attack");
+		}
 	}
 }
 
@@ -126,8 +132,17 @@ void LevelMgr::on_update(float delta) {
 	player->on_update(delta);
 }
 void LevelMgr::on_render(Camera& camera) {
+	// 设置摄像机跟随
+	if (player) {
+		Vector2 player_pos = player->get_pos();
+		bool is_facing_right = player->facing_right();
+		camera.follow_pos(player_pos, is_facing_right);
+	}
 	if (show_level_name) {
-		background->on_render(camera);
+		camera.reset();
+		if (background) {
+			background->on_render(camera);
+		}
 		camera.draw_text(level_name);
 	}
 	else {
@@ -140,39 +155,5 @@ void LevelMgr::on_render(Camera& camera) {
 		if (!player) return;
 		player->on_render(camera);
 	}
-
-	// UI
-	// 绘制血条  和攻击力
-	SDL_Color color_rect = { 128,0,0,255 };
-	SDL_Color color_hp = { 200,0,0,255 };
-
-	int max_hp = player->get_max_hp();
-	int hp = player->get_hp();
-	Vector2 window_size = camera.get_window_size();
-	Vector2 camera_pos = camera.get_pos();
-	SDL_Rect rect_max_hp = {
-		camera_pos.x + 10,
-		camera_pos.y + window_size.y - 35,
-		max_hp,
-		10
-	};
-	SDL_Rect rect_hp = {
-		camera_pos.x + 10,
-		camera_pos.y + window_size.y - 35,
-		hp > 0 ? hp : 0,
-		10
-	};
-	camera.draw_rect(&rect_max_hp, color_rect);
-	camera.fill_rect(&rect_hp, color_hp);
-
-	SDL_Color color_attack = { 0,0,128,255 };
-	int attack = player->get_damagge();
-	SDL_Rect rect_attack = {
-		camera_pos.x + 10,
-		camera_pos.y + window_size.y - 20,
-		attack * 2,
-		10
-	};
-	camera.fill_rect(&rect_attack, color_attack);
 }
 

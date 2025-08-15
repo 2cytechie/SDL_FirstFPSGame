@@ -68,8 +68,10 @@ Item::~Item() {
 
 void Item::init() {
 	animation = ResMgr::instance()->find_animation(name);
-	animation->set_size(animation_magnification);
-	animation->set_interval(animation_frame_delta);
+    if (animation) {
+        animation->set_size(animation_magnification);
+        animation->set_interval(animation_frame_delta);
+    }
 
 	block_box = CollisionMgr::instance()->creat();
 	block_box->set_layer_src(CollisionLayer::None);
@@ -77,8 +79,10 @@ void Item::init() {
 	block_box->set_enabled(is_block);
 
 	// �༭ģʽ
-	Vector2 size = animation->get_size();
-	block_box_size = size;
+    if (animation) {
+        Vector2 size = animation->get_size();
+        block_box_size = size;
+    }
 
 	block_box->set_size(block_box_size);
 }

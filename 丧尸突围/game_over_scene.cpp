@@ -16,6 +16,7 @@ void GameOverScene::on_enter() {
 	menu				= Text(u8"游戏菜单", font, { window_size.x / 2,window_size.y / 10 * 6 });		// 游戏菜单
 	exit_game			= Text(u8"退出游戏", font, { window_size.x / 2,window_size.y / 10 * 7 });		// 退出游戏
 	
+	Mix_PlayChannel(-1, ResMgr::instance()->find_audio("loss"), 0);
 }
 void GameOverScene::on_update(float delta) {
 

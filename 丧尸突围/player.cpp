@@ -3,7 +3,7 @@
 #include "player_state_node.h"
 
 Player::Player() {
-    max_hp = 1000;
+    max_hp = 90;
     pos = Vector2(200, 100);
 
 	hit_box->set_layer_src(CollisionLayer::None);
@@ -41,12 +41,14 @@ Player::Player() {
     state_machine.set_entry("Idle");
 }
 
-Player::~Player() = default;
+Player::~Player() {
+    TTF_CloseFont(font);
+}
 
 void Player::init() {
     hp = max_hp;
     Character::attack = 1000 / hit_box->get_size().x;
-    Character::attack = 1000;
+    font = TTF_OpenFont("resources/IPix.ttf", 10);
     hit_box->set_damage(Character::attack);
 
     block_box->set_size(hurt_box->get_size());
@@ -63,6 +65,21 @@ void Player::set_current_animation(std::string state) {
     current_animation = ResMgr::instance()->find_animation(file_name);
     current_animation->reset();
     current_animation->set_loop(true);
+}
+
+void Player::reset() {
+    is_left_key_down = false;
+    is_right_key_down = false;
+    is_jump_key_down = false;
+    is_dash_key_down = false;
+    is_attack_key_down = false;
+    is_attack_cd_comp = true;
+    is_attacking = false;
+
+    hp = max_hp;
+    pos = Vector2(200, 0);
+    velocity = Vector2(0, 0);
+    state_machine.switch_state("Idle");
 }
 
 void Player::on_input(const SDL_Event& msg) {
@@ -144,6 +161,10 @@ void Player::on_update(float delta) {
         is_facing_right = (get_move_axis() > 0);
     }
 
+    if (velocity.y > 5000) {
+        hp = 0;
+    }
+
     timer_dash_cd.on_update(delta);
     timer_attack_cd.on_update(delta);
 
@@ -152,6 +173,43 @@ void Player::on_update(float delta) {
 
 void Player::on_render(Camera& camera) {
     Character::on_render(camera);
+
+    // UI
+    // 绘制血条  和攻击力
+    SDL_Color color_rect = { 128,0,0,255 };
+    SDL_Color color_hp = { 200,0,0,255 };
+
+    Vector2 window_size = camera.get_window_size();
+    Vector2 camera_pos = camera.get_pos();
+    std::string tex_hp = u8"血量 : " + std::to_string(hp);
+    text_hp.set(tex_hp.c_str(), font, Vector2(camera_pos.x + 20, camera_pos.y + window_size.y - 30), Text::TextType::Left, color_hp);
+    SDL_Rect rect_max_hp = {
+        camera_pos.x + 100,
+        camera_pos.y + window_size.y - 35,
+        max_hp,
+        10
+    };
+    SDL_Rect rect_hp = {
+        camera_pos.x + 100,
+        camera_pos.y + window_size.y - 35,
+        hp > 0 ? hp : 0,
+        10
+    };
+    camera.draw_text(&text_hp);
+    camera.draw_rect(&rect_max_hp, color_rect);
+    camera.fill_rect(&rect_hp, color_hp);
+
+    SDL_Color color_attack = { 0,0,128,255 };
+    std::string tex_attack = u8"攻击力 : " + std::to_string(Character::attack);
+    text_attack.set(tex_attack.c_str(), font, Vector2(camera_pos.x + 20, camera_pos.y + window_size.y - 15), Text::TextType::Left, color_attack);
+    SDL_Rect rect_attack = {
+        camera_pos.x + 100,
+        camera_pos.y + window_size.y - 20,
+        Character::attack * 5,
+        10
+    };
+    camera.draw_text(&text_attack);
+    camera.fill_rect(&rect_attack, color_attack);
 }
 
 void Player::on_hurt() {

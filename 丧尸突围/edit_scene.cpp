@@ -16,6 +16,7 @@ bool EditScene::mouse_in_box(CollisionBox* box) {
 
 void EditScene::on_enter() {
 	// 设置编辑关卡
+	// 编辑时记得在 Level.h -> enemy 不启用重力
 	LevelMgr::instance()->load_level(EDIT_LEVEL);
 	// 默认角色  并不设置重力
 	LevelMgr::instance()->select_player(1);
@@ -23,9 +24,6 @@ void EditScene::on_enter() {
 }
 
 void EditScene::on_update(float delta) {
-	// 敌人和角色状态机都不能更新  需要手动关闭  让状态机保持 Idle 状态
-	// enemy_state_node.cpp -> EnemyIdleState::on_update
-	// player_state_node.cpp -> PlayerIdleState::on_update
 	LevelMgr::instance()->on_update(delta);
 }
 
@@ -43,7 +41,9 @@ void EditScene::on_render(Camera& camera) {
 	LevelMgr::instance()->on_render(camera);
 
 	// DEBUG 碰撞箱
-	CollisionMgr::instance()->on_debug_render(camera);
+	if (DEBUG) {
+		CollisionMgr::instance()->on_debug_render(camera);
+	}
 }
 
 void EditScene::on_input(const SDL_Event& msg) {
@@ -57,15 +57,15 @@ void EditScene::on_input(const SDL_Event& msg) {
 	if (msg.type == SDL_KEYDOWN) {
 		std::string item_name;
         switch (msg.key.keysym.sym) {
-		case SDLK_1:	LevelMgr::instance()->add_item(new grass_plant(window_pos + mouse_pos));						break;
-        case SDLK_2:	LevelMgr::instance()->add_item(new grass_plant2(window_pos + mouse_pos));							break;
-        case SDLK_3:	LevelMgr::instance()->add_item(new plant(window_pos + mouse_pos));						break;
+		case SDLK_1:	LevelMgr::instance()->add_item(new grass_plant(window_pos + mouse_pos));		break;
+        case SDLK_2:	LevelMgr::instance()->add_item(new grass_plant2(window_pos + mouse_pos));		break;
+        case SDLK_3:	LevelMgr::instance()->add_item(new plant(window_pos + mouse_pos));				break;
 		case SDLK_4:	LevelMgr::instance()->add_item(new plant2(window_pos + mouse_pos));				break;
-		case SDLK_5:	item_name = "cherry_tree";				break;
+		case SDLK_5:	item_name = "notebook";				break;
 		case SDLK_6:	item_name = "background_cloud3";				break;
 		case SDLK_7:	item_name = "background_layer";					break;
-		case SDLK_8:	LevelMgr::instance()->add_item(new stream(window_pos + mouse_pos));			break;
-		case SDLK_9:	LevelMgr::instance()->add_item(new waterfall(window_pos + mouse_pos));				break;
+		case SDLK_8:	LevelMgr::instance()->add_item(new stream(window_pos + mouse_pos));				break;
+		case SDLK_9:	LevelMgr::instance()->add_item(new waterfall(window_pos + mouse_pos));			break;
 		case SDLK_a:	item_name = "tree1";			break;
 		case SDLK_b:	item_name = "YellowCat";				break;
 		case SDLK_c:	item_name = "stump";			break;
@@ -89,16 +89,17 @@ void EditScene::on_input(const SDL_Event& msg) {
         case SDLK_u:	item_name = "mushroom3";						break;
         case SDLK_v:	item_name = "mushroom4";						break;
         case SDLK_w:	item_name = "mushroom5";						break;
-        case SDLK_x:	item_name = "red_spider_lily";							break;
+        case SDLK_x:	item_name = "red_spider_lily";					break;
         case SDLK_y:	item_name = "rock_1";							break;
-        case SDLK_z:	item_name = "next_level_right";						break;
+        case SDLK_z:	item_name = "next_level_right";					break;
 			
 		}
 		if (!item_name.empty()) {
-			LevelMgr::instance()->add_item(new Item(item_name, window_pos + mouse_pos));
+			Item* item = new Item(item_name, window_pos + mouse_pos);
+			selected_item = item;
+			LevelMgr::instance()->add_item(item);
 		}
 
-		std::string enemy_name;
 		switch (msg.key.keysym.sym) {
 		case SDLK_KP_0:	LevelMgr::instance()->add_enemy(new FlyingEye(window_pos + mouse_pos));			break;
 		case SDLK_KP_1:	LevelMgr::instance()->add_enemy(new Goblin(window_pos + mouse_pos));			break;
@@ -110,9 +111,6 @@ void EditScene::on_input(const SDL_Event& msg) {
 		case SDLK_KP_7:	LevelMgr::instance()->add_enemy(new Slime1(window_pos + mouse_pos));			break;
 		case SDLK_KP_8:	LevelMgr::instance()->add_enemy(new Slime2(window_pos + mouse_pos));			break;
 
-		}
-		if (!enemy_name.empty()) {
-			LevelMgr::instance()->add_enemy(new Enemy(enemy_name, window_pos + mouse_pos));
 		}
 
 		// 敌人不启用重力
@@ -271,6 +269,9 @@ void EditScene::save() {
 		if (enemy_entry["attack"].is_null()) {
 			enemy_entry["attack"] = enemy_json["attack"];
 		}
+		if (enemy_entry["enable_gravity"].is_null() && enemy_entry["enable_gravity"] == false) {
+			enemy_entry["enable_gravity"] = false;
+		}
 	}
 
 	for (Item* item : LevelMgr::instance()->get_item_list()) {
@@ -303,11 +304,12 @@ void EditScene::save() {
 		}
 	}
 
-	std::ofstream out("resources\\level.json");
+	std::string out_file_name = "resources\\level\\level" + std::to_string(EDIT_LEVEL) + ".json";
+	std::ofstream out(out_file_name);
 	if (out.is_open()) {
 		out << json;
 		out.close();
-		SDL_Log("File Save Success To resources\\level.json");
+		SDL_Log("File Save Success To %s",out_file_name.c_str());
 	}
 	else {
 		SDL_Log("File Open ERROR");

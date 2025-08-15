@@ -62,16 +62,16 @@ public:
 		return pos;
 	}
 
+	const bool facing_right() {
+		return is_facing_right;
+	}
+
 	void set_velocity(const Vector2& velocity) {
 		this->velocity = velocity;
 	}
 
 	const Vector2& get_velocity() {
 		return velocity;
-	}
-
-	bool facing_right() {
-		return is_facing_right;
 	}
 
 	void set_gravity_enabled(bool flag) {

@@ -73,7 +73,7 @@ Character::~Character() {
 
 void Character::decrease_hp(int damage) {
 	if (is_invulnerable) return;
-	hp -= damage;
+	hp = hp - damage < 0 ? 0 : hp - damage;
 	if (hp > 0) {
 		make_invulnerable();
 	}

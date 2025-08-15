@@ -54,4 +54,8 @@ public:
 		x *= val, y *= val;
 	}
 
+	bool operator==(Vector2 val) {
+		return x == val.x && y == val.y;
+	}
+
 };

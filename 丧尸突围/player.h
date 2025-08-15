@@ -16,16 +16,7 @@ public:
 		return is_right_key_down - is_left_key_down;
 	}
 
-	void reset() {
-		hp = max_hp;
-		is_left_key_down = false;
-		is_right_key_down = false;
-		is_jump_key_down = false;
-		is_dash_key_down = false;
-		is_attack_key_down = false;
-		pos = Vector2(200, 0);
-		state_machine.switch_state("Idle");
-	}
+	void reset();
 
 	void set_dashing(bool flag) {
 		is_dashing = flag;
@@ -96,6 +87,10 @@ private:
 	bool is_attacking = false;
 	bool is_attack_cd_comp = true;				// ¹¥»÷ÀäÈ´ÊÇ·ñ½áÊø
 
+	TTF_Font* font = nullptr;					// ×ÖÌå
+	Text text_hp;								// ÑªÁ¿
+	Text text_attack;							// ¹¥»÷Á¦
+
 	bool is_left_key_down = false;
 	bool is_right_key_down = false;
 	bool is_jump_key_down = false;
@@ -107,5 +102,5 @@ private:
 	const float CD_ATTACK = 0.3f;
 	const float SPEED_RUN = 300.0f;
 	const float SPEED_JUMP = 800.0f;
-	const float SPEED_DASH = 2000.0f;
+	const float SPEED_DASH = 1500.0f;
 };

@@ -79,17 +79,15 @@ void EnemyDeathState::on_enter(Enemy* enemy)
     timer.set_one_shot(true);
     timer.set_on_timeout([enemy]()
         {
-            // 杀死敌人固定回复2点生命
-            LevelMgr::instance()->get_player()->hp_returning(2);
+            // 杀死敌人固定回复5点生命
+            LevelMgr::instance()->get_player()->hp_returning(5);
 
             if (DEBUG) {
-                SDL_Log("Enemy Death !!!");
+                SDL_Log("Enemy: %s Death !!!",enemy->get_name().c_str());
             }
 
             LevelMgr::instance()->destory_enemy(enemy);
         });
-
-    Mix_PlayChannel(-1, ResMgr::instance()->find_audio("enemy_death"), 0);
 }
 
 void EnemyDeathState::on_update(Enemy* enemy, float delta) {
@@ -138,6 +136,8 @@ void EnemyTakeHitState::on_enter(Enemy* enemy) {
             enemy->switch_state("Idle");
         });
     timer.restart();
+
+    Mix_PlayChannel(-1, ResMgr::instance()->find_audio("enemy_takehit"), 0);
 }
 
 void EnemyTakeHitState::on_update(Enemy* enemy, float delta) {
@@ -156,8 +156,6 @@ void EnemyWalkState::on_enter(Enemy* enemy)
     timer.restart();
 
     enemy->walk();
-
-    Mix_PlayChannel(-1, ResMgr::instance()->find_audio("enemy_walk"), 0);
 }
 
 void EnemyWalkState::on_update(Enemy* enemy, float delta)

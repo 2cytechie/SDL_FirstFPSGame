@@ -45,7 +45,7 @@ int main(int argc, char** argv)
     Mix_Init(MIX_INIT_MP3);
     TTF_Init();
 
-    Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
+    Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 4, 2048);
 
     SDL_Window* window = SDL_CreateWindow(u8"¡¶É¥Ê¬Í»Î§¡·",
         SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
@@ -53,8 +53,6 @@ int main(int argc, char** argv)
 
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
-    // Òþ²Ø¹â±ê
-    //SDL_ShowCursor(SDL_DISABLE);
     // ½ûÓÃÊäÈë·¨
     SDL_StopTextInput();
 
@@ -67,23 +65,21 @@ int main(int argc, char** argv)
     bool is_quit = false;
 
     // ²¥·Å±³¾°ÒôÀÖ
-    //Mix_PlayChannel(0, ResMgr::instance()->find_audio("bgm"), -1);
+    Mix_PlayChannel(0, ResMgr::instance()->find_audio("bgm"), -1);
 
     const nanoseconds frame_duration(100000000 / 144);
     steady_clock::time_point last_tick = steady_clock::now();
 
     while (!is_quit)
     {
-        while (SDL_PollEvent(&event))
-        {
-            switch (event.type)
-            {
-            case SDL_QUIT:
+        while (SDL_PollEvent(&event)) {
+            if (event.type == SDL_QUIT) {
                 is_quit = true;
-                break;
             }
-            is_quit = SceneMgr::instance()->get_scene_type() == SceneMgr::SceneType::Exit;
             SceneMgr::instance()->on_input(event);
+            if (!is_quit) {
+                is_quit = (SceneMgr::instance()->get_scene_type() == SceneMgr::SceneType::Exit);
+            }
         }
         steady_clock::time_point frame_start = steady_clock::now();
         duration<float> delta = duration<float>(frame_start - last_tick);

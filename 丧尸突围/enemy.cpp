@@ -42,15 +42,6 @@ Enemy::Enemy(Vector2 revive_pos) {
 	state_machine.set_entry("Idle");
 }
 
-Enemy::Enemy(std::string name, Vector2 revive_pos) {
-	max_hp = 100;
-
-	this->name = name;
-	pos_revive = revive_pos;
-
-	init();
-}
-
 Enemy::Enemy(nlohmann::json& json) {
 	if (json.contains("name")) {
 		name = json["name"].get<std::string>();
@@ -108,6 +99,12 @@ Enemy::Enemy(nlohmann::json& json) {
 		hurt_box->set_size(Vector2(0.0f, 0.0f));
 		SDL_Log("Enemy hurt_box_size ERROR : name = %s", name.c_str());
 	}
+	if (json.contains("enable_gravity")) {
+		enable_gravity = json["enable_gravity"];
+	}
+	else {
+		enable_gravity = true;
+	}
 
 	init();
 }
@@ -141,7 +138,7 @@ void Enemy::init() {
 		hit_box->set_enabled(false);
 		});
 
-	timer_render_hp.set_wait_time(5.0f);
+	timer_render_hp.set_wait_time(10.0f);
 	timer_render_hp.set_one_shot(true);
 	timer_render_hp.set_on_timeout([&]() {
 		is_render_hp = false;
@@ -166,6 +163,7 @@ void Enemy::init() {
 
 void Enemy::on_update(float delta) {
 	state_machine.on_update(delta);
+	timer_render_hp.on_update(delta);
 
 	Character::on_update(delta);
 }
@@ -201,10 +199,9 @@ void Enemy::switch_state(const std::string& id) {
 }
 
 void Enemy::on_hurt() {
-	if (is_invulnerable) return;
-
 	// 是否绘制血条
 	is_render_hp = true;
+	if (is_invulnerable) return;
 
 	// 转换受击动画
 	is_attacking = false;
@@ -257,6 +254,7 @@ nlohmann::json Enemy::to_json() const {
 		{"max_hp",max_hp},
 		{"animation_magnification", animation_magnification},
 		{"animation_frame_delta", animation_frame_delta},
-		{"attack",damage}
+		{"attack",damage},
+		{"enable_gravity",enable_gravity}
 	};
 }
