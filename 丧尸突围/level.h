@@ -13,6 +13,8 @@ public:
 	~Level() {
 		TTF_CloseFont(font);
 		delete name;
+        enemy_list.clear();
+        item_list.clear();
 	}
 	Text* get_name() {
 		return name;

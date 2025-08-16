@@ -4,7 +4,7 @@
 #include <string>
 #include <unordered_map>
 
-extern bool DEBUG;
+extern const bool DEBUG;
 
 template <typename T>
 class StateMachine {

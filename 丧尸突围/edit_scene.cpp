@@ -5,7 +5,7 @@
 #include "enemy_ins.h"
 #include "item_ins.h"
 
-extern bool DEBUG;
+extern const bool DEBUG;
 
 bool EditScene::mouse_in_box(CollisionBox* box) {
 	Vector2 box_pos = box->get_pos() - window_pos;

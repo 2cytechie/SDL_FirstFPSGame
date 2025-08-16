@@ -128,6 +128,7 @@ void LevelMgr::on_update(float delta) {
 			Vector2 dis = player->get_pos() - item->get_pos();
 			if (dis.length() < 500 && dis.x < 10) {
 				is_win = true;
+				show_level_name = true;
 				break;
 			}
 		}

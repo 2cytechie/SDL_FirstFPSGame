@@ -21,7 +21,7 @@
 #include "edit_scene.h"
 
 
-bool DEBUG = false;
+const bool DEBUG = false;
 
 
 void scene_init() {

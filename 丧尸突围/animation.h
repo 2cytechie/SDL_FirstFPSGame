@@ -7,7 +7,7 @@
 #include<functional>
 #include<SDL_image.h>
 
-extern bool DEBUG;
+extern const bool DEBUG;
 
 class Animation {
 public:
