@@ -54,3 +54,5 @@ level_mgr.h：关卡管理和进度控制
 调试模式：通过DEBUG宏控制，开启后会输出调试信息并显示碰撞盒  
 角色状态机：使用状态模式管理玩家的 idle/run/attack/jump 等状态  
 资源管理：采用单例模式统一管理游戏资源，避免重复加载  
+## 视频
+[b站视频](https://www.bilibili.com/video/BV1kFYBzkEeU)
