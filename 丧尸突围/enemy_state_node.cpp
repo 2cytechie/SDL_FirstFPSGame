@@ -6,7 +6,7 @@
 void EnemyAttackState::on_enter(Enemy* enemy) {
     enemy->set_animation("Attack");
 
-    attack_timer.set_wait_time(range_randomF(0.3f, 0.5f));
+    attack_timer.set_wait_time(range_randomF(1.0f, 1.5f));
     attack_timer.set_one_shot(true);
     attack_timer.set_on_timeout([enemy]()
         {

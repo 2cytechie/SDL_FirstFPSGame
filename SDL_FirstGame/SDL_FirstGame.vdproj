@@ -27,19 +27,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_07D31F1F5E254AC0979917A03A64CEB9"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_07E9AE691316415882881465BF3D7E20"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_09E60FD511004DEBB12D8E1911ACCDE2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -51,19 +39,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_0B41DCBB115341DEA47A68CB09F8380E"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_103069AA31F747A2ABDB3D58806CA83C"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1200C82FDE6845D6A70BD9FC2A2C4D07"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -87,12 +63,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_136B3CE5EBB146FEA36341F3B3F38CC2"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_143045813F584AC4A285BFF4628A41E7"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -100,12 +70,6 @@
         "Entry"
         {
         "MsmKey" = "8:_14C4854F1A0741B3B49FD485FAD21FBD"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_15DDC7F8820948DE8196F882E6AB287C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -136,12 +100,6 @@
         "Entry"
         {
         "MsmKey" = "8:_195F4D823E40429C9E63835836096A5D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_1E70405FF8EC45C2860BAFCF3A8E26D0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -189,12 +147,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_248509B6F7B340EA9E49A9FC4DDA14CD"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_249114E816FA42059A7BA7A26CFAA166"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -219,24 +171,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_2791CE2E8FFA4938963C9E9DFC2B51A4"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2AE02CF320B3408FA3C0177C2165D031"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2AEB9691BD44402B95BFB79189D67920"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_2C6775145A2043419FA147C5EDE5CF5E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -244,12 +178,6 @@
         "Entry"
         {
         "MsmKey" = "8:_2D994D8BBE70427EBD180487E7C87B83"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_2E2A9D6E055F4CE1B1CCF0AD9EA4E32D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -273,43 +201,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_34889338B46B409C9E8E49DEBC025B41"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_358CE67956174EFCAB5B9CA5D6AC15DD"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_36E4A0526D604ED698373C563E5C7C45"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_36F0861892E7403E86E2816EAD62819C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_370BEF465EB549999C69249A4253DECA"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_395709EBA08A4689B50949D538EF93FA"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_39BCDC103D1640508109E2CF89ADBDE6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -357,12 +255,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_451FFB67B66C4691B9ADF1B4B1596122"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_4560EADF375A493FBB7A66132789CDC4"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -387,18 +279,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_4AC1B59896CD435AB41CBA41AFB958DF"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4B6B8EC3A81F4142A096BA6AB5F5A3AB"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_4C9D299A2585445886AABB21C4B179FA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -406,12 +286,6 @@
         "Entry"
         {
         "MsmKey" = "8:_4E4BF66852A34274A23F6623FB345B45"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4FE737CF41834ABA8416E26116EE4B45"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -459,43 +333,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_57EEFADE8FE74011B588FFD06AF76DE6"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_586FBC41240B4DDA84AA9BD1AD75D0C2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_597C6C92996449BABDCBD7C3F0D185BF"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_59CD569C02F74142971B9A332D6C5382"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_5DBA3EB4CEFB439C801BAB0EAF03EF8A"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_5EC41FC95391448CA4EF97C40EDB001E"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_5F908BAEEDC04E5ABE92E0092E69D859"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -561,12 +405,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_670336178E864C8CA58B8134B324542F"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_687F0D28A74E4A8AB29C2CFD7A8B1574"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -616,12 +454,6 @@
         "Entry"
         {
         "MsmKey" = "8:_750DCD54156E485EB93B964268D9DCDC"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_7669A0DAF34F4860B634512C9EA5E431"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -711,12 +543,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_84525B27DF5A47BA8148B5103D232296"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_878B884BCA4F47BFAB00DCE50842A40B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -736,24 +562,6 @@
         "Entry"
         {
         "MsmKey" = "8:_8E90196989F64163A8F21ED7A5C74A7E"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_8F094B3D0AD1465FBEBE01BC36B04FFD"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_8F72B83F849C4AA4A2F6718E1ED5E9B6"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_90B057C144854971993BCDF56E7C0FC6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -783,12 +591,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_95B8EEEE17044D6DB4CE35B89E547CD6"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_96AE02BB36444B46ABF4C6664F1B4EFB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -801,20 +603,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_99DC258CF17F48BD9CA0B115C165649D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_9AF374E8E6A1326E89AB322165418AAE"
         "OwnerKey" = "8:_036B05D201DF421BBD55AF019F941EB9"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_9BAE48E987AB4F75A6B8516540E7CA51"
-        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -849,24 +639,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_A068CF0CB9E34015A950966A70CA246A"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A1F71F93471A4210ADFEBB72D9322F2C"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A23BD53FEEC84E13857B41371F00B491"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_A6B0A897713F4A6FA22D2EA15831F83E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -891,13 +663,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_AC27A3091D544F29BB304F5C30DD0CF4"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_AC4901DB8B39472AAD92D2D6A3133836"
+        "MsmKey" = "8:_AC0B9FF029064401BC5AA44D50D0C95D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -927,43 +693,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B48C130E2BEA4E14A7FACF50C1D27D0D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_B6555A9AFE5A4EB7A00D5FD2313EC3F0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_B6C031570EA74758B8AC5B9A3A80FE16"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_B9F0E428BAB14859A845EF14BA4B872A"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BCD289343FC14EBF98000137CDD70B80"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C05757316A4742F18532BBC8A8CBF893"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C1779067AFBA4052A15ECABD433F1F9B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -999,19 +735,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_CA64C0C06194497D8B439777316B0BE8"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_CC9A9472C41C4E62A5FCF559E996070C"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_CCD36E5ADC784B5D986A391396348E45"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1071,18 +795,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_D9C05C1421444175B333E92EA637ED0C"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_DAEEC47AAAB1482FA2DCA6122F410E48"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_DAFDC5962AFA4B5983355C071FF4E063"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -1097,12 +809,6 @@
         {
         "MsmKey" = "8:_DBABC439506AD99EF6A0717275708907"
         "OwnerKey" = "8:_036B05D201DF421BBD55AF019F941EB9"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_DBF4217E2BE24FABABAE7C4A3E963287"
-        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1167,18 +873,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_E652C098749141939FE405E9042751B3"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_E698BF894D09409FB1C0940A68792A92"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_E71EE7AED3E54476A720A6A26426BCB5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -1198,12 +892,6 @@
         "Entry"
         {
         "MsmKey" = "8:_EAC7608DEADE4CEBBEDEA79476C8B492"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_EB05D7CF4B694ED091B7FF739C93CE15"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1245,25 +933,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_F2487B9CB2A94E02993AE9744F34FB56"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F3B150D2BC3F4DB3BABBFE3E9FEC0A5B"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_F444D0E82D7E476E81DAC070653BD9E2"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F4FB3F32D7BE4F31AEC10340BAF7A3CD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1345,6 +1015,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -1361,6 +1039,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -1402,52 +1096,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_07D31F1F5E254AC0979917A03A64CEB9"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\丧尸突围.vcxproj.user"
-            "TargetName" = "8:丧尸突围.vcxproj.user"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_07E9AE691316415882881465BF3D7E20"
             {
             "SourcePath" = "8:..\\丧尸突围\\resources\\background\\next_level_left.png"
             "TargetName" = "8:next_level_left.png"
             "Tag" = "8:"
             "Folder" = "8:_7BB1A36F681046E5856F992F7EC0666F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_09E60FD511004DEBB12D8E1911ACCDE2"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\level2.h"
-            "TargetName" = "8:level2.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1482,52 +1136,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0B41DCBB115341DEA47A68CB09F8380E"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\exit_scene.h"
-            "TargetName" = "8:exit_scene.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_103069AA31F747A2ABDB3D58806CA83C"
             {
             "SourcePath" = "8:..\\丧尸突围\\resources\\monster\\Minotaur_Run@12.png"
             "TargetName" = "8:Minotaur_Run@12.png"
             "Tag" = "8:"
             "Folder" = "8:_8E1F2FE3D48348FCADBC5B41EFA5F9CE"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1200C82FDE6845D6A70BD9FC2A2C4D07"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\level_mgr.cpp"
-            "TargetName" = "8:level_mgr.cpp"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1602,26 +1216,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_136B3CE5EBB146FEA36341F3B3F38CC2"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\singleton.h"
-            "TargetName" = "8:singleton.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_143045813F584AC4A285BFF4628A41E7"
             {
             "SourcePath" = "8:..\\丧尸突围\\resources\\player\\Fighter_Attack@4.png"
@@ -1648,26 +1242,6 @@
             "TargetName" = "8:Fighter_Run@8.png"
             "Tag" = "8:"
             "Folder" = "8:_7765ADBE5ECC4F7995B2C1D10E1FB4BF"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_15DDC7F8820948DE8196F882E6AB287C"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\character.h"
-            "TargetName" = "8:character.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1768,26 +1342,6 @@
             "TargetName" = "8:lemongrasses.png"
             "Tag" = "8:"
             "Folder" = "8:_7BB1A36F681046E5856F992F7EC0666F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1E70405FF8EC45C2860BAFCF3A8E26D0"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\level1.h"
-            "TargetName" = "8:level1.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1942,26 +1496,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_248509B6F7B340EA9E49A9FC4DDA14CD"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\丧尸突围.vcxproj.filters"
-            "TargetName" = "8:丧尸突围.vcxproj.filters"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_249114E816FA42059A7BA7A26CFAA166"
             {
             "SourcePath" = "8:..\\丧尸突围\\resources\\monster\\Slime2_Idle@6.png"
@@ -2042,66 +1576,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2791CE2E8FFA4938963C9E9DFC2B51A4"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\animation.h"
-            "TargetName" = "8:animation.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2AE02CF320B3408FA3C0177C2165D031"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\state_node.h"
-            "TargetName" = "8:state_node.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2AEB9691BD44402B95BFB79189D67920"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\res_mgr.cpp"
-            "TargetName" = "8:res_mgr.cpp"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2C6775145A2043419FA147C5EDE5CF5E"
             {
             "SourcePath" = "8:..\\丧尸突围\\resources\\monster\\Slime1_TakeHit@5.png"
@@ -2128,26 +1602,6 @@
             "TargetName" = "8:tree1@16.png"
             "Tag" = "8:"
             "Folder" = "8:_7BB1A36F681046E5856F992F7EC0666F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2E2A9D6E055F4CE1B1CCF0AD9EA4E32D"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\edit_scene.h"
-            "TargetName" = "8:edit_scene.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2222,66 +1676,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_34889338B46B409C9E8E49DEBC025B41"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\game_over_scene.cpp"
-            "TargetName" = "8:game_over_scene.cpp"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_358CE67956174EFCAB5B9CA5D6AC15DD"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\collision_mgr.cpp"
-            "TargetName" = "8:collision_mgr.cpp"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_36E4A0526D604ED698373C563E5C7C45"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\collision_mgr.h"
-            "TargetName" = "8:collision_mgr.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_36F0861892E7403E86E2816EAD62819C"
             {
             "SourcePath" = "8:..\\丧尸突围\\resources\\background\\background1.png"
@@ -2302,52 +1696,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_370BEF465EB549999C69249A4253DECA"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\player_state_node.cpp"
-            "TargetName" = "8:player_state_node.cpp"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_395709EBA08A4689B50949D538EF93FA"
             {
             "SourcePath" = "8:..\\丧尸突围\\resources\\background\\cherry_tree.gif"
             "TargetName" = "8:cherry_tree.gif"
             "Tag" = "8:"
             "Folder" = "8:_7BB1A36F681046E5856F992F7EC0666F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_39BCDC103D1640508109E2CF89ADBDE6"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\main.cpp"
-            "TargetName" = "8:main.cpp"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2502,26 +1856,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_451FFB67B66C4691B9ADF1B4B1596122"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\item.cpp"
-            "TargetName" = "8:item.cpp"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4560EADF375A493FBB7A66132789CDC4"
             {
             "SourcePath" = "8:..\\丧尸突围\\resources\\monster\\Mushroom_Run@8.png"
@@ -2602,46 +1936,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4AC1B59896CD435AB41CBA41AFB958DF"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\enemy.h"
-            "TargetName" = "8:enemy.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4B6B8EC3A81F4142A096BA6AB5F5A3AB"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\enemy.cpp"
-            "TargetName" = "8:enemy.cpp"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4C9D299A2585445886AABB21C4B179FA"
             {
             "SourcePath" = "8:..\\丧尸突围\\resources\\background\\waterfall@4.png"
@@ -2668,26 +1962,6 @@
             "TargetName" = "8:Skeleton_Idle@4.png"
             "Tag" = "8:"
             "Folder" = "8:_8E1F2FE3D48348FCADBC5B41EFA5F9CE"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4FE737CF41834ABA8416E26116EE4B45"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\edit_scene.cpp"
-            "TargetName" = "8:edit_scene.cpp"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2842,26 +2116,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_57EEFADE8FE74011B588FFD06AF76DE6"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\scene.h"
-            "TargetName" = "8:scene.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_586FBC41240B4DDA84AA9BD1AD75D0C2"
             {
             "SourcePath" = "8:..\\丧尸突围\\resources\\background\\background_tree2_left.png"
@@ -2882,92 +2136,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_597C6C92996449BABDCBD7C3F0D185BF"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\game_over_scene.h"
-            "TargetName" = "8:game_over_scene.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_59CD569C02F74142971B9A332D6C5382"
             {
             "SourcePath" = "8:..\\丧尸突围\\resources\\player\\Martial_Idle@4.png"
             "TargetName" = "8:Martial_Idle@4.png"
             "Tag" = "8:"
             "Folder" = "8:_7765ADBE5ECC4F7995B2C1D10E1FB4BF"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5DBA3EB4CEFB439C801BAB0EAF03EF8A"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\enemy_state_node.h"
-            "TargetName" = "8:enemy_state_node.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5EC41FC95391448CA4EF97C40EDB001E"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\collision_box.h"
-            "TargetName" = "8:collision_box.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5F908BAEEDC04E5ABE92E0092E69D859"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\game_scene.h"
-            "TargetName" = "8:game_scene.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3182,26 +2356,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_670336178E864C8CA58B8134B324542F"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\enemy_ins.h"
-            "TargetName" = "8:enemy_ins.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_687F0D28A74E4A8AB29C2CFD7A8B1574"
             {
             "SourcePath" = "8:..\\丧尸突围\\resources\\background\\bridge_left.png"
@@ -3368,26 +2522,6 @@
             "TargetName" = "8:next_level_right.png"
             "Tag" = "8:"
             "Folder" = "8:_7BB1A36F681046E5856F992F7EC0666F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7669A0DAF34F4860B634512C9EA5E431"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\timer.h"
-            "TargetName" = "8:timer.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3682,26 +2816,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_84525B27DF5A47BA8148B5103D232296"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\player.h"
-            "TargetName" = "8:player.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_878B884BCA4F47BFAB00DCE50842A40B"
             {
             "SourcePath" = "8:..\\丧尸突围\\SDL2.dll"
@@ -3768,66 +2882,6 @@
             "TargetName" = "8:mushroom4.png"
             "Tag" = "8:"
             "Folder" = "8:_7BB1A36F681046E5856F992F7EC0666F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8F094B3D0AD1465FBEBE01BC36B04FFD"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\menu_scene.cpp"
-            "TargetName" = "8:menu_scene.cpp"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8F72B83F849C4AA4A2F6718E1ED5E9B6"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\instruction_scene.cpp"
-            "TargetName" = "8:instruction_scene.cpp"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_90B057C144854971993BCDF56E7C0FC6"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\丧尸突围.vcxproj"
-            "TargetName" = "8:丧尸突围.vcxproj"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3922,26 +2976,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_95B8EEEE17044D6DB4CE35B89E547CD6"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\res_mgr.h"
-            "TargetName" = "8:res_mgr.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_96AE02BB36444B46ABF4C6664F1B4EFB"
             {
             "SourcePath" = "8:..\\丧尸突围\\resources\\player\\Sprites_Idle@10.png"
@@ -3982,26 +3016,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_99DC258CF17F48BD9CA0B115C165649D"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\player_state_node.h"
-            "TargetName" = "8:player_state_node.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9AF374E8E6A1326E89AB322165418AAE"
             {
             "SourcePath" = "8:SDL2.dll"
@@ -4020,26 +3034,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9BAE48E987AB4F75A6B8516540E7CA51"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\level.h"
-            "TargetName" = "8:level.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9CDF3CA140AF4BE2BEB8CAF919387095"
@@ -4142,66 +3136,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A068CF0CB9E34015A950966A70CA246A"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\camera.cpp"
-            "TargetName" = "8:camera.cpp"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A1F71F93471A4210ADFEBB72D9322F2C"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\vector2.h"
-            "TargetName" = "8:vector2.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A23BD53FEEC84E13857B41371F00B491"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\camera.h"
-            "TargetName" = "8:camera.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A6B0A897713F4A6FA22D2EA15831F83E"
             {
             "SourcePath" = "8:..\\丧尸突围\\SDL2_mixer.dll"
@@ -4282,32 +3216,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AC27A3091D544F29BB304F5C30DD0CF4"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AC0B9FF029064401BC5AA44D50D0C95D"
             {
-            "SourcePath" = "8:..\\丧尸突围\\scene_mgr.h"
-            "TargetName" = "8:scene_mgr.h"
+            "SourcePath" = "8:..\\丧尸突围\\resources\\Icon.ico"
+            "TargetName" = "8:Icon.ico"
             "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AC4901DB8B39472AAD92D2D6A3133836"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\enemy_state_node.cpp"
-            "TargetName" = "8:enemy_state_node.cpp"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
+            "Folder" = "8:_D803F0C456D241808D47E55502A78D9D"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4402,26 +3316,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B48C130E2BEA4E14A7FACF50C1D27D0D"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\game_on_scene.cpp"
-            "TargetName" = "8:game_on_scene.cpp"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B6555A9AFE5A4EB7A00D5FD2313EC3F0"
             {
             "SourcePath" = "8:..\\丧尸突围\\resources\\monster\\Skeleton_Run@4.png"
@@ -4442,92 +3336,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B6C031570EA74758B8AC5B9A3A80FE16"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\menu_scene.h"
-            "TargetName" = "8:menu_scene.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B9F0E428BAB14859A845EF14BA4B872A"
             {
             "SourcePath" = "8:..\\丧尸突围\\resources\\background\\stone1.png"
             "TargetName" = "8:stone1.png"
             "Tag" = "8:"
             "Folder" = "8:_7BB1A36F681046E5856F992F7EC0666F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BCD289343FC14EBF98000137CDD70B80"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\instruction_scene.h"
-            "TargetName" = "8:instruction_scene.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C05757316A4742F18532BBC8A8CBF893"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\character.cpp"
-            "TargetName" = "8:character.cpp"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C1779067AFBA4052A15ECABD433F1F9B"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\util.h"
-            "TargetName" = "8:util.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4642,52 +3456,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CA64C0C06194497D8B439777316B0BE8"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\player_ins.h"
-            "TargetName" = "8:player_ins.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CC9A9472C41C4E62A5FCF559E996070C"
             {
             "SourcePath" = "8:..\\丧尸突围\\resources\\player\\Fighter_Idle@6.png"
             "TargetName" = "8:Fighter_Idle@6.png"
             "Tag" = "8:"
             "Folder" = "8:_7765ADBE5ECC4F7995B2C1D10E1FB4BF"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CCD36E5ADC784B5D986A391396348E45"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\item_ins.h"
-            "TargetName" = "8:item_ins.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4882,46 +3656,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D9C05C1421444175B333E92EA637ED0C"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\state_machine.h"
-            "TargetName" = "8:state_machine.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DAEEC47AAAB1482FA2DCA6122F410E48"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\text.h"
-            "TargetName" = "8:text.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DAFDC5962AFA4B5983355C071FF4E063"
             {
             "SourcePath" = "8:..\\丧尸突围\\resources\\monster\\Minotaur_Attack@5.png"
@@ -4980,26 +3714,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DBF4217E2BE24FABABAE7C4A3E963287"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\player.cpp"
-            "TargetName" = "8:player.cpp"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DDD806F4554EC10C02C0937DE6470227"
@@ -5202,46 +3916,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E652C098749141939FE405E9042751B3"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\collision_layer.h"
-            "TargetName" = "8:collision_layer.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E698BF894D09409FB1C0940A68792A92"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\level_mgr.h"
-            "TargetName" = "8:level_mgr.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E71EE7AED3E54476A720A6A26426BCB5"
             {
             "SourcePath" = "8:..\\丧尸突围\\resources\\background\\rock_3.png"
@@ -5308,26 +3982,6 @@
             "TargetName" = "8:Goblin_Idle@4.png"
             "Tag" = "8:"
             "Folder" = "8:_8E1F2FE3D48348FCADBC5B41EFA5F9CE"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EB05D7CF4B694ED091B7FF739C93CE15"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\game_on_scene.h"
-            "TargetName" = "8:game_on_scene.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5462,72 +4116,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F2487B9CB2A94E02993AE9744F34FB56"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\state_machine.cpp"
-            "TargetName" = "8:state_machine.cpp"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F3B150D2BC3F4DB3BABBFE3E9FEC0A5B"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\character_name.h"
-            "TargetName" = "8:character_name.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F444D0E82D7E476E81DAC070653BD9E2"
             {
             "SourcePath" = "8:..\\丧尸突围\\resources\\background\\flower_blue.png"
             "TargetName" = "8:flower_blue.png"
             "Tag" = "8:"
             "Folder" = "8:_7BB1A36F681046E5856F992F7EC0666F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F4FB3F32D7BE4F31AEC10340BAF7A3CD"
-            {
-            "SourcePath" = "8:..\\丧尸突围\\item.h"
-            "TargetName" = "8:item.h"
-            "Tag" = "8:"
-            "Folder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -5865,7 +4459,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SDL_FirstGame"
         "ProductCode" = "8:{52E1D522-16DB-48C3-BB49-2C8135051BFB}"
-        "PackageCode" = "8:{6F498858-452B-4987-9277-0C4FA1F47DFB}"
+        "PackageCode" = "8:{2185274C-775F-4F26-96C0-99904253DEBC}"
         "UpgradeCode" = "8:{51BD5BFD-8161-40D0-8076-E12271C38D75}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -5996,7 +4590,7 @@
             "Target" = "8:_036B05D201DF421BBD55AF019F941EB9"
             "Folder" = "8:_6ECED6BF41C2426FA5A2770CAFA6557E"
             "WorkingFolder" = "8:_9A7030568A7D4CE7B26DF448481896D1"
-            "Icon" = "8:"
+            "Icon" = "8:_AC0B9FF029064401BC5AA44D50D0C95D"
             "Feature" = "8:"
             }
         }
